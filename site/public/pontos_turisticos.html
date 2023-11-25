@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Pira-Guia | Pontos Turísticos</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="./js/sessao.js"></script>
+    <script src="js/scriptLogin.js"></script>
+    <script src="js/pontos_turisticos.js"></script>
+
+
+    <link rel="stylesheet" href="./css/Style_entrar-cadastrar.css">
+    <link rel="stylesheet" href="./css/style_header.css">
+    <link rel="stylesheet" href="./css/style_rodape.css">
+    <link rel="stylesheet" href="./css/style_corpo.css">
+    <link rel="stylesheet" href="./css/style_pontos_turisticos.css">
+
+    <link rel="icon" href="./assets/icon/favicon2.ico" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<header>
+    <ul class="ul_header">
+
+        <li class="li_header_img"><a class="a_header" href="#"><img src="./assets/pirajulogo.PNG" width="130px"></a>
+        </li>
+
+        <li class="li_header"><a class="a_header" href="./index.html">SOBRE PIRAJU</a></li>
+
+        <li class="li_header"><a class="a_header" href="#">PONTOS TURÍSTICOS</a></li>
+
+        <li class="li_header"><a class="a_header" href="#">HOSPEDAGEM</a></li>
+
+        <!-- <li class="li_header"><a class="a_header" href="#"> EXPERIÊNCIAS</a></li>   -->
+
+        <li class="li_header_cadastrar" onclick="entrar_cadastrar()"><a class="a_header_cadastrar">CADASTRE-SE</a></li>
+
+        <li class="li_header_entrar" onclick="entrar_entrar()"><a class="a_header_entrar">ENTRAR</a></li>
+    </ul>
+</header>
+
+<!-- <div class="login"> -->
+
+<div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+    </div>
+</div>
+
+<!-- DIV QUE EXIBE O LOGIN  -->
+<div class="entrar_fundo">
+
+    <div class="cadastrar_container" id="div_entrar_container">
+  
+     
+  
+      <div class="entrar_corpo">
+  
+        <div class="entrar_corpo_fundo">
+  
+          <div class="entrar_corpo_header"> 
+            <div class="entrar_header">
+            <div id="div_sair_container" class="sair_container" onclick="sair()">X</div>
+          </div>
+        </div>
+        <div class="img-perfil"><i class='bx bxs-user-circle'></i></div>
+  
+          <div class="entrar_corpo_conteudo">
+  
+            <div class="txt1_corpo">
+              Login<br>
+            </div>
+            <div class="box_email"><input type="email" placeholder="E-mail:" class="input_decoracao" type="text"
+                id="email_input2"
+                ></div>
+            <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao" id="senha_input2">
+            </div>
+            <div class="box_botao"><!-- <a href= "./Home_logado.html"> --><button class="botao_entrar" on
+                onclick="entrar()">Entrar</button></a></div>
+            <!-- <div class="txt1_corpo_esqueceu_senha">Esqueceu a senha? </div> -->
+            <div class="box_ou">
+              <div class="linha"></div>ou <div class="linha"></div>
+            </div><br>
+  
+            <div class="box_botao"><button class="botao_cadastrar" onclick="criar_conta()">Criar nova
+                conta</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- DIV QUE EXIBE O LOGIN  -->
+  
+  <!-- cadastro inicio -->
+  <div class="entrar_fundo">
+  
+    <div class="cadastrar_container" id="div_cadastrar_container">
+     
+  
+      <div class="entrar_corpo">
+        <div class="entrar_corpo_fundo">
+          <div class="entrar_corpo_header">
+            <div class="entrar_header">
+              <div id="div_sair_container" class="sair_container" onclick="sair()">X</div>
+            </div>
+          </div>
+  
+          <div class="titulo_cadastro">Cadastre-se</div>
+          <div class="txt2_corpo">Preencha todos campos a seguir:</div>
+  
+          <div class="box_email"><input placeholder="Nome:" class="input_decoracao2" type="text" id="nome_input">
+          </div>
+  
+          <div class="box_email"><input placeholder="E-mail:" class="input_decoracao2" type="email" id="email_input">
+          </div>
+  
+          <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao2" id="senha_input">
+          </div>
+  
+          <div class="box_email"><input type="password" placeholder="Confirmar Senha:" class="input_decoracao2"
+              id="confirmacao_senha_input"></div><br>
+
+          <div class="box_botao"><button class="botao_cadastrar" onclick="cadastrar()">Cadastrar</button>
+          </div><br>
+  
+          <div id="div_aguardar" class="loading-div">
+            <img src="./assets/circle-loading.gif" id="loading-gif" />
+          </div>
+  
+          <div class="box_ou">
+            <!-- <div class="linha"></div>ou<div class="linha"></div> -->
+          </div><br>
+  
+          <p class="txt2_corpo">Já possui conta?Entrar</p>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- cadstro fim  -->
+<div id="div_erros_login">
+</div>
+
+<!-- box avalie ponto turistico -->
+<div class="entrar_fundo">
+
+    <div class="entrar_container" id="div_avaliar_container">
+
+        <div class="entrar_header">
+            <div id="div_sair_container" class="sair_container" onclick="sair()">X</div>
+        </div>
+
+        <div class="entrar_corpo">
+
+            <div class="entrar_corpo_fundo">
+                <div class="entrar_corpo_conteudo">
+
+                    <div class="txt1_corpo">
+                        AVALIE OS PONTOS TURÍSTICOS <br>
+                        DE ACORDO COM SUAS VIVÊNCIAS E EXPERIÊNCIAS <br>
+                    </div>
+
+                    <div class="txt1_corpo">Selecione um ponto turístico:</div>
+
+                    <div class="select_option">
+                        <select id="">
+                            <option value="">Ponte Pênsil Hercílio Pereira Diniz
+                            <option value="">Cachoeira do Jacu
+                            <option value="">Igreja Matriz Nossa Senhora do Carmo
+                            <option value="">Estação Ferroviária de Piraju
+                            <option value="">Mirante do Cristo Redentor
+                            <option value="">Parque do Rio Paranapanema
+                            </option>
+                        </select>
+                    </div>
+                    <div class="txt_relato">Comentário:</div>
+                    <div class="box_email"><textarea placeholder="Insira aqui seu comentário:" class="input_decoracao3"
+                            id="descricao_textearea" type="text" id="nome_input"></textarea></div>
+                    <div class="txt1_corpo">De uma nota de 1 a 5 estrelas</div>
+                    <div class="txt1_corpo">
+                        <div id="starRating" class="rating">
+                            <span class="star" onclick="rate(1)"><i id="id_estrelas1" class='bx bxs-star'></i></span>
+                            <span class="star" onclick="rate(2)"><i id="id_estrelas2" class='bx bxs-star'></i></span>
+                            <span class="star" onclick="rate(3)"><i id="id_estrelas3" class='bx bxs-star'></i></span>
+                            <span class="star" onclick="rate(4)"><i id="id_estrelas4" class='bx bxs-star'></i></span>
+                            <span class="star" onclick="rate(5)"><i id="id_estrelas5" class='bx bxs-star'></i></span>
+                        </div>
+                    </div>
+                    <p id="ratingPercentage" class="txt1_corpo">Nota: 0</p>
+                </div>
+                <div class="box_botao"><button class="botao_avaliar" onclick="nota()">Enviar avaliação</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- box avalie ponto turistico -->
+
+<!-- corpo inicio -->
+<body class="body">
+
+
+    <div class="container_corpo">
+        <div class="box_titulo">
+            <div class="corpo_titulo1">Bem-vindo aos pontos turísticos! Explore a beleza da nossa cidade.</div>
+        </div>
+    </div>
+
+
+    <div class="corpo1">
+        <div class="container_corpo">
+            <div class="box_titulo">
+                <div class="corpo_titulo1"> Ponte Engenheiro Nelson de Godoy Pereira</div>
+            </div>
+            <div class="corpo_txt">
+                <div class="txt_pt">
+                    Uma ponte suspensa que atravessa o Rio Paranapanema, proporcionando vistas panorâmicas e uma
+                    experiência
+                    única.
+                    <div class="card_dados">
+                        <div class="nota">
+                            Nota: 8,8 <br>
+                        </div>
+
+                        10 pessoas avaliaram esse local
+                        <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+                            <p class="ver_ava"><i class='bx bxs-chat'></i> Ver avaliações </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="corpo_img">
+
+                    <div class="slides">
+                        <input type="radio" name="slide" id="slide1" checked>
+                        <input type="radio" name="slide" id="slide2">
+                        <input type="radio" name="slide" id="slide3">
+                        <input type="radio" name="slide" id="slide4">
+                        <input type="radio" name="slide" id="slide5">
+
+
+                        <div class="slide s1">
+                            <img src="assets/imgs/ponte1.jpg">
+                        </div>
+                        <div class="slide s2">
+                            <img src="assets/imgs/ponte2.jpg">
+                        </div>
+                        <div class="slide s3">
+                            <img src="assets/imgs/ponte3.jpg">
+                        </div>
+                        <div class="slide s4">
+                            <img src="assets/Captura de tela 2021-11-14 194503.png" alt="sla">
+                        </div>
+                        <div class="slide s5">
+                            <img src="assets/soud_box.jpg" alt="batera">
+                        </div>
+
+                        <div class="navigation">
+                            <label class="bar" for="slide1"></label>
+                            <label class="bar" for="slide2"></label>
+                            <label class="bar" for="slide3"></label>
+                            <label class="bar" for="slide4"></label>
+                            <label class="bar" for="slide5"></label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="corpo1">
+        <div class="container_corpo">
+            <div class="box_titulo">
+                <div class="corpo_titulo1"> Ponte Pênsil Hercílio Pereira Diniz</div>
+            </div>
+            <div class="corpo_txt">
+                <div class="txt_pt">
+                    Uma ponte suspensa que atravessa o Rio Paranapanema, proporcionando vistas panorâmicas e uma
+                    experiência
+                    única.
+                    <div class="card_dados">
+                        <div class="nota">
+                            Nota: 8,8 <br>
+                        </div>
+
+                        10 pessoas avaliaram esse local
+                        <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+                            <p class="ver_ava"> <i class='bx bxs-chat'></i> Ver avaliações</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="corpo_img">
+
+                    <div class="slides">
+                        <input type="radio" name="slide" id="slide1" checked>
+                        <input type="radio" name="slide" id="slide2">
+                        <input type="radio" name="slide" id="slide3">
+                        <input type="radio" name="slide" id="slide4">
+                        <input type="radio" name="slide" id="slide5">
+
+
+                        <div class="slide s1">
+                            <img src="assets/imgs/ponte1.jpg">
+                        </div>
+                        <div class="slide s2">
+                            <img src="assets/imgs/ponte2.jpg">
+                        </div>
+                        <div class="slide s3">
+                            <img src="assets/imgs/ponte3.jpg">
+                        </div>
+                        <div class="slide s4">
+                            <img src="assets/Captura de tela 2021-11-14 194503.png" alt="sla">
+                        </div>
+                        <div class="slide s5">
+                            <img src="assets/soud_box.jpg" alt="batera">
+                        </div>
+
+                        <div class="navigation">
+                            <label class="bar" for="slide1"></label>
+                            <label class="bar" for="slide2"></label>
+                            <label class="bar" for="slide3"></label>
+                            <label class="bar" for="slide4"></label>
+                            <label class="bar" for="slide5"></label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="corpo1">
+        <div class="container_corpo">
+            <div class="box_titulo">
+                <div class="corpo_titulo1"> Ponte Pênsil Hercílio Pereira Diniz</div>
+            </div>
+            <div class="corpo_txt">
+                <div class="txt_pt">
+                    Uma ponte suspensa que atravessa o Rio Paranapanema, proporcionando vistas panorâmicas e uma
+                    experiência
+                    única.
+                    <div class="card_dados">
+                        <div class="nota">
+                            Nota: 8,8 <br>
+                        </div>
+
+                        10 pessoas avaliaram esse local
+                        <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+                            <p class="ver_ava"> <i class='bx bxs-chat'></i> Ver avaliações</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="corpo_img">
+
+                    <div class="slides">
+                        <input type="radio" name="slide" id="slide1" checked>
+                        <input type="radio" name="slide" id="slide2">
+                        <input type="radio" name="slide" id="slide3">
+                        <input type="radio" name="slide" id="slide4">
+                        <input type="radio" name="slide" id="slide5">
+
+
+                        <div class="slide s1">
+                            <img src="assets/imgs/ponte1.jpg">
+                        </div>
+                        <div class="slide s2">
+                            <img src="assets/imgs/ponte2.jpg">
+                        </div>
+                        <div class="slide s3">
+                            <img src="assets/imgs/ponte3.jpg">
+                        </div>
+                        <div class="slide s4">
+                            <img src="assets/Captura de tela 2021-11-14 194503.png" alt="sla">
+                        </div>
+                        <div class="slide s5">
+                            <img src="assets/soud_box.jpg" alt="batera">
+                        </div>
+
+                        <div class="navigation">
+                            <label class="bar" for="slide1"></label>
+                            <label class="bar" for="slide2"></label>
+                            <label class="bar" for="slide3"></label>
+                            <label class="bar" for="slide4"></label>
+                            <label class="bar" for="slide5"></label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="corpo1">
+        <div class="container_corpo">
+            <div class="box_titulo">
+                <div class="corpo_titulo1"> Ponte Pênsil Hercílio Pereira Diniz</div>
+            </div>
+            <div class="corpo_txt">
+                <div class="txt_pt">
+                    Uma ponte suspensa que atravessa o Rio Paranapanema, proporcionando vistas panorâmicas e uma
+                    experiência
+                    única.
+                    <div class="card_dados">
+                        <div class="nota">
+                            Nota: 8,8 <br>
+                        </div>
+
+                        10 pessoas avaliaram esse local
+                        <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+                            <p class="ver_ava"> <i class='bx bxs-chat'></i> Ver avaliações</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="corpo_img">
+
+                    <div class="slides">
+                        <input type="radio" name="slide" id="slide1" checked>
+                        <input type="radio" name="slide" id="slide2">
+                        <input type="radio" name="slide" id="slide3">
+                        <input type="radio" name="slide" id="slide4">
+                        <input type="radio" name="slide" id="slide5">
+
+
+                        <div class="slide s1">
+                            <img src="assets/imgs/ponte1.jpg">
+                        </div>
+                        <div class="slide s2">
+                            <img src="assets/imgs/ponte2.jpg">
+                        </div>
+                        <div class="slide s3">
+                            <img src="assets/imgs/ponte3.jpg">
+                        </div>
+                        <div class="slide s4">
+                            <img src="assets/Captura de tela 2021-11-14 194503.png" alt="sla">
+                        </div>
+                        <div class="slide s5">
+                            <img src="assets/soud_box.jpg" alt="batera">
+                        </div>
+
+                        <div class="navigation">
+                            <label class="bar" for="slide1"></label>
+                            <label class="bar" for="slide2"></label>
+                            <label class="bar" for="slide3"></label>
+                            <label class="bar" for="slide4"></label>
+                            <label class="bar" for="slide5"></label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<!-- corpo fim -->
+
+<!--footer inicio-->
+<div class="rodape">
+
+    <!-- <div class="txt_rodape">
+    </div> -->
+    <div class="navegacao_img">
+        <p> <img src="./assets/pirajulogo.PNG" width="130px"></p>
+        <!-- <p class="titulo_navegacao">Todos os direitos reservados</p><br> -->
+
+    </div>
+
+    <div class="navegacao">
+        <p class="titulo_navegacao">Navegação</p>
+        <a class="a_navegacao" href="./cadastro.html">SOBRE PIRAJU</a><br>
+        <a class="a_navegacao" href="#">PONTOS TURÍSTICOS</a><br>
+        <a class="a_navegacao" href="#">HOSPEDAGEM</a><br>
+        <a class="a_navegacao" href="#"> EXPERIÊNCIAS</a><br>
+        <a class="a_navegacao" onclick="entrar_entrar()" href="#"> ENTRAR</a><br>
+        <a class="a_navegacao" href="#"> CADASTRE-SE</a><br>
+    </div>
+
+
+    <div class="navegacao">
+        <!-- <p> <img src="./pirajulogo.PNG" width="130px"></p> -->
+        <p class="titulo_navegacao">Todos os direitos reservados</p>
+        <p>Pira-Guia,2023</p>
+    </div>
+
+    <div class="redes_sociais">
+
+        <!-- <p>Redes Sociais</p> -->
+
+        <ul class="ul_rodape">
+
+            <!-- <div class="bx_icone"> -->
+            <li class="li_rodape"> <i class='bx bx-envelope'></i>
+                <!-- </div> -->
+            <li class="li_rodape"><i class='bx bxl-instagram' id="instagram"></i>
+
+                <!-- <div class="bx_icone"> -->
+            <li class="li_rodape"><i class='bx bxl-github'></i>
+                <!-- </div> -->
+
+                <!-- <div class="bx_icone"> -->
+            <li class="li_rodape"><i class='bx bxl-whatsapp'></i>
+                <!-- </div> -->
+
+
+                <!-- <div class="redes_sociais:hover"></div> -->
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+<!--footer fim-->
+
+<!-- cadstro -->
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        // var empresaVar = listaEmpresas.value
+        if (
+            nomeVar == "" ||
+            emailVar == "" ||
+            senhaVar == "" ||
+            confirmacaoSenhaVar == ""
+            // empresaVar == ""
+        ) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000);
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+                // empresaServer: empresaVar
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        // window.location = "login.html";
+                        entrar_entrar();
+                    }, "2000");
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none";
+    }
+</script>
+<!-- cadastro -->
+
+<!-- login -->
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar2 = email_input2.value;
+        var senhaVar2 = senha_input2.value;
+
+        if (emailVar2 == "" || senhaVar2 == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar2);
+        console.log("FORM SENHA: ", senhaVar2);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer2: emailVar2,
+                senhaServer2: senhaVar2
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "./Home_logado.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
+<!-- Login -->
+
+<!-- fazer avaliação script -->
+<script>
+    let selectedStars = 0;
+
+    function rate(stars) {
+        for (i = 1; i <= 5; i++) {
+            estrelaAtual = document.getElementById(`id_estrelas${i}`);
+            if (i <= stars) {
+                estrelaAtual.classList.add("estrela_preenchida");
+            } else {
+                estrelaAtual.classList.remove("estrela_preenchida");
+            }
+        }
+        // if (stars == 1) {
+        //     id_estrelas1.classList.add("estrela_preenchida");
+        //     id_estrelas2.classList.remove("estrela_preenchida");
+        //     id_estrelas3.classList.remove("estrela_preenchida");
+        //     id_estrelas4.classList.remove("estrela_preenchida");
+        //     id_estrelas5.classList.remove("estrela_preenchida");
+        // }
+        // if (stars == 2) {
+        //     id_estrelas2.classList.add("estrela_preenchida");
+        //     id_estrelas1.classList.add("estrela_preenchida");
+
+        //     id_estrelas3.classList.remove("estrela_preenchida");
+        //     id_estrelas4.classList.remove("estrela_preenchida");
+        //     id_estrelas5.classList.remove("estrela_preenchida");
+        // }
+        // if (stars == 3) {
+        //     id_estrelas3.classList.add("estrela_preenchida");
+        //     id_estrelas2.classList.add("estrela_preenchida");
+        //     id_estrelas1.classList.add("estrela_preenchida");
+
+        //     id_estrelas4.classList.remove("estrela_preenchida");
+        //     id_estrelas5.classList.remove("estrela_preenchida");
+        // }
+        // if (stars == 4) {
+        //     id_estrelas4.classList.add("estrela_preenchida");
+        //     id_estrelas3.classList.add("estrela_preenchida");
+        //     id_estrelas2.classList.add("estrela_preenchida");
+        //     id_estrelas1.classList.add("estrela_preenchida");
+
+        //     id_estrelas5.classList.remove("estrela_preenchida");
+        // }
+        // if (stars == 5) {
+        //     id_estrelas5.classList.add("estrela_preenchida");
+        //     id_estrelas4.classList.add("estrela_preenchida");
+        //     id_estrelas3.classList.add("estrela_preenchida");
+        //     id_estrelas2.classList.add("estrela_preenchida");
+        //     id_estrelas1.classList.add("estrela_preenchida");
+        // }
+        selectedStars = stars;
+        updateRating();
+    }
+
+    function updateRating() {
+        const ratingPercentage = Number(selectedStars);
+        document.getElementById('ratingPercentage').innerText = `Nota: ${ratingPercentage.toFixed(1)} `;
+    }
+</script>
+<!-- fazer avaliação script -->
+
+<!-- enviar para o banco -->
+<script>
+    function nota() {
+        var notaVar = stars;
+        var descricaoVar = descricao_textearea.value;
+
+        return false;
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                descricaoServer: descricaoVar,
+                notaServer: notaVar
+                // senhaServer: senhaVar
+                // empresaServer: empresaVar
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    alert("mandou p banco")
+
+                    limparFormulario();
+                    // finalizarAguardar();
+                } else {
+                    alert("Houve um erro ao tentar realizar o cadastro!");
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+        return false;
+    }
+
+    // function listar() {
+    //   fetch("/empresas/listar", {
+    //     method: "GET",
+    //   })
+    //     .then(function (resposta) {
+    //       resposta.json().then((empresas) => {
+    //         empresas.forEach((empresa) => {
+    //           listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+    //         });
+    //       });
+    //     })
+    //     .catch(function (resposta) {
+    //       console.log(`#ERRO: ${resposta}`);
+    //     });
+    // }
+</script>
+
+<!-- enviar para o banco -->

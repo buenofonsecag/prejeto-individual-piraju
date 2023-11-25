@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Pira-Guia | Conheça Piraju</title>
+
+    <script src="./js/sessao.js"></script>
+    <script src="js/scriptLogin.js"></script>
+
+    <!-- mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- mapa -->
+
+    <link rel="stylesheet" href="./css/style_logado.css">
+    <link rel="stylesheet" href="./css/style_header.css">
+    <link rel="stylesheet" href="./css/style_rodape.css">
+    <link rel="stylesheet" href="./css/style_corpo.css">
+    <link rel="stylesheet" href="./css/Style_entrar-cadastrar.css">
+    <link rel="icon" href="./assets/icon/favicon2.ico" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" /> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<header>
+    <ul class="ul_header">
+
+        <li class="li_header_img"><a class="a_header" href="#"><img src="./assets/pirajulogo.PNG" width="130px"></a>
+        </li>
+
+        <li class="li_header2"><a class="a_header" href="Home_logado.html">SOBRE PIRAJU</a></li>
+
+        <li class="li_header2"><a class="a_header" href="PT_logado.html">PONTOS TURÍSTICOS</a></li>
+
+        <li class="li_header2"><a class="a_header" href="#">HOSPEDAGEM</a></li>
+
+        <!-- <li class="li_header"><a class="a_header" href="#"> EXPERIÊNCIAS</a></li> -->
+
+        <li><a class="a_header" href="#">
+                <div><i id="user_header" onclick="menu_perfil()" class='bx bxs-user-circle'></i>
+            </a></li>
+
+    </ul>
+</header>
+
+<!-- div perfil -->
+<div class="box_perfil_menu">
+    <div class="perfil_menu" id="div_perfil_menu">
+        <ul>
+            <li class="li_perfil_icone"><a class="a_icone_perfil" href="#">Meu perfil</a></li><br>
+            <li class="li_perfil_icone"><a class="a_icone_perfil" href="./index.html">Sair <i
+                        class='bx bx-log-out'></i></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- div perfil -->
+
+
+<!-- corpo inicio -->
+
+<body class="body">
+
+    <div class="container_corpo2">
+        <div class="box_titulo">
+            <!-- <div class="corpo_titulo1">Bem-vindo ao PiraGuia, seu guia virtual de Piraju</div> -->
+            <div class="corpo_titulo1">Bem-vindo ao PiraGuia, seu guia virtual de Piraju</div>
+        </div>
+
+        <div class="corpo_txt_center">
+            <center>
+                Seja muito bem-vindo ao nosso site de turismo dedicado a Piraju, uma jóia do interior paulista! <br>
+                Estamos entusiasmados em tê-lo conosco para explorar as maravilhas desta cidade encantadora. <br> Seja
+                você um visitante pela primeira vez ou alguém que já conhece Piraju, esperamos que este br espaço online
+                seja uma porta de entrada para os encantos e segredos que tornam esta cidade tão especial. <br> Estamos
+                aqui para guiá-lo em uma nova jornada!
+            </center>
+        </div>
+    </div>
+
+
+
+
+    <div class="corpo">
+        <div class="container_corpo">
+            <div class="box_titulo">
+                <div class="corpo_titulo1">História e Patrimônio:</div>
+            </div>
+            <div class="corpo_txt">
+                Raízes Históricas: <br><br>
+
+                O município de Piraju, localizado no interior do estado de São Paulo, possui uma história rica e
+                profundamente entrelaçada com o desenvolvimento da região. Fundado em 1896, seu nome tem origem
+                indígena, derivado de "Pirayú", que significa "peixe cortado". <br> Essa referência evidencia a
+                importância do Rio Paranapanema, que banha as terras de Piraju e desempenha um papel fundamental na
+                formação da identidade local. <br>
+
+                Centro Histórico Preservado: <br><br>
+
+                Ao caminhar pelas ruas de paralelepípedos do centro histórico, é possível sentir a atmosfera nostálgica
+                que permeia as construções preservadas. <br> Casarões, igrejas e praças contam a história da cidade,
+                revelando a arquitetura característica de diferentes épocas. <br> Destacam-se a Igreja Matriz de São
+                Sebastião, um marco religioso e arquitetônico, e o Museu Histórico e Pedagógico de Piraju, que abriga
+                peças que remontam aos primeiros momentos da colonização. <br>
+
+                <br>Expressões Culturais e Tradições Locais: <br><br>
+
+                Piraju celebra suas tradições por meio de eventos e festivais que unem passado e presente. <br> A Festa
+                de São Sebastião, padroeiro da cidade, é um exemplo emblemático, reunindo a comunidade em celebrações
+                religiosas, apresentações culturais e manifestações folclóricas. <br> Esses momentos festivos ressaltam
+                a importância de preservar e compartilhar as raízes que moldaram Piraju ao longo dos anos. <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="corpo2">
+        <div class="container_corpo">
+            <div class="box_titulo">
+                <div class="corpo_titulo1"> Localização <i class='bx bxs-map'></i></div>
+            </div>
+            <div class="corpo_txt">
+                • Estado: São Paulo. <br><br>
+                • Região: Sudeste do Brasil. <br><br>
+                • Distâncias: Piraju está localizada a uma certa distância de cidades vizinhas e centros urbanos, o que
+                pode ser relevante para visitantes e turistas. <br>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="corpo2">
+        <div class="container_corpo">
+            <div class="box_titulo">
+                <div class="corpo_titulo1"></div>
+            </div>
+            <div class="corpo_txt">
+                Sou suspeito para falar de Piraju, pois morei muitos anos nessa pequena cidade do interior de São Paulo.
+
+                Meus pais moram lá, e quando volto a visita, consigo apreciar melhor suas belezas naturais.
+
+                Você deve ter pensado, que nome é esse? Vou explicar, em guarani, Pira = peixe e yu = amarelo, ou seja,
+                Piraju significa peixe amarelo, pois haviam muitos peixes Dourados na região. Tanto que virou o símbolo
+                da cidade, em uma das entradas, lá está o grande pescado dando as boas vindas.
+
+                O lugar é pequeno, mas é considerado Estância Turística do Estado, pela sua natureza e história. Piraju
+                é conhecida nacionalmente pela tradição no plantio do café, que é de ótima qualidade; e pelas quatro
+                hidrelétricas, foi a primeira cidade no Brasil a ter energia elétrica.
+
+                Cachoeiras, prainha de água doce, pedalinho, rafting, descanso, festas. Tem programação para todos os
+                gostos e a população sabe acolher muito bem os turistas.
+
+                O fotógrafo pirajuense José Carlos Garcia retrata bem o que não dá para explicar com palavras.
+            </div>
+        </div>
+    </div>
+
+    <div class="corpo">
+        <div class="container_corpo">
+            <div class="box_titulo">
+                <div class="corpo_titulo1">População</div>
+            </div>
+            <div class="corpo_txt">
+                População no último censo [2022] 29.436 pessoas <br>
+                Densidade demográfica [2022] 58,34 habitantes por km² e uma média de 2,66 moradores por residência. <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="corpo2">
+        <div class="container_corpo">
+            <div class="box_titulo">
+                <div class="corpo_titulo1">Patrimônio Natural e Sustentável:
+                </div>
+            </div>
+
+            <div class="corpo_txt">
+                Além do patrimônio histórico, a cidade se orgulha de seu patrimônio natural, representado pelo majestoso
+                Rio Paranapanema. Essas águas não apenas influenciaram a economia local, mas também proporcionam lazer e
+                tranquilidade aos habitantes e visitantes. Áreas de preservação ambiental e parques urbanos complementam
+                o cenário, enfatizando o compromisso de Piraju com a sustentabilidade e a apreciação da natureza.
+            </div>
+            7. Energia Acessível e Limpa
+            14. Vida na água
+            3. Saúde e Bem-estar
+            6. Água potável e Saneamento
+        </div>
+    </div>
+</body>
+
+<!-- corpo fim -->
+
+<!--footer inicio-->
+<div class="rodape">
+
+    <div class="navegacao_img">
+        <p> <img src="./assets/pirajulogo.PNG" width="130px"></p>
+    </div>
+
+    <div class="navegacao">
+        <p class="titulo_navegacao">Navegação</p>
+        <a class="a_navegacao" href="#">SOBRE PIRAJU</a><br>
+        <a class="a_navegacao" href="#">PONTOS TURÍSTICOS</a><br>
+        <a class="a_navegacao" href="#">HOSPEDAGEM</a><br>
+        <a class="a_navegacao" href="#">EXPERIÊNCIAS</a><br>
+        <a class="a_navegacao" href="#">ENTRAR</a><br>
+        <a class="a_navegacao" href="#">CADASTRE-SE</a><br>
+    </div>
+
+
+    <div class="navegacao">
+        <p class="titulo_navegacao">Todos os direitos reservados</p>
+        <p>Piratuor,2023</p>
+    </div>
+
+    <div class="redes_sociais">
+
+        <ul class="ul_rodape">
+            <li class="li_rodape"> <a href="https://outlook.office.com/mail/"
+                    target="https://outlook.office.com/mail/"><i class='bx bx-envelope'></i></a>
+            <li class="li_rodape"><a href="https://outlook.office.com/mail/"
+                    target="https://outlook.office.com/mail/"><i class='bx bxl-instagram' id="instagram"></i></a>
+            <li class="li_rodape"><a href="https://outlook.office.com/mail/"
+                    target="https://outlook.office.com/mail/"><i class='bx bxl-github'></i></a>
+            <li class="li_rodape"><a href="https://outlook.office.com/mail/"
+                    target="https://outlook.office.com/mail/"><i class='bx bxl-whatsapp'></i></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--footer fim-->
+
+</html>
+
+
+<!-- cadastro -->
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        // var empresaVar = listaEmpresas.value
+        if (
+            nomeVar == "" ||
+            emailVar == "" ||
+            senhaVar == "" ||
+            confirmacaoSenhaVar == ""
+            // empresaVar == ""
+        ) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000);
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+                // empresaServer: empresaVar
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        // window.location = "login.html";
+                        entrar_entrar();
+                    }, "2000");
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+        return false;
+    }
+
+    // function listar() {
+    //   fetch("/empresas/listar", {
+    //     method: "GET",
+    //   })
+    //     .then(function (resposta) {
+    //       resposta.json().then((empresas) => {
+    //         empresas.forEach((empresa) => {
+    //           listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+    //         });
+    //       });
+    //     })
+    //     .catch(function (resposta) {
+    //       console.log(`#ERRO: ${resposta}`);
+    //     });
+    // }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none";
+    }
+</script>
+<!-- cadastro -->
+
+<!-- login -->
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar2 = email_input2.value;
+        var senhaVar2 = senha_input2.value;
+
+        if (emailVar2 == "" || senhaVar2 == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar2);
+        console.log("FORM SENHA: ", senhaVar2);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer2: emailVar2,
+                senhaServer2: senhaVar2
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "./Home_logado.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
+<!-- Login -->
+
+<!-- mapa -->
+<script>
+    var map = L.map('map').setView([-23.1938, -49.3844], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+            attribution: '© Pira-Guia'
+        }).addTo(map);
+
+    L.marker([-23.1935, -49.3843]).addTo(map)
+        // .bindPopup('Piraju')
+        .openPopup();
+</script>
+<!-- mapa -->
+
+<script src="js/scripit_perfil.js"></script>

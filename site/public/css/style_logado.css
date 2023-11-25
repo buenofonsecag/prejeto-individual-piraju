@@ -1,0 +1,372 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.li_header2 {
+    font-size: larger;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    padding: 3px;
+    position: relative;
+    margin: 90px;
+}
+.li_header2::after {
+    content: " ";
+    width: 0%;
+    height: 3px;
+    background-color: #000000bb;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+.li_header2:hover::after {
+    width: 100%;
+
+}
+
+#user_header {
+    font-size: 60px;
+    align-items: center;
+    margin: 10px;
+    color: #ffffff;
+}
+
+#user_header:hover {
+    color: rgb(228, 222, 222);
+}
+
+.a_header {
+    color: #000000;
+    font-size: 19px;
+}
+
+
+
+.linha {
+    height: 2px;
+    width: 270px;
+    background-color: #fff;
+    margin: 0 4px;
+}
+
+.txt_rodape {
+    border-radius: 20px;
+    border: solid;
+    margin: auto;
+}
+
+
+
+.ul_rodape_navegacao {
+    margin-bottom: 5px;
+    justify-content: space-around;
+    text-decoration: none;
+
+}
+
+.li_rodape {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+
+p {
+    font-size: x-large;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.txt1_corpo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    margin-bottom: 20px;
+    font-size: larger;
+}
+
+.input_decoracao {
+    border-radius: 7px;
+    width: 400px;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: larger;
+    padding: 10px;
+}
+
+.p_email_senha {
+    display: flex;
+    /* justify-content: center; */
+    margin-left: 209px;
+}
+
+.box_email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box_botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.bx_icone {
+    background-color: white;
+}
+
+.bx_icone:hover {
+    box-shadow: rgb(0, 0, 0) 0px 3px 8px;
+    background-color: rgba(0, 0, 0, 0.103);
+}
+
+
+
+
+
+
+
+
+
+/* imagens utilizadas */
+#instagram {
+    font-size: 40px;
+    color: black;
+    transition: all 0.4s;
+    border-radius: 8px;
+    /* margin: ; */
+}
+
+.bx-envelope {
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    transition: all 0.4s;
+    border-radius: 8px;
+}
+
+.bxl-whatsapp {
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    transition: all 0.4s;
+    border-radius: 8px;
+    border-radius: 100px;
+}
+
+.bxs-user-circle {
+    margin-top: 10px;
+    font-size: 110px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+}
+
+.bxl-github {
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    transition: all 0.4s;
+    border-radius: 8px;
+
+}
+
+
+
+/* hover nas img */
+
+
+
+
+.bx-envelope:hover {
+    color: rgb(255, 255, 255);
+    background-color: red;
+    font-size: 45px;
+}
+
+.bxl-whatsapp:hover {
+    background-color: rgb(0, 99, 0);
+    color: white;
+    /* text-shadow: rgb(0, 99, 0) 0px 3px 8px; */
+    font-size: 45px;
+}
+
+.bxl-github:hover {
+    font-size: 45px;
+    color: white;
+    background-color: black;
+
+    /* color: #400080; */
+
+}
+
+#instagram:hover {
+    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+    color: white;
+    font-size: 45px;
+    /* border: 2px solid black; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.li_perfil_icone {
+    list-style: none;
+}
+
+.box_perfil_menu {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.perfil_menu {
+    display: none;
+    position: fixed;
+    top: 110px;
+    background-color: #182f29a4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 4;
+    margin-top: -20px;
+    margin-right: 35px;
+    border-radius: 7px;
+}
+
+.perfil_menu ul {
+    list-style: none;
+}
+
+.a_icone_perfil {
+    color: #ffffff;
+
+}
+
+.a_icone_perfil:hover {
+    color: #b1b0b0;
+}

@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+
+.rodape {
+    display: flex;
+    background-color: #182f29;
+    width: 100%;
+    height: 300px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgb(0, 0, 0) 0px 3px 8px;
+
+}
+
+
+.titulo_navegacao {
+    /* display: flex; */
+    align-items: center;
+
+}
+
+.navegacao {
+    border-radius: 20px;
+    border: solid;
+    padding: 20px;
+    margin: auto;
+    box-shadow: rgb(0, 0, 0) 0px 3px 8px;
+    align-items: center;
+    background-color: #8c949c;
+}
+
+.navegacao:hover {
+    background-color: #788088;
+}
+
+.navegacao_img {
+    border-radius: 20000px;
+    border: solid;
+    padding: 10px;
+    margin: auto;
+    box-shadow: rgb(0, 0, 0) 0px 3px 8px;
+    align-items: center;
+    background-color: #8c949c;
+}
+
+.navegacao_img:hover {
+    background-color: #788088;
+}
+
+.a_navegacao {
+    color: #6300c5;
+}
+
+.a_navegacao:hover {
+    color: #c085fa;
+}
+
+.redes_sociais {
+    border-radius: 20px;
+    border: solid;
+    margin: auto;
+    padding: 10px;
+    background-color: #8c949c;
+    box-shadow: rgb(0, 0, 0) 0px 3px 8px;
+    transition: 0.4s ease;
+}
+
+.redes_sociais:hover {
+    background-color: #788088;
+
+}
+
+
+.linha {
+    height: 2px;
+    width: 270px;
+    background-color: #fff;
+    margin: 0 4px;
+}
+
+.txt_rodape {
+    border-radius: 20px;
+    border: solid;
+    margin: auto;
+}
+
+.ul_rodape {
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: space-around;
+}
+
+.ul_rodape_navegacao {
+    margin-bottom: 5px;
+    justify-content: space-around;
+    text-decoration: none;
+
+}
+
+.li_rodape {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
+.a_rodape {
+    color: #000000;
+    padding-left: 10px;
+    font-size: large;
+}
+
+p {
+    font-size: x-large;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#instagram {
+    font-size: 40px;
+    color: black;
+    transition: all 0.4s;
+    border-radius: 8px;
+    /* margin: ; */
+}
+
+.bx-envelope {
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    transition: all 0.4s;
+    border-radius: 8px;
+}
+
+.bxl-whatsapp {
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    transition: all 0.4s;
+    border-radius: 8px;
+    border-radius: 100px;
+
+
+
+    /* text-shadow: rgb(0, 0, 0) 0px 3px 8px; */
+}
+
+.bxs-user-circle {
+    margin-top: 10px;
+    font-size: 110px;
+    color: rgb(255, 255, 255);
+}
+
+.bxl-github {
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    transition: all 0.4s;
+    border-radius: 8px;
+
+}
+
+
+
+/* hover nas img */
+
+
+
+
+.bx-envelope:hover {
+    color: rgb(255, 255, 255);
+    background-color: red;
+    font-size: 45px;
+}
+
+.bxl-whatsapp:hover {
+    background-color: rgb(0, 99, 0);
+    color: white;
+    /* text-shadow: rgb(0, 99, 0) 0px 3px 8px; */
+    font-size: 45px;
+}
+
+.bxl-github:hover {
+    font-size: 45px;
+    color: white;
+    background-color: black;
+
+    /* color: #400080; */
+
+}
+
+#instagram:hover {
+    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+    color: white;
+    font-size: 45px;
+    /* border: 2px solid black; */
+}

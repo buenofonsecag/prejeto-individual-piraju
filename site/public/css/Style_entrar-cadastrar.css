@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: sans-serif;
+
+}
+
+.entrar_container {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.726);
+    display: none;
+    margin: auto;
+    z-index: 4;
+    position: fixed;
+    bottom: 25px;
+
+}
+
+.entrar_fundo {
+    display: flex;
+    justify-content: center;
+}
+
+.entrar_header {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 70px; */
+    
+}
+
+.entrar_corpo {
+    display: flex;
+    justify-content: center;
+}
+
+.entrar_corpo_fundo {
+    height: 77%;
+    width: 40%;
+    /* width: auto; */
+    border: solid rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border-radius: 7px;
+    display: block;
+    z-index: 4;
+    position: fixed;
+    bottom: 25px;
+    margin-bottom: 30px;
+    /* overflow-x: hidden; */
+    /* overflow-y: scroll; */
+
+}
+
+.box_piraju_cadastrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt4_corpo {
+    color: white;
+    margin: 5px;
+    margin-right: 20px;
+    /* padding: 10px; */
+}
+
+.entrar_corpo_conteudo {
+    color: white;
+    /* display: flex;
+    justify-content: center; */
+    /* align-items: center; */
+}
+
+.entrar_corpo_header {
+    display: flex;
+    justify-content: end;
+}
+.img-perfil{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -20px;
+}
+
+.sair_container {
+    display: flex;
+    color: white;
+    cursor: pointer;
+    z-index: 5;
+    /* border: 2px solid white; */
+    /* font-size: larger; */
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    height: 15px;
+    /* border: solid 3px; */
+    /* background-color: antiquewhite; */
+    transition: 0.2s ease;
+    /* border-radius: 100px; */
+
+}
+
+.sair_container:hover {
+    transition: 0.2s ease;
+    background-color: rgb(211, 7, 7);
+}
+
+.txt1_corpo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-size: larger;
+}
+
+.txt2_corpo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    margin-bottom: 20px;
+    font-size: larger;
+    color: white;
+}
+
+.txt3_corpo {
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+    margin-bottom: 20px;
+    font-size: larger;
+    color: white;
+}
+
+.txt3_corpo {
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+    /* margin-bottom: 20px; */
+    /* font-size: larger;   */
+    color: white;
+}
+
+.box_texto_cadastrar {
+    display: flex;
+    justify-content: center;
+}
+
+.input_cadastrar_decoration {
+    margin-bottom: 20px;
+    width: 160px;
+    height: 40px;
+}
+
+.input_decoracao {
+    border-radius: 7px;
+    width: 400px;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: larger;
+    padding: 10px;
+    display: block;
+}
+
+.input_decoracao2 {
+    border-radius: 7px;
+    width: 400px;
+    height: 15px;
+    margin-bottom: 15px;
+    font-size: larger;
+    padding: 10px;
+    display: block;
+
+}
+
+.p_email_senha {
+    display: flex;
+    /* justify-content: center; */
+    margin-left: 209px;
+}
+
+.box_email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+}
+
+.box_botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt1_corpo_esqueceu_senha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 20px;
+    text-decoration: underline;
+    color: rgb(0, 17, 255);
+
+}
+
+.box_email_senha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao_entrar {
+    width: 425px;
+    height: 50px;
+    border-radius: 7px;
+    font-size: large;
+    background-color: #16cc34be;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 35px;
+    /* padding: 10px; */
+}
+
+.botao_entrar:hover {
+    background-color: rgba(22, 204, 52, 0.548);
+
+}
+
+.box_ou {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    color: white;
+    margin-right: 10px;
+}
+
+.botao_cadastrar {
+    width: 280px;
+    height: 50px;
+    border-radius: 7px;
+    font-size: large;
+    background-color: rgba(13, 26, 216, 0.747);
+    color: white;
+    cursor: pointer;
+
+}
+
+.box_cadastrar {
+    align-items: center;
+    display: flex;
+    align-items: center;
+}
+
+.botao_cadastrar:hover {
+    background-color: rgba(13, 26, 216, 0.548);
+
+}
+
+.cadastrar_container {
+    height: 100%;
+    /* height: 89%; */
+    width: 100%;
+    /* width: 70%; */
+    background-color: rgba(0, 0, 0, 0.466);
+    display: none;
+    margin: auto;
+    z-index: 4;
+    position: fixed;
+}
+
+.bx_icone {
+    background-color: white;
+}
+
+.bx_icone:hover {
+    box-shadow: rgb(0, 0, 0) 0px 3px 8px;
+    background-color: rgba(0, 0, 0, 0.103);
+}
+
+.titulo_cadastro {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    margin: 10px;
+}
+
+.loading_cadastrar {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-color: beige;
+    background: url('loading-gif-png-5.gif') no-repeat center center;
+}
+
+.bxs-map {
+    color: red;
+}
