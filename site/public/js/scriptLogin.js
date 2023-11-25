@@ -55,4 +55,22 @@ function closeAlert() {
     customAlert.style.display = 'none';
 }
 
+function aguardar2() {
+    var abrirEntrar = document.getElementById("div_entrar_container");
+    abrirEntrar.style.display = `none`;
 
+    var alert = document.getElementById('alert2');
+    alert.style.display = 'block';
+    
+    
+    
+    // Fechar o alerta após 3 segundos
+    setTimeout(function () {
+        closeAlert();
+        entrar_entrar();
+    }, 1900);
+}
+function closeAlert() {
+    var customAlert = document.getElementById('alert2');
+    customAlert.style.display = 'none';
+}

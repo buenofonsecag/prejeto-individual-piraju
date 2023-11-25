@@ -110,6 +110,14 @@
 </div>
 <!-- alert cadastro realizado -->
 
+ <!-- alert Login realizado -->
+ <div id="alert2" class="custom-alert">
+  <img src="assets/gif.check.gif" alt="GIF">
+  <p>Login realizado com sucesso ! <br>
+    ...redirecionando</p>
+</div>
+<!-- alert Login realizado -->
+
 <!-- cadastro inicio -->
 <div class="entrar_fundo">
 
@@ -344,13 +352,13 @@
       confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML ="* Insira valores válidos !!!";
+      mensagem_erro.innerHTML ="(Mensagem de erro para todos os campos em branco)";
 
       setTimeout(() => {
         cardErro.style.display = "none";
           }, "2000");
 
-      finalizarAguardar();
+      // finalizarAguardar();
       return false;
     } else {
       aguardar();
@@ -375,10 +383,10 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          // cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          // mensagem_erro.innerHTML =
+          //   "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
             // window.location = "login.html";
@@ -426,7 +434,7 @@
 
 
   function entrar() {
-    aguardar();
+    // aguardar();
 
     var emailVar2 = email_input2.value;
     var senhaVar2 = senha_input2.value;
@@ -434,11 +442,14 @@
     if (emailVar2 == "" || senhaVar2 == "") {
       cardErro.style.display = "block"
       mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      setTimeout(() => {
+        cardErro.style.display = "none";
+          }, "2000");
       // finalizarAguardar();
       return false;
     }
     else {
-      setInterval(sumirMensagem, 5000)
+      aguardar2();
     }
 
     console.log("FORM LOGIN: ", emailVar2);
