@@ -1,124 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Expressões Booleanas</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 50%;
-      margin: 20px auto;
-    }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: center;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-
-    input[type="text"] {
-      width: 80%;
-      padding: 5px;
-    }
-
-    button {
-      margin-top: 10px;
-      padding: 10px 15px;
-      cursor: pointer;
-    }
-
-    #resultado {
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Custom Alert</title>
 </head>
 <body>
 
-<h2>Calculadora de Expressões Booleanas</h2>
+    <button onclick="showAlert()">Mostrar Alerta</button>
 
-<label for="expressao">Expressão Booleana:</label>
-<input type="text" id="expressao" placeholder="Ex: A*(B+D)+(E*F)+C" />
-<button onclick="calcularExpressao()">Calcular</button>
+    <div id="customAlert" class="custom-alert">
+        <img src="assets/gif.check.gif" alt="GIF">
+        <p>Cadastro realizado com sucesso !</p>
+    </div>
 
-<h3 id="resultado">Resultado:</h3>
-
-<table id="tabelaVerdade">
-  <tr id="cabecalho"></tr>
-</table>
-
-<script>
-  function calcularExpressao() {
-    var expressao = document.getElementById('expressao').value;
-
-    // Obter variáveis da expressão
-    var variaveis = obterVariaveis(expressao);
-
-    // Criar cabeçalho da tabela
-    var cabecalho = document.getElementById('cabecalho');
-    cabecalho.innerHTML = '<th>' + variaveis.join('</th><th>') + '</th><th>Resultado</th>';
-
-    // Calcular valores da tabela verdade
-    var tabela = document.getElementById('tabelaVerdade');
-    tabela.innerHTML = ''; // Limpar tabela
-
-    // Gerar todas as combinações possíveis de valores verdadeiro/falso para as variáveis
-    var combinacoes = gerarCombinacoes(variaveis.length);
-
-    // Preencher a tabela com os resultados
-    combinacoes.forEach(function(comb) {
-      var row = tabela.insertRow(-1);
-
-      // Preencher variáveis na tabela
-      for (var i = 0; i < variaveis.length; i++) {
-        var cell = row.insertCell(i);
-        cell.textContent = comb[i] ? 'T' : 'F';
-      }
-
-      // Avaliar expressão para a combinação de variáveis
-      var resultado = avaliarExpressao(expressao, variaveis, comb);
-      row.insertCell(variaveis.length).textContent = resultado;
-    });
-
-    // Exibir o resultado da expressão (usando a última linha da tabela)
-    var resultadoFinal = tabela.rows[tabela.rows.length - 1].cells[variaveis.length].textContent;
-    document.getElementById('resultado').textContent = 'Resultado: ' + resultadoFinal;
-  }
-
-  function obterVariaveis(expressao) {
-    // Usando uma expressão regular para encontrar todas as letras (variáveis) na expressão
-    var variaveis = expressao.match(/[A-Za-z]/g);
-    
-    // Remover duplicatas usando um conjunto (Set)
-    return [...new Set(variaveis)];
-  }
-
-  function gerarCombinacoes(numVariaveis) {
-    var combinacoes = [];
-    for (var i = 0; i < Math.pow(2, numVariaveis); i++) {
-      var comb = [];
-      for (var j = 0; j < numVariaveis; j++) {
-        comb.push((i & Math.pow(2, j)) !== 0);
-      }
-      combinacoes.push(comb.reverse()); // Reverter para ter a ordem correta
-    }
-    return combinacoes;
-  }
-
-  function avaliarExpressao(expressao, variaveis, valores) {
-    // Substituir variáveis pelos valores correspondentes
-    variaveis.forEach(function(variavel, index) {
-      expressao = expressao.replace(new RegExp(variavel, 'g'), valores[index] ? 'true' : 'false');
-    });
-
-    // Avaliar expressão usando a função eval do JavaScript (pode ser melhorado usando bibliotecas mais seguras)
-    return eval(expressao);
-  }
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+}
+
+.custom-alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 2px solid #646464;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 999;
+}
+
+.custom-alert img {
+    width: 100%;
+    max-width: 200px; /* Ajuste conforme necessário */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: #ff0000;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+</style>
+<script>
+  function showAlert() {
+    var customAlert = document.getElementById('customAlert');
+    customAlert.style.display = 'block';
+
+    // Fechar o alerta após 3 segundos
+    setTimeout(function() {
+        closeAlert();
+    }, 2000);
+}
+
+function closeAlert() {
+    var customAlert = document.getElementById('customAlert');
+    customAlert.style.display = 'none';
+}
+
+
+</script>
