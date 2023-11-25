@@ -53,9 +53,9 @@
 </header>
 <!-- alert erro -->
 
-  <div class="card_erro" id="cardErro">
-    <span id="mensagem_erro"></span>
-  </div>
+<div class="card_erro" id="cardErro">
+  <span id="mensagem_erro"></span>
+</div>
 <!-- alert erro -->
 
 
@@ -103,18 +103,18 @@
 </div>
 <!-- DIV QUE EXIBE O LOGIN  -->
 
- <!-- alert cadastro realizado -->
- <div id="alert" class="custom-alert">
+<!-- alert cadastro realizado -->
+<div id="alert" class="custom-alert">
   <img src="assets/gif.check.gif" alt="GIF">
   <p>Cadastro realizado com sucesso !</p>
 </div>
 <!-- alert cadastro realizado -->
 
- <!-- alert Login realizado -->
- <div id="alert2" class="custom-alert">
+<!-- alert Login realizado -->
+<div id="alert2" class="custom-alert">
   <img src="assets/gif.check.gif" alt="GIF">
-  <p>Login realizado com sucesso ! <br>
-    ...redirecionando</p>
+  <p>Login realizado com sucesso <br>
+    ... redirecionando</p>
 </div>
 <!-- alert Login realizado -->
 
@@ -352,16 +352,15 @@
       confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML ="(Mensagem de erro para todos os campos em branco)";
+      mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
       setTimeout(() => {
         cardErro.style.display = "none";
-          }, "2000");
+      }, "2000");
 
       // finalizarAguardar();
       return false;
     } else {
-      aguardar();
     }
 
     // Enviando o valor da nova input
@@ -387,12 +386,13 @@
 
           // mensagem_erro.innerHTML =
           //   "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
+          sair();
           setTimeout(() => {
             // window.location = "login.html";
             entrar_entrar();
           }, "2000");
 
+          aguardar();
           limparFormulario();
           finalizarAguardar();
         } else {
@@ -444,12 +444,12 @@
       mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
       setTimeout(() => {
         cardErro.style.display = "none";
-          }, "2000");
+      }, "2000");
       // finalizarAguardar();
       return false;
     }
     else {
-      aguardar2();
+      
     }
 
     console.log("FORM LOGIN: ", emailVar2);
@@ -477,13 +477,13 @@
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.ID_USUARIO = json.id;
           // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-
+          
           setTimeout(function () {
             window.location = "./Home_logado.html";
           }, 1000); // apenas para exibir o loading
 
         });
-
+        aguardar2();
       } else {
 
         console.log("Houve um erro ao tentar realizar o login!");

@@ -1,6 +1,10 @@
 // abrir box do login
 function entrar_entrar() {
+    var abrirCadastrar = document.getElementById("div_cadastrar_container");
+    abrirCadastrar.style.display = `none`;
+
     var abrirEntrar = document.getElementById("div_entrar_container");
+    
 
     abrirEntrar.style.display = `block`;
 
@@ -36,13 +40,8 @@ function criar_conta() {
 }
 
 function aguardar() {
-    var abrirCadastrar = document.getElementById("div_cadastrar_container");
-    abrirCadastrar.style.display = `none`;
-
     var alert = document.getElementById('alert');
     alert.style.display = 'block';
-    
-    
     
     // Fechar o alerta após 3 segundos
     setTimeout(function () {
@@ -66,11 +65,11 @@ function aguardar2() {
     
     // Fechar o alerta após 3 segundos
     setTimeout(function () {
-        closeAlert();
+        closeAlert2();
         entrar_entrar();
     }, 1900);
 }
-function closeAlert() {
+function closeAlert2() {
     var customAlert = document.getElementById('alert2');
     customAlert.style.display = 'none';
 }
