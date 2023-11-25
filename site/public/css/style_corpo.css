@@ -98,7 +98,6 @@
 body {
     font-family: Arial, sans-serif;
 }
-
 .custom-alert {
     display: none;
     position: fixed;
@@ -106,8 +105,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    border: 2px solid #ccc;
+    border: 2px solid #000000;
     background-color: #fff;
+    border-radius: 7px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     z-index: 999;
@@ -119,22 +119,25 @@ body {
     height: auto;
     margin-bottom: 10px;
 }
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    height:auto;
+    position: fixed;
+    border-radius: 7px;
+    border: red 3px solid;
+    padding: 10px;
+    margin-top: 3%;
+    left: 75%;
+    z-index: 999;
+  }
 
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    color: #333;
-}
-
-.close-btn:hover {
-    color: #ff0000;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
+  #mensagem_erro{
+    /* padding: 20px; */
+    /* font-weight: 500; */
+    color: red;
+    font-size: larger;
+    /* font-size: 20px; */
+  }
+  

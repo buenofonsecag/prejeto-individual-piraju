@@ -12,10 +12,10 @@
   <script src="js/scriptLogin.js"></script>
   <script src="js/alert.js"></script>
 
-<!-- mapa -->
+  <!-- mapa -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<!-- mapa -->
+  <!-- mapa -->
 
   <link rel="stylesheet" href="./css/Style_entrar-cadastrar.css">
   <link rel="stylesheet" href="./css/style_header.css">
@@ -51,19 +51,13 @@
     <li class="li_header_entrar" onclick="entrar_entrar()"><a class="a_header_entrar">ENTRAR</a></li>
   </ul>
 </header>
+<!-- alert erro -->
 
-<div class="alerta_erro">
   <div class="card_erro" id="cardErro">
     <span id="mensagem_erro"></span>
   </div>
-</div>
+<!-- alert erro -->
 
-<!-- alert cadastro realizado -->
-<div id="alert" class="custom-alert">
-  <img src="assets/gif.check.gif" alt="GIF">
-  <p>Cadastro realizado com sucesso !</p>
-</div>
-<!-- alert cadastro realizado -->
 
 
 <!-- DIV QUE EXIBE O LOGIN  -->
@@ -71,18 +65,18 @@
 
   <div class="cadastrar_container" id="div_entrar_container">
 
-   
+
 
     <div class="entrar_corpo">
 
       <div class="entrar_corpo_fundo">
 
-        <div class="entrar_corpo_header"> 
+        <div class="entrar_corpo_header">
           <div class="entrar_header">
-          <div id="div_sair_container" class="sair_container" onclick="sair()">X</div>
+            <div id="div_sair_container" class="sair_container" onclick="sair()">X</div>
+          </div>
         </div>
-      </div>
-      <div class="img-perfil"><i class='bx bxs-user-circle'></i></div>
+        <div class="img-perfil"><i class='bx bxs-user-circle'></i></div>
 
         <div class="entrar_corpo_conteudo">
 
@@ -90,8 +84,7 @@
             Login<br>
           </div>
           <div class="box_email"><input type="email" placeholder="E-mail:" class="input_decoracao" type="text"
-              id="email_input2"
-              ></div>
+              id="email_input2"></div>
           <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao" id="senha_input2">
           </div>
           <div class="box_botao"><!-- <a href= "./Home_logado.html"> --><button class="botao_entrar" on
@@ -110,11 +103,18 @@
 </div>
 <!-- DIV QUE EXIBE O LOGIN  -->
 
+ <!-- alert cadastro realizado -->
+ <div id="alert" class="custom-alert">
+  <img src="assets/gif.check.gif" alt="GIF">
+  <p>Cadastro realizado com sucesso !</p>
+</div>
+<!-- alert cadastro realizado -->
+
 <!-- cadastro inicio -->
 <div class="entrar_fundo">
 
   <div class="cadastrar_container" id="div_cadastrar_container">
-   
+
 
     <div class="entrar_corpo">
       <div class="entrar_corpo_fundo">
@@ -153,10 +153,6 @@
         <div class="box_botao"><button class="botao_cadastrar" onclick="cadastrar()">Cadastrar</button>
         </div><br>
 
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
-        </div>
-
         <div class="box_ou">
           <!-- <div class="linha"></div>ou<div class="linha"></div> -->
         </div><br>
@@ -174,8 +170,9 @@
 
 
 <!-- corpo inicio -->
+
 <body class="body">
-  
+
   <div class="container_corpo2">
     <div class="box_titulo">
       <!-- <div class="corpo_titulo1">Bem-vindo ao PiraGuia, seu guia virtual de Piraju</div> -->
@@ -184,7 +181,11 @@
 
     <div class="corpo_txt_center">
       <center>
-        Seja muito bem-vindo ao nosso site de turismo dedicado a Piraju, uma jóia do interior paulista! <br> Estamos entusiasmados em tê-lo conosco para explorar as maravilhas desta cidade encantadora. <br> Seja você um visitante pela primeira vez ou alguém que já conhece Piraju, esperamos que este br espaço online seja uma porta de entrada para os encantos e segredos que tornam esta cidade tão especial. <br> Estamos aqui para guiá-lo em uma nova jornada!
+        Seja muito bem-vindo ao nosso site de turismo dedicado a Piraju, uma jóia do interior paulista! <br> Estamos
+        entusiasmados em tê-lo conosco para explorar as maravilhas desta cidade encantadora. <br> Seja você um visitante
+        pela primeira vez ou alguém que já conhece Piraju, esperamos que este br espaço online seja uma porta de entrada
+        para os encantos e segredos que tornam esta cidade tão especial. <br> Estamos aqui para guiá-lo em uma nova
+        jornada!
       </center>
     </div>
   </div>
@@ -192,79 +193,93 @@
 
 
 
-<div class="corpo">
-  <div class="container_corpo">
-    <div class="box_titulo">
-      <div class="corpo_titulo1">História e Patrimônio:</div>
-    </div>
-    <div class="corpo_txt">
-     Raízes Históricas: <br><br>
+  <div class="corpo">
+    <div class="container_corpo">
+      <div class="box_titulo">
+        <div class="corpo_titulo1">História e Patrimônio:</div>
+      </div>
+      <div class="corpo_txt">
+        Raízes Históricas: <br><br>
 
-      O município de Piraju, localizado no interior do estado de São Paulo, possui uma história rica e profundamente entrelaçada com o desenvolvimento da região. Fundado em 1896, seu nome tem origem indígena, derivado de "Pirayú", que significa "peixe cortado". <br> Essa referência evidencia a importância do Rio Paranapanema, que banha as terras de Piraju e desempenha um papel fundamental na formação da identidade local. <br>
-      
-     Centro Histórico Preservado: <br><br>
-      
-      Ao caminhar pelas ruas de paralelepípedos do centro histórico, é possível sentir a atmosfera nostálgica que permeia as construções preservadas. <br> Casarões, igrejas e praças contam a história da cidade, revelando a arquitetura característica de diferentes épocas. <br> Destacam-se a Igreja Matriz de São Sebastião, um marco religioso e arquitetônico, e o Museu Histórico e Pedagógico de Piraju, que abriga peças que remontam aos primeiros momentos da colonização. <br>
-      
-      <br>Expressões Culturais e Tradições Locais: <br><br>
-      
-      Piraju celebra suas tradições por meio de eventos e festivais que unem passado e presente. <br> A Festa de São Sebastião, padroeiro da cidade, é um exemplo emblemático, reunindo a comunidade em celebrações religiosas, apresentações culturais e manifestações folclóricas. <br> Esses momentos festivos ressaltam a importância de preservar e compartilhar as raízes que moldaram Piraju ao longo dos anos. <br>      
-          </div>
-  </div>
-</div>
+        O município de Piraju, localizado no interior do estado de São Paulo, possui uma história rica e profundamente
+        entrelaçada com o desenvolvimento da região. Fundado em 1896, seu nome tem origem indígena, derivado de
+        "Pirayú", que significa "peixe cortado". <br> Essa referência evidencia a importância do Rio Paranapanema, que
+        banha as terras de Piraju e desempenha um papel fundamental na formação da identidade local. <br>
 
-<div class="corpo2">
-  <div class="container_corpo">
-    <div class="box_titulo">
-      <div class="corpo_titulo1"> Localização <i class='bx bxs-map'></i></div>
-    </div>
-    <div class="corpo_txt">
-      • Estado: São Paulo. <br><br>
-      • Região: Sudeste do Brasil. <br><br>
-      • Distâncias: Piraju está localizada a uma certa distância de cidades vizinhas e centros urbanos, o que pode ser relevante para visitantes e turistas. <br>
-          <div id="map"></div>
+        Centro Histórico Preservado: <br><br>
+
+        Ao caminhar pelas ruas de paralelepípedos do centro histórico, é possível sentir a atmosfera nostálgica que
+        permeia as construções preservadas. <br> Casarões, igrejas e praças contam a história da cidade, revelando a
+        arquitetura característica de diferentes épocas. <br> Destacam-se a Igreja Matriz de São Sebastião, um marco
+        religioso e arquitetônico, e o Museu Histórico e Pedagógico de Piraju, que abriga peças que remontam aos
+        primeiros momentos da colonização. <br>
+
+        <br>Expressões Culturais e Tradições Locais: <br><br>
+
+        Piraju celebra suas tradições por meio de eventos e festivais que unem passado e presente. <br> A Festa de São
+        Sebastião, padroeiro da cidade, é um exemplo emblemático, reunindo a comunidade em celebrações religiosas,
+        apresentações culturais e manifestações folclóricas. <br> Esses momentos festivos ressaltam a importância de
+        preservar e compartilhar as raízes que moldaram Piraju ao longo dos anos. <br>
       </div>
     </div>
   </div>
 
-<div class="corpo2">
-  <div class="container_corpo">
-    <div class="box_titulo">
-      <div class="corpo_titulo1">Dados geográficos</div>
-    </div>
-    <div class="corpo_txt">
-    </div>
-  </div>
-</div>
-
-<div class="corpo">
-  <div class="container_corpo">
-    <div class="box_titulo">
-      <div class="corpo_titulo1">População</div>
-    </div>
-    <div class="corpo_txt">
-      População no último censo [2022] 29.436 pessoas <br>
-      Densidade demográfica [2022] 58,34 habitantes por km² e uma média de 2,66 moradores por residência. <br>
-    </div>
-  </div>
-</div>
-
-<div class="corpo2">
-  <div class="container_corpo">
-    <div class="box_titulo">
-      <div class="corpo_titulo1">Patrimônio Natural e Sustentável:
+  <div class="corpo2">
+    <div class="container_corpo">
+      <div class="box_titulo">
+        <div class="corpo_titulo1"> Localização <i class='bx bxs-map'></i></div>
+      </div>
+      <div class="corpo_txt">
+        • Estado: São Paulo. <br><br>
+        • Região: Sudeste do Brasil. <br><br>
+        • Distâncias: Piraju está localizada a uma certa distância de cidades vizinhas e centros urbanos, o que pode ser
+        relevante para visitantes e turistas. <br>
+        <div id="map"></div>
       </div>
     </div>
-
-    <div class="corpo_txt">
-      Além do patrimônio histórico, a cidade se orgulha de seu patrimônio natural, representado pelo majestoso Rio Paranapanema. Essas águas não apenas influenciaram a economia local, mas também proporcionam lazer e tranquilidade aos habitantes e visitantes. Áreas de preservação ambiental e parques urbanos complementam o cenário, enfatizando o compromisso de Piraju com a sustentabilidade e a apreciação da natureza.
-    </div>
-    7. Energia Acessível e Limpa
-    14. Vida na água 
-    3. Saúde e Bem-estar
-    6. Água potável e Saneamento
   </div>
-</div>
+
+  <div class="corpo2">
+    <div class="container_corpo">
+      <div class="box_titulo">
+        <div class="corpo_titulo1">Dados geográficos</div>
+      </div>
+      <div class="corpo_txt">
+      </div>
+    </div>
+  </div>
+
+  <div class="corpo">
+    <div class="container_corpo">
+      <div class="box_titulo">
+        <div class="corpo_titulo1">População</div>
+      </div>
+      <div class="corpo_txt">
+        População no último censo [2022] 29.436 pessoas <br>
+        Densidade demográfica [2022] 58,34 habitantes por km² e uma média de 2,66 moradores por residência. <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="corpo2">
+    <div class="container_corpo">
+      <div class="box_titulo">
+        <div class="corpo_titulo1">Patrimônio Natural e Sustentável:
+        </div>
+      </div>
+
+      <div class="corpo_txt">
+        Além do patrimônio histórico, a cidade se orgulha de seu patrimônio natural, representado pelo majestoso Rio
+        Paranapanema. Essas águas não apenas influenciaram a economia local, mas também proporcionam lazer e
+        tranquilidade aos habitantes e visitantes. Áreas de preservação ambiental e parques urbanos complementam o
+        cenário, enfatizando o compromisso de Piraju com a sustentabilidade e a apreciação da natureza.
+      </div>
+      7. Energia Acessível e Limpa
+      14. Vida na água
+      3. Saúde e Bem-estar
+      6. Água potável e Saneamento
+    </div>
+  </div>
 </body>
 
 <!-- corpo fim -->
@@ -309,14 +324,12 @@
 </div>
 
 <!--footer fim-->
-</html>
 
+</html>
 
 <!-- cadastro -->
 <script>
   function cadastrar() {
-    aguardar();
-
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
@@ -329,16 +342,18 @@
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
-      // empresaVar == ""
     ) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      mensagem_erro.innerHTML ="* Insira valores válidos !!!";
+
+      setTimeout(() => {
+        cardErro.style.display = "none";
+          }, "2000");
 
       finalizarAguardar();
       return false;
     } else {
-      setInterval(sumirMensagem, 5000);
+      aguardar();
     }
 
     // Enviando o valor da nova input
@@ -484,15 +499,15 @@
 
 <!-- mapa -->
 <script>
-  var map = L.map('map').setView([ -23.1938, -49.3844], 15);
+  var map = L.map('map').setView([-23.1938, -49.3844], 15);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-   {
+    {
       // attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
+    }).addTo(map);
 
   L.marker([-23.1935, -49.3843]).addTo(map)
-      // .bindPopup('Piraju')
-      .openPopup();
+    // .bindPopup('Piraju')
+    .openPopup();
 </script>
 <!-- mapa -->
