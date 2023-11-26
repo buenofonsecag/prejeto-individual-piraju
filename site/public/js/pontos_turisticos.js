@@ -8,5 +8,5 @@ function sair(){
     var abrirAvaliar = document.getElementById("div_avaliar_container");
     var sairSair = document.getElementById("div_sair");
 
-    abrirAvaliar.style.display = `none`;
+    // abrirAvaliar.style.display = `none`;
 }

@@ -12,7 +12,7 @@ function entrar_entrar() {
 // sair da box do login e cadastro
 function sair() {
     var abrirEntrar = document.getElementById("div_entrar_container");
-    var sairSair = document.getElementById("div_sair");
+    // var sairSair = document.getElementById("div_sair");
     var abrirCadastrar = document.getElementById("div_cadastrar_container");
 
     abrirCadastrar.style.display = `none`;
