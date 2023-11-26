@@ -27,7 +27,7 @@
     display: flex;
     justify-content: center;
     /* margin-top: 70px; */
-    
+
 }
 
 .entrar_corpo {
@@ -54,8 +54,8 @@
 
 .box_piraju_cadastrar {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    justify-content: space-around;
 }
 
 .txt4_corpo {
@@ -76,7 +76,8 @@
     display: flex;
     justify-content: end;
 }
-.img-perfil{
+
+.img-perfil {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,19 +132,12 @@
     display: flex;
     justify-content: space-around;
     margin: 5px;
-    margin-bottom: 20px;
+    margin-top: -10px;
+    /* margin-bottom: 5px; */
     font-size: larger;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
-.txt3_corpo {
-    display: flex;
-    justify-content: space-around;
-    margin: 5px;
-    /* margin-bottom: 20px; */
-    /* font-size: larger;   */
-    color: white;
-}
 
 .box_texto_cadastrar {
     display: flex;
@@ -188,6 +182,13 @@
     align-items: center;
     justify-content: center;
     z-index: 4;
+    color:white;
+}
+.box_visita {
+    display: flex;
+    align-items: center;
+    z-index: 4;
+    color:white;
 }
 
 .box_botao {
@@ -247,6 +248,7 @@
     background-color: rgba(13, 26, 216, 0.747);
     color: white;
     cursor: pointer;
+    display: block;
 
 }
 
@@ -300,4 +302,9 @@
 
 .bxs-map {
     color: red;
+}
+
+.radio {
+    z-index: 999;
+    display: block;
 }

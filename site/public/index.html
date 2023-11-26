@@ -73,18 +73,17 @@
         <div class="img-perfil"><i class='bx bxs-user-circle'></i></div>
         <div class="entrar_corpo_conteudo">
           <!-- <form onsubmit="criar_conta()" method="post"> -->
-            <div class="txt1_corpo">
-              Login<br>
-            </div>
-            <div class="box_email"><input type="text" placeholder="E-mail:" class="input_decoracao" type="text"
-                id="email_input2"></div>
-            <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao" id="senha_input2">
-            </div>
-            <div class="box_botao">
-              <button onclick="entrar()" class="botao_entrar">Entrar</button>
-            </div>
+          <div class="txt1_corpo">
+            Login<br>
+          </div>
+          <div class="box_email"><input type="text" placeholder="E-mail:" class="input_decoracao" type="text"
+              id="email_input2"></div>
+          <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao" id="senha_input2">
+          </div>
+          <div class="box_botao">
+            <button onclick="entrar()" class="botao_entrar">Entrar</button>
+          </div>
           <!-- </form> -->
-          <!-- <div class="txt1_corpo_esqueceu_senha">Esqueceu a senha? </div> -->
           <div class="box_ou">
             <div class="linha"></div>ou <div class="linha"></div>
           </div><br>
@@ -135,36 +134,35 @@
         <div class="box_email"><input placeholder="E-mail:" class="input_decoracao2" type="email" id="email_input">
         </div>
 
-        <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao2" id="senha_input" >
+        <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao2" id="senha_input">
         </div>
 
-        <div class="box_email"><input type="password" placeholder="Confirmar Senha:" class="input_decoracao2" autocomplete="nova senha"
-            id="confirmacao_senha_input"></div><br>
-<!-- </form> -->
+        <div class="box_email"><input type="password" placeholder="Confirmar Senha:" class="input_decoracao2"
+            autocomplete="nova senha" id="confirmacao_senha_input"></div><br>
+        <!-- </form> -->
 
-        <!-- <div class="txt3_corpo">Você já visitou Piraju?</div> -->
-
-        <!-- <div class="box_piraju_cadastrar">
-                    <input type="radio" id="visitou_piraju1" name="contact" value="1" /><span
-                        class="txt4_corpo">Sim</span>
-
-                    <input type="radio" id="visitou_piraju2" name="contact" value="2" /><span
-                        class="txt4_corpo">Não</span>
-                        
-                </div> -->
-        <div class="box_botao"><button class="botao_cadastrar" onclick="cadastrar()">Cadastrar</button>
+        <div class="txt3_corpo">Você já visitou Piraju?</div>
+        <div class="box_radio">
+          <div class="box_email">Sim <input placeholder="Nome:" class="radio" type="radio" name="visitou" id="nao">
+          </div>
+          <div class="box_email">Não<input placeholder="Nome:" class="radio" type="radio" name="visitou" id="sim">
+          </div>
         </div><br>
-
-        <div class="box_ou">
-          <!-- <div class="linha"></div>ou<div class="linha"></div> -->
-        </div><br>
-
-        <p class="txt2_corpo">Já possui conta?Entrar</p>
-
+        <div class="box_botao"><button class="botao_cadastrar" onclick="cadastrar()">Cadastrar</button></div>
       </div>
+
     </div>
   </div>
+  <br>
+
+  <!-- <div class="box_ou"> -->
+  <!-- <div class="linha"></div>ou<div class="linha"></div> -->
+  <!-- </div><br> -->
+
+  <!-- <p class="txt2_corpo">Já possui conta?Entrar</p> -->
+
 </div>
+
 
 <!-- cadstro fim  -->
 
@@ -295,9 +293,9 @@
         <div class="corpo_txt_verde"> 3. Saúde e Bem-estar</div>
         <div class="corpo_txt_azul"> 7. Energia Acessível e Limpa</div>
         <div class="corpo_txt_azul2"> 14. Vida na água</div>
-        </div>
       </div>
     </div>
+  </div>
   </div>
 
 </body>
@@ -332,10 +330,10 @@
     <ul class="ul_rodape">
       <li class="li_rodape"> <a href="https://outlook.office.com/mail/" target="https://outlook.office.com/mail/"><i
             class='bx bx-envelope'></i></a>
-      <li class="li_rodape"><a href="https://www.instagram.com/gustavo__bueno__/" target="https://www.instagram.com/gustavo__bueno__/"><i
-            class='bx bxl-instagram' id="instagram"></i></a>
-      <li class="li_rodape"><a href="https://github.com/buenofonsecag/prejetooo" target="https://github.com/buenofonsecag/prejetooo"><i
-            class='bx bxl-github'></i></a>
+      <li class="li_rodape"><a href="https://www.instagram.com/gustavo__bueno__/"
+          target="https://www.instagram.com/gustavo__bueno__/"><i class='bx bxl-instagram' id="instagram"></i></a>
+      <li class="li_rodape"><a href="https://github.com/buenofonsecag/prejetooo"
+          target="https://github.com/buenofonsecag/prejetooo"><i class='bx bxl-github'></i></a>
       <li class="li_rodape"><a href=" https://wa.me/5511933923464" target=" https://wa.me/5511933923464"><i
             class='bx bxl-whatsapp'></i></a>
       </li>
@@ -512,7 +510,7 @@
       }
 
     }).catch(function (erro) {
-      console.log("Houve um erro na chamada fetch:", erro);x
+      console.log("Houve um erro na chamada fetch:", erro); x
       console.log(erro);
     })
 

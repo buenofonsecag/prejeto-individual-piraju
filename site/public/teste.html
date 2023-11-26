@@ -3,82 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Custom Alert</title>
-</head>
-<body>
-
-    <button onclick="showAlert()">Mostrar Alerta</button>
-
-    <div id="customAlert" class="custom-alert">
-        <img src="assets/gif.check.gif" alt="GIF">
-        <p>Cadastro realizado com sucesso !</p>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-}
-
-.custom-alert {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    border: 2px solid #646464;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    z-index: 999;
-}
-
-.custom-alert img {
-    width: 100%;
-    max-width: 200px; /* Ajuste conforme necessário */
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    color: #333;
-}
-
-.close-btn:hover {
-    color: #ff0000;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-</style>
-<script>
-  function showAlert() {
-    var customAlert = document.getElementById('customAlert');
-    customAlert.style.display = 'block';
-
-    // Fechar o alerta após 3 segundos
-    setTimeout(function() {
-        closeAlert();
-    }, 2000);
-}
-
-function closeAlert() {
-    var customAlert = document.getElementById('customAlert');
-    customAlert.style.display = 'none';
-}
-
-
-</script>
+    <title>Formulário de Pergunta</title>
+    <div>
+        <label>
+          Base Anterior
+          <input id="ant" name="base" type="radio" value="S" />
+        </label>
+      </div>
+      <div>
+        <label>
+          Base na Grade
+          <input id="grade" name="base" type="radio" value="S" />
+        </label>  
+      </div>
+      <div>
+        <label>
+          Base em Veículos Novos
+          <input id="novo" name="base" type="radio" value="S" />
+        </label>
+      </div>

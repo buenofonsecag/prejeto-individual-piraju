@@ -104,61 +104,61 @@
   </div>
   <!-- DIV QUE EXIBE O LOGIN  -->
   
-  <!-- cadastro inicio -->
+<!-- cadastro inicio -->
 <div class="entrar_fundo">
 
-    <div class="cadastrar_container" id="div_cadastrar_container">
-  
-  
-      <div class="entrar_corpo">
-        <div class="entrar_corpo_fundo">
-          <div class="entrar_corpo_header">
-            <div class="entrar_header">
-              <div id="div_sair_container" class="sair_container" onclick="sair()">X</div>
-            </div>
+  <div class="cadastrar_container" id="div_cadastrar_container">
+
+
+    <div class="entrar_corpo">
+      <div class="entrar_corpo_fundo">
+        <div class="entrar_corpo_header">
+          <div class="entrar_header">
+            <div id="div_sair_container" class="sair_container" onclick="sair()">X</div>
           </div>
-  
-          <div class="titulo_cadastro">Cadastre-se</div>
-          <div class="txt2_corpo">Preencha todos campos a seguir:</div>
-  
-          <div class="box_email"><input placeholder="Nome:" class="input_decoracao2" type="text" id="nome_input">
-          </div>
-  
-          <div class="box_email"><input placeholder="E-mail:" class="input_decoracao2" type="email" id="email_input">
-          </div>
-  
-          <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao2" id="senha_input">
-          </div>
-  
-          <div class="box_email"><input type="password" placeholder="Confirmar Senha:" class="input_decoracao2"
-              id="confirmacao_senha_input"></div><br>
-  
-  
-          <!-- <div class="txt3_corpo">Você já visitou Piraju?</div> -->
-  
-          <!-- <div class="box_piraju_cadastrar">
-                      <input type="radio" id="visitou_piraju1" name="contact" value="1" /><span
-                          class="txt4_corpo">Sim</span>
-  
-                      <input type="radio" id="visitou_piraju2" name="contact" value="2" /><span
-                          class="txt4_corpo">Não</span>
-                          
-                  </div> -->
-          <div class="box_botao"><button class="botao_cadastrar" onclick="cadastrar()">Cadastrar</button>
-          </div><br>
-  
-          <div class="box_ou">
-            <!-- <div class="linha"></div>ou<div class="linha"></div> -->
-          </div><br>
-  
-          <p class="txt2_corpo">Já possui conta?Entrar</p>
-  
         </div>
+
+        <div class="titulo_cadastro">Cadastre-se</div>
+        <div class="txt2_corpo">Preencha todos campos a seguir:</div>
+        <!-- <form onsubmit="cadastrar()" method="post" action="/usuarios/cadastrar"> -->
+
+        <div class="box_email"><input placeholder="Nome:" class="input_decoracao2" type="text" id="nome_input">
+        </div>
+
+        <div class="box_email"><input placeholder="E-mail:" class="input_decoracao2" type="email" id="email_input">
+        </div>
+
+        <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao2" id="senha_input">
+        </div>
+
+        <div class="box_email"><input type="password" placeholder="Confirmar Senha:" class="input_decoracao2"
+            autocomplete="nova senha" id="confirmacao_senha_input"></div><br>
+        <!-- </form> -->
+
+        <div class="txt3_corpo">Você já visitou Piraju?</div>
+        <div class="box_radio">
+          <div class="box_email">Sim <input placeholder="Nome:" class="radio" type="radio" name="visitou" id="nao">
+          </div>
+          <div class="box_email">Não<input placeholder="Nome:" class="radio" type="radio" name="visitou" id="sim">
+          </div>
+        </div><br>
+        <div class="box_botao"><button class="botao_cadastrar" onclick="cadastrar()">Cadastrar</button></div>
       </div>
+
     </div>
   </div>
-  
-  <!-- cadstro fim  -->
+  <br>
+
+  <!-- <div class="box_ou"> -->
+  <!-- <div class="linha"></div>ou<div class="linha"></div> -->
+  <!-- </div><br> -->
+
+  <!-- <p class="txt2_corpo">Já possui conta?Entrar</p> -->
+
+</div>
+
+
+<!-- cadstro fim  -->
 
   <!-- alert cadastro realizado -->
 <div id="alert" class="custom-alert">
