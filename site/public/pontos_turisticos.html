@@ -55,6 +55,21 @@
   </header>
 
 
+<!-- alert quando carrega a página -->
+<script>
+  window.onload = minhaFuncaoAoCarregar;
+</script>
+<!-- alert quando carrega a página -->
+<!-- custom-alert -->
+<div id="myModal" class="modal">
+  <p>Para ter acesso a todas as funcionalidades dessa página, é necessário estar logado ! <br>
+  <div class="box_botao">
+    <button class="botao_fechar" onclick="fecharModal()">Fechar</button>
+  </div>
+</div>
+<div id="overlay" class="overlay"></div>
+<!-- custom-alert -->
+
 <!-- alert erro -->
 <div class="card_erro" id="cardErro">
   <span id="mensagem_erro"></span>
@@ -183,329 +198,333 @@
 <body class="body">
 
 
-    <div class="container_corpo">
-        <div class="box_titulo">
-            <div class="corpo_titulo1">Olá <span id="b_usuario">usuário</span>,
-                conheça os pontos turísticos e explore a beleza da nossa cidade !</div>
-        </div>
-    </div>
+  <div class="container_corpo">
+      <div class="box_titulo">
+          <div class="corpo_titulo1">Olá <span id="b_usuario">usuário</span>,
+              conheça os pontos turísticos e explore a beleza da nossa cidade !</div>
+      </div>
+  </div>
 
 
-    <div class="corpo1">
-        <div class="container_corpo">
-            <div class="box_titulo">
-                <div class="corpo_titulo1"> Ponte Engenheiro Nelson de Godoy Pereira</div>
-            </div>
-            <div class="corpo_txt">
-                <div class="txt_pt">
-                    Uma ponte suspensa que atravessa o Rio Paranapanema, proporcionando vistas panorâmicas e uma
-                    experiência
-                    única.
-                    <div class="card_dados">
-                        <div class="nota">
-                            Nota:<span id="media1"></span>
-                        </div>
-                        <span id="qtdPessoas"></span> pessoas avaliaram esse local
-                        <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
-                            <p class="ver_ava"><i class='bx bxs-chat'></i><a href="ver_avaliacoes.html">Ver
-                                    avaliações</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="corpo_img">
-                    <div class="slides">
-                        <input type="radio" name="slide" id="slide1" checked>
-                        <input type="radio" name="slide" id="slide2">
-                        <input type="radio" name="slide" id="slide3">
-                        <input type="radio" name="slide" id="slide4">
-                        <input type="radio" name="slide" id="slide5">
+  <div class="corpo1">
+      <div class="container_corpo">
+          <div class="box_titulo">
+              <div class="corpo_titulo1"> Ponte Engenheiro Nelson de Godoy Pereira</div>
+          </div>
+          <div class="corpo_txt">
+              <div class="txt_pt">
+                  Uma ponte suspensa que atravessa o Rio Paranapanema, proporcionando vistas panorâmicas e uma
+                  experiência
+                  única.
+                  <div class="card_dados">
+                      <div class="nota">
+                          Nota:<span id="media1"></span>
+                      </div>
+                      <span id="qtdPessoas"></span> pessoas avaliaram esse local
+                      <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+                          <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
+                                  avaliações</a></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="corpo_img">
+                  <div class="slides">
+                      <input type="radio" name="slide" id="slide1" checked>
+                      <input type="radio" name="slide" id="slide2">
+                      <input type="radio" name="slide" id="slide3">
+                      <input type="radio" name="slide" id="slide4">
+                      <input type="radio" name="slide" id="slide5">
 
 
-                        <div class="slide s1">
-                            <img src="assets/imgs/ponte1.jpg">
-                        </div>
-                        <div class="slide s2">
-                            <img src="assets/imgs/ponte2.jpg">
-                        </div>
-                        <div class="slide s3">
-                            <img src="assets/imgs/ponte3.jpg">
-                        </div>
-                        <div class="slide s4">
-                            <img src="assets/imgs/Ponte 4.jpg">
-                        </div>
-                        <div class="slide s5">
-                            <img src="assets/imgs/2e792ed8b5fedafaae2ac1f1515b3f9b.jpg">
-                        </div>
+                      <div class="slide s1">
+                          <img src="assets/imgs/ponte1.jpg">
+                      </div>
+                      <div class="slide s2">
+                          <img src="assets/imgs/ponte2.jpg">
+                      </div>
+                      <div class="slide s3">
+                          <img src="assets/imgs/ponte3.jpg">
+                      </div>
+                      <div class="slide s4">
+                          <img src="assets/imgs/Ponte 4.jpg">
+                      </div>
+                      <div class="slide s5">
+                          <img src="assets/imgs/2e792ed8b5fedafaae2ac1f1515b3f9b.jpg">
+                      </div>
 
-                        <div class="navigation">
-                            <label class="bar" for="slide1"></label>
-                            <label class="bar" for="slide2"></label>
-                            <label class="bar" for="slide3"></label>
-                            <label class="bar" for="slide4"></label>
-                            <label class="bar" for="slide5"></label>
-                        </div>
+                      <div class="navigation">
+                          <label class="bar" for="slide1"></label>
+                          <label class="bar" for="slide2"></label>
+                          <label class="bar" for="slide3"></label>
+                          <label class="bar" for="slide4"></label>
+                          <label class="bar" for="slide5"></label>
+                      </div>
 
-                    </div>
-                </div>
-            </div>
+                  </div>
+              </div>
+          </div>
 
-        </div>
-    </div>
+      </div>
+  </div>
 
-    <div class="corpo1">
-        <div class="container_corpo">
-            <div class="box_titulo">
-                <div class="corpo_titulo1"> Igreja Matriz</div>
-            </div>
-            <div class="corpo_txt">
-                <div class="txt_pt">
-                    Uma igreja histórica que representa a arquitetura religiosa da região. <br>
-                    Detalhes arquitetônicos, obras de arte sacra e a atmosfera espiritual fazem dela um local de
-                    interesse cultural.
-                    <div class="card_dados">
-                        <div class="nota">
-                            Nota:
-                        </div>
-                        10 pessoas avaliaram esse local
-                        <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
-                            <p class="ver_ava"> <i class='bx bxs-chat'></i> Ver avaliações</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="corpo_img">
+  <div class="corpo1">
+      <div class="container_corpo">
+          <div class="box_titulo">
+              <div class="corpo_titulo1"> Igreja Matriz</div>
+          </div>
+          <div class="corpo_txt">
+              <div class="txt_pt">
+                  Uma igreja histórica que representa a arquitetura religiosa da região. <br>
+                  Detalhes arquitetônicos, obras de arte sacra e a atmosfera espiritual fazem dela um local de
+                  interesse cultural.
+                  <div class="card_dados">
+                      <div class="nota">
+                          Nota:<span id="media1"></span>
+                      </div>
+                      <span id="qtdPessoas"></span> pessoas avaliaram esse local
+                      <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+                          <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
+                                  avaliações</a></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="corpo_img">
 
-                    <div class="slides">
-                        <input type="radio" name="slide" id="slide6" checked>
-                        <input type="radio" name="slide" id="slide7">
-                        <input type="radio" name="slide" id="slide8">
-                        <input type="radio" name="slide" id="slide9">
-                        <input type="radio" name="slide" id="slide10">
-
-
-                        <div class="slide s1">
-                            <img src="assets/imgs/igreja1.jpg">
-                        </div>
-                        <div class="slide s2">
-                            <img src="assets/imgs/igreja2.webp">
-                        </div>
-                        <div class="slide s3">
-                            <img src="assets/imgs/igreja3.jpg">
-                        </div>
-                        <div class="slide s4">
-                            <img src="assets/imgs/igreja6.jpg">
-                        </div>
-                        <div class="slide s5">
-                            <img src="assets/imgs/igreja8.jpg">
-                        </div>
-
-                        <div class="navigation">
-                            <label class="bar" for="slide6"></label>
-                            <label class="bar" for="slide7"></label>
-                            <label class="bar" for="slide8"></label>
-                            <label class="bar" for="slide9"></label>
-                            <label class="bar" for="slide10"></label>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                  <div class="slides">
+                      <input type="radio" name="slide" id="slide6" checked>
+                      <input type="radio" name="slide" id="slide7">
+                      <input type="radio" name="slide" id="slide8">
+                      <input type="radio" name="slide" id="slide9">
+                      <input type="radio" name="slide" id="slide10">
 
 
-    <div class="corpo1">
-        <div class="container_corpo">
-            <div class="box_titulo">
-                <div class="corpo_titulo1"> Tirolesa das Corredeiras</div>
-            </div>
-            <div class="corpo_txt">
-                <div class="txt_pt">
-                    Esta incrível aventura oferece uma vista panorâmica das famosas corredeiras do Rio Paranepanema.
-                    <br>
-                    Os cabos da Tirolesa percorrem um total de aproximadamente 500m, com altura de oitenta e um metros
-                    acima do rio .
-                    <!-- Horário de funcionamento: <br>
-                    6as feiras das 16h às 22h – Sábados das 14h às 22h e aos Domingos das 10h às 18h -->
-                    <div class="card_dados">
-                        <div class="nota" id="notas">
-                            Nota:<div id="div_mensagem"></div>
-                        </div>
-                        10 pessoas avaliaram esse local
-                        <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
-                            <p class="ver_ava"> <i class='bx bxs-chat'></i> Ver avaliações</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="corpo_img">
+                      <div class="slide s1">
+                          <img src="assets/imgs/igreja1.jpg">
+                      </div>
+                      <div class="slide s2">
+                          <img src="assets/imgs/igreja2.webp">
+                      </div>
+                      <div class="slide s3">
+                          <img src="assets/imgs/igreja3.jpg">
+                      </div>
+                      <div class="slide s4">
+                          <img src="assets/imgs/igreja6.jpg">
+                      </div>
+                      <div class="slide s5">
+                          <img src="assets/imgs/igreja8.jpg">
+                      </div>
 
-                    <div class="slides">
-                        <input type="radio" name="slide" id="slide11" checked>
-                        <input type="radio" name="slide" id="slide12">
-                        <input type="radio" name="slide" id="slide13">
-                        <input type="radio" name="slide" id="slide14">
-                        <input type="radio" name="slide" id="slide15">
+                      <div class="navigation">
+                          <label class="bar" for="slide6"></label>
+                          <label class="bar" for="slide7"></label>
+                          <label class="bar" for="slide8"></label>
+                          <label class="bar" for="slide9"></label>
+                          <label class="bar" for="slide10"></label>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
 
-                        <div class="slide s1">
-                            <img src="assets/imgs/tirolesa1.jpg">
-                        </div>
-                        <div class="slide s2">
-                            <img src="assets/imgs/tirolesa2.jpg">
-                        </div>
-                        <div class="slide s3">
-                            <img src="assets/imgs/tirolesa9.png">
-                        </div>
-                        <div class="slide s4">
-                            <img src="assets/imgs/tirolesa7.jpg">
-                        </div>
-                        <div class="slide s5">
-                            <img src="assets/imgs/tirolesa8.jpg">
-                        </div>
+  <div class="corpo1">
+      <div class="container_corpo">
+          <div class="box_titulo">
+              <div class="corpo_titulo1"> Tirolesa das Corredeiras</div>
+          </div>
+          <div class="corpo_txt">
+              <div class="txt_pt">
+                  Esta incrível aventura oferece uma vista panorâmica das famosas corredeiras do Rio Paranepanema.
+                  <br>
+                  Os cabos da Tirolesa percorrem um total de aproximadamente 500m, com altura de oitenta e um metros
+                  acima do rio .
+                  <!-- Horário de funcionamento: <br>
+                  6as feiras das 16h às 22h – Sábados das 14h às 22h e aos Domingos das 10h às 18h -->
+                  <div class="card_dados">
+                      <div class="nota">
+                          Nota:<span id="media1"></span>
+                      </div>
+                      <span id="qtdPessoas"></span> pessoas avaliaram esse local
+                      <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+                          <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
+                                  avaliações</a></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="corpo_img">
 
-                        <div class="navigation">
-                            <label class="bar" for="slide11"></label>
-                            <label class="bar" for="slide12"></label>
-                            <label class="bar" for="slide13"></label>
-                            <label class="bar" for="slide14"></label>
-                            <label class="bar" for="slide15"></label>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="corpo1">
-        <div class="container_corpo">
-            <div class="box_titulo">
-                <div class="corpo_titulo1"> Iate Clube Piraju </div>
-            </div>
-            <div class="corpo_txt">
-                <div class="txt_pt">
-                    Localizada as margens do Rio Paranapanema, a 16 km da cidade de Piraju, uma parte alagada do rio,
-                    por conta da usina elétrica , sendo muito frequentada no verão pela população local e regional,
-                    chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
-                    <div class="card_dados">
-                        <div class="nota">
-                            Nota:
-                        </div>
-                        10 pessoas avaliaram esse local
-                        <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
-                            <p class="ver_ava"> <i class='bx bxs-chat'></i> Ver avaliações</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="corpo_img">
-
-                    <div class="slides">
-                        <input type="radio" name="slide" id="slide16" checked>
-                        <input type="radio" name="slide" id="slide17">
-                        <input type="radio" name="slide" id="slide18">
-                        <input type="radio" name="slide" id="slide19">
-                        <input type="radio" name="slide" id="slide20">
+                  <div class="slides">
+                      <input type="radio" name="slide" id="slide11" checked>
+                      <input type="radio" name="slide" id="slide12">
+                      <input type="radio" name="slide" id="slide13">
+                      <input type="radio" name="slide" id="slide14">
+                      <input type="radio" name="slide" id="slide15">
 
 
-                        <div class="slide s1">
-                            <img src="assets/imgs/praia1.jpg">
-                        </div>
-                        <div class="slide s2">
-                            <img src="assets/imgs/praia2.jpg">
-                        </div>
-                        <div class="slide s3">
-                            <img src="assets/imgs/praia3.jpg">
-                        </div>
-                        <div class="slide s4">
-                            <img src="assets/imgs/praia3.webp">
-                        </div>
-                        <div class="slide s5">
-                            <img src="assets/imgs/praia4.jpg">
-                        </div>
+                      <div class="slide s1">
+                          <img src="assets/imgs/tirolesa1.jpg">
+                      </div>
+                      <div class="slide s2">
+                          <img src="assets/imgs/tirolesa2.jpg">
+                      </div>
+                      <div class="slide s3">
+                          <img src="assets/imgs/tirolesa9.png">
+                      </div>
+                      <div class="slide s4">
+                          <img src="assets/imgs/tirolesa7.jpg">
+                      </div>
+                      <div class="slide s5">
+                          <img src="assets/imgs/tirolesa8.jpg">
+                      </div>
 
-                        <div class="navigation">
-                            <label class="bar" for="slide16"></label>
-                            <label class="bar" for="slide17"></label>
-                            <label class="bar" for="slide18"></label>
-                            <label class="bar" for="slide19"></label>
-                            <label class="bar" for="slide20"></label>
-                        </div>
+                      <div class="navigation">
+                          <label class="bar" for="slide11"></label>
+                          <label class="bar" for="slide12"></label>
+                          <label class="bar" for="slide13"></label>
+                          <label class="bar" for="slide14"></label>
+                          <label class="bar" for="slide15"></label>
+                      </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="corpo1">
-        <div class="container_corpo">
-            <div class="box_titulo">
-                <div class="corpo_titulo1"> Prainha </div>
-            </div>
-            <div class="corpo_txt">
-                <div class="txt_pt">
-                    Localizada as margens do Rio Paranapanema, a 16 km da cidade de Piraju, uma parte alagada do rio,
-                    por conta da usina elétrica , sendo muito frequentada no verão pela população local e regional,
-                    chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
-                    <div class="card_dados">
-                        <div class="nota">
-                            Nota:
-                        </div>
-                        10 pessoas avaliaram esse local
-                        <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
-                            <p class="ver_ava"> <i class='bx bxs-chat'></i> Ver avaliações</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="corpo_img">
+                  </div>
+              </div>
+          </div>
 
-                    <div class="slides">
-                        <input type="radio" name="slide" id="slide16" checked>
-                        <input type="radio" name="slide" id="slide17">
-                        <input type="radio" name="slide" id="slide18">
-                        <input type="radio" name="slide" id="slide19">
-                        <input type="radio" name="slide" id="slide20">
+      </div>
+  </div>
 
+  <div class="corpo1">
+      <div class="container_corpo">
+          <div class="box_titulo">
+              <div class="corpo_titulo1"> Iate Clube Piraju </div>
+          </div>
+          <div class="corpo_txt">
+              <div class="txt_pt">
+                  Localizada as margens do Rio Paranapanema, a 16 km da cidade de Piraju, uma parte alagada do rio,
+                  por conta da usina elétrica , sendo muito frequentada no verão pela população local e regional,
+                  chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
+                  <div class="card_dados">
+                      <div class="nota">
+                          Nota:<span id="media1"></span>
+                      </div>
+                      <span id="qtdPessoas"></span> pessoas avaliaram esse local
+                      <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+                          <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
+                                  avaliações</a></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="corpo_img">
 
-                        <div class="slide s1">
-                            <img src="assets/imgs/praia1.jpg">
-                        </div>
-                        <div class="slide s2">
-                            <img src="assets/imgs/praia2.jpg">
-                        </div>
-                        <div class="slide s3">
-                            <img src="assets/imgs/praia3.jpg">
-                        </div>
-                        <div class="slide s4">
-                            <img src="assets/imgs/praia3.webp">
-                        </div>
-                        <div class="slide s5">
-                            <img src="assets/imgs/praia4.jpg">
-                        </div>
-
-                        <div class="navigation">
-                            <label class="bar" for="slide16"></label>
-                            <label class="bar" for="slide17"></label>
-                            <label class="bar" for="slide18"></label>
-                            <label class="bar" for="slide19"></label>
-                            <label class="bar" for="slide20"></label>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                  <div class="slides">
+                      <input type="radio" name="slide" id="slide16" checked>
+                      <input type="radio" name="slide" id="slide17">
+                      <input type="radio" name="slide" id="slide18">
+                      <input type="radio" name="slide" id="slide19">
+                      <input type="radio" name="slide" id="slide20">
 
 
-    <br>
-    <hr><br>
-    <!-- mapa -->
-    <div class="corpo1">
-        <div class="box-mapa2">
-            <div id="map"></div>
-        </div>
-    </div>
-        <!-- mapa -->
+                      <div class="slide s1">
+                          <img src="assets/imgs/praia1.jpg">
+                      </div>
+                      <div class="slide s2">
+                          <img src="assets/imgs/praia2.jpg">
+                      </div>
+                      <div class="slide s3">
+                          <img src="assets/imgs/praia3.jpg">
+                      </div>
+                      <div class="slide s4">
+                          <img src="assets/imgs/praia3.webp">
+                      </div>
+                      <div class="slide s5">
+                          <img src="assets/imgs/praia4.jpg">
+                      </div>
+
+                      <div class="navigation">
+                          <label class="bar" for="slide16"></label>
+                          <label class="bar" for="slide17"></label>
+                          <label class="bar" for="slide18"></label>
+                          <label class="bar" for="slide19"></label>
+                          <label class="bar" for="slide20"></label>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="corpo1">
+      <div class="container_corpo">
+          <div class="box_titulo">
+              <div class="corpo_titulo1"> Prainha </div>
+          </div>
+          <div class="corpo_txt">
+              <div class="txt_pt">
+                  Localizada as margens do Rio Paranapanema, a 16 km da cidade de Piraju, uma parte alagada do rio,
+                  por conta da usina elétrica , sendo muito frequentada no verão pela população local e regional,
+                  chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
+                  <div class="card_dados">
+                      <div class="nota">
+                          Nota:<span id="media1"></span>
+                      </div>
+                      <span id="qtdPessoas"></span> pessoas avaliaram esse local
+                      <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+                          <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
+                                  avaliações</a></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="corpo_img">
+
+                  <div class="slides">
+                      <input type="radio" name="slide" id="slide16" checked>
+                      <input type="radio" name="slide" id="slide17">
+                      <input type="radio" name="slide" id="slide18">
+                      <input type="radio" name="slide" id="slide19">
+                      <input type="radio" name="slide" id="slide20">
+
+
+                      <div class="slide s1">
+                          <img src="assets/imgs/praia1.jpg">
+                      </div>
+                      <div class="slide s2">
+                          <img src="assets/imgs/praia2.jpg">
+                      </div>
+                      <div class="slide s3">
+                          <img src="assets/imgs/praia3.jpg">
+                      </div>
+                      <div class="slide s4">
+                          <img src="assets/imgs/praia3.webp">
+                      </div>
+                      <div class="slide s5">
+                          <img src="assets/imgs/praia4.jpg">
+                      </div>
+
+                      <div class="navigation">
+                          <label class="bar" for="slide16"></label>
+                          <label class="bar" for="slide17"></label>
+                          <label class="bar" for="slide18"></label>
+                          <label class="bar" for="slide19"></label>
+                          <label class="bar" for="slide20"></label>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <br>
+  <hr><br>
+  <!-- mapa -->
+  <div class="corpo1">
+      <div class="box-mapa2">
+          <div id="map"></div>
+      </div>
+  </div>
+      <!-- mapa -->
 
 </body>
 
@@ -753,3 +772,21 @@
         .openPopup();
 </script>
 <!-- mapa -->
+<!-- alert nativo da pagina -->
+<script>
+  // Função para exibir a modal ao carregar a página
+  function exibirModal() {
+      document.getElementById('myModal').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+  }
+
+  // Função para fechar a modal
+  function fecharModal() {
+      document.getElementById('myModal').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+  }
+
+  // Atribua a função de exibir a modal ao evento onload do objeto window
+  window.onload = exibirModal;
+</script>
+<!-- alert nativo da pagina -->

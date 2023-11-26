@@ -30,10 +30,9 @@
     <link rel="stylesheet" href="./css/style_corpo.css">
     <link rel="stylesheet" href="./css/style_rodape.css">
 
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-    <!-- <link rel="icon" href="./assets/icon/favicon2.ico" /> -->
     <link rel="stylesheet" href="./css/style.css" />
 
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com" /> -->
@@ -96,7 +95,8 @@
             <div class="corpo_txt">
                 <div class="corpo_txt_center">
                     <center>
-                        Aqui você poderá ver de maneira geral todos os dados e estatísticas do nosso site, juntamente a avaliação de todos os Pontos Turísticos !
+                        Aqui você poderá ver de maneira geral todos os dados e estatísticas do nosso site, juntamente a
+                        avaliação de todos os Pontos Turísticos !
                     </center>
                 </div>
             </div>
@@ -107,12 +107,12 @@
         <div class="corpo_txt">
             <center>
                 <div class="chartfundo">
-                    <div class="corpo_titulo6"> Sobre o Público</div>
-
-                    <div class="corpo_txt_center">
-<!-- grafio -->
+                    <div class="corpo_titulo6"> Já visitou Piraju </div>
+                    <div class="grafico">
+                        <canvas id="myPieChart" width="200" height="200"></canvas>
                     </div>
 
+                    <!-- grafio -->
                 </div>
             </center>
         </div>
@@ -125,13 +125,15 @@
                 <div class="chartfundo">
                     <div class="corpo_titulo6"> Nota Geral</div>
 
-                    <div class="corpo_txt_center">
-<!-- grafico -->
+                    <div class="grafico">
+                        <canvas id="myBarChart" width="400" height="400"></canvas>
                     </div>
-
+                    <!-- grafico -->
                 </div>
-            </center>
+
         </div>
+        </center>
+    </div>
     </div>
     </div>
 
@@ -141,8 +143,10 @@
                 <div class="chartfundo">
                     <div class="corpo_titulo6">Comentários</div>
 
-                    <div class="corpo_txt_center">
-<!-- grafico -->
+                    <div class="grafico">
+                        <canvas id="myBarAvaliacao" width="400" height="400"></canvas>
+                    </div>
+                        <!-- grafico -->
                     </div>
 
                 </div>
@@ -180,17 +184,124 @@
     <div class="redes_sociais">
 
         <ul class="ul_rodape">
-          <li class="li_rodape"> <a href="https://outlook.office.com/mail/" target="https://outlook.office.com/mail/"><i
-                class='bx bx-envelope'></i></a>
-          <li class="li_rodape"><a href="https://www.instagram.com/gustavo__bueno__/"
-              target="https://www.instagram.com/gustavo__bueno__/"><i class='bx bxl-instagram' id="instagram"></i></a>
-          <li class="li_rodape"><a href="https://github.com/buenofonsecag/prejetooo"
-              target="https://github.com/buenofonsecag/prejetooo"><i class='bx bxl-github'></i></a>
-          <li class="li_rodape"><a href=" https://wa.me/5511933923464" target=" https://wa.me/5511933923464"><i
-                class='bx bxl-whatsapp'></i></a>
-          </li>
+            <li class="li_rodape"> <a href="https://outlook.office.com/mail/"
+                    target="https://outlook.office.com/mail/"><i class='bx bx-envelope'></i></a>
+            <li class="li_rodape"><a href="https://www.instagram.com/gustavo__bueno__/"
+                    target="https://www.instagram.com/gustavo__bueno__/"><i class='bx bxl-instagram'
+                        id="instagram"></i></a>
+            <li class="li_rodape"><a href="https://github.com/buenofonsecag/prejetooo"
+                    target="https://github.com/buenofonsecag/prejetooo"><i class='bx bxl-github'></i></a>
+            <li class="li_rodape"><a href=" https://wa.me/5511933923464" target=" https://wa.me/5511933923464"><i
+                        class='bx bxl-whatsapp'></i></a>
+            </li>
         </ul>
-      </div>
+    </div>
 </div>
 
 <!--footer fim-->
+<!-- grafico ja visitou Piraju -->
+<script>
+    // Dados para o gráfico
+    var data = {
+        labels: ["Sim", "Não"],
+        datasets: [{
+            data: [30, 70],
+            backgroundColor: ["#36A2EB", "#FFCE56"]
+        }]
+    };
+
+    // Configuração do gráfico
+    var options = {
+        title: {
+            display: true,
+        }
+    };
+
+    // Obtenha o contexto do canvas
+    var ctx = document.getElementById("myPieChart").getContext("2d");
+
+    // Crie o gráfico de pizza
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: options
+    });
+</script>
+<!-- grafico ja visitou Piraju -->
+
+<!-- grefico notas -->
+<script>
+    // Dados para o gráfico
+    var data = {
+        labels: ["1", "2", "3", "4", "5"],
+        datasets: [{
+            label: "Nota",
+            data: [1, 1, 0, 4, 10],
+            backgroundColor: ["#36A2EB", "#36A2EB", "#36A2EB", "#36A2EB", "#36A2EB"]
+        }]
+    };
+
+    // Configuração do gráfico
+    var options = {
+        title: {
+            display: true,
+            text: "Contagem de Votos por Nota"
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    };
+
+    // Obtenha o contexto do canvas
+    var ctx = document.getElementById("myBarChart").getContext("2d");
+
+    // Crie o gráfico de barras
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+</script>
+<!-- grefico notas -->
+
+<!-- grafico avaliacoes -->
+<script>
+    // Dados para o gráfico
+    var data = {
+        labels: ["Ruim", "Ok", "Bom", "Muito Bom", "Superou expectativas"],
+        datasets: [{
+            label: "Avaliações",
+            data: [0, 0, 1, 6, 9],
+            backgroundColor: ["#ff7f50", "#ff7f50", "#ff7f50", "#ff7f50", "#ff7f50"]
+        }]
+    };
+
+    // Configuração do gráfico
+    var options = {
+        title: {
+            display: true,
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    };
+
+    // Obtenha o contexto do canvas
+    var ctx = document.getElementById("myBarAvaliacao").getContext("2d");
+
+    // Crie o gráfico de barras
+    var myBarAvaliacao = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+</script>
+<!-- grafico avaliacoes -->

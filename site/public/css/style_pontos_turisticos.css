@@ -279,7 +279,7 @@ input {
 /* carrosel */
 
 .ver_ava {
-    color: yellow;
+    color: rgb(229, 255, 0);
     margin-right: 7px;
     font-size: 20px;
     /* background-color: rgb(54, 54, 54); */
@@ -366,8 +366,54 @@ input {
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     width: 1000px;
-    height: 400px;
+    height: 500px;
     border: solid 4px black;
+    align-items: center;
+    /* display: flex; */
     margin-bottom: 60px;
+
+}
+.grafico{
+width: 80%;
+height: 80%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    z-index: 1100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para o fundo escuro */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.botao_fechar{
+cursor: pointer;
+width: 90px;
+height: 25px;
+color: rgb(0, 0, 0);
+background-color: #ffffff;
+margin: 5px;
+/* padding: 5px; */
+
+}
+.botao_fechar:hover{
+    background-color: #ccc9c9;
 
 }
