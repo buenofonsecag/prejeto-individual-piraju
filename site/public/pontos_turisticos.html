@@ -40,7 +40,7 @@
   
       <li class="li_header_img"><a class="a_header" href="#"><img src="./assets/pirajulogo.PNG" width="130px"></a></li>
   
-      <li class="li_header"><a class="a_header" href="/prejetooo/site/public/index.html">SOBRE PIRAJU</a></li>
+      <li class="li_header"><a class="a_header" href="index.html">SOBRE PIRAJU</a></li>
   
       <li class="li_header"><a class="a_header" href="./pontos_turisticos.html">PONTOS TURÍSTICOS</a></li>
   
@@ -55,11 +55,11 @@
   </header>
 
 
-<div class="alerta_erro">
-    <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-    </div>
+<!-- alert erro -->
+<div class="card_erro" id="cardErro">
+  <span id="mensagem_erro"></span>
 </div>
+<!-- alert erro -->
 
 <!-- DIV QUE EXIBE O LOGIN  -->
 <div class="entrar_fundo">
@@ -159,6 +159,24 @@
   </div>
   
   <!-- cadstro fim  -->
+
+  <!-- alert cadastro realizado -->
+<div id="alert" class="custom-alert">
+  <img src="assets/gif.check.gif" alt="GIF">
+  <p>Cadastro realizado com sucesso !</p>
+</div>
+<!-- alert cadastro realizado -->
+
+<!-- alert Login realizado -->
+<div id="alert2" class="custom-alert">
+  <img src="assets/gif.check.gif" alt="GIF">
+  <p>Login realizado com sucesso <br>
+    ... redirecionando</p>
+</div>
+<!-- alert Login realizado -->
+
+<div id="div_erros_login"></div>
+
 
 <!-- corpo inicio -->
 
@@ -505,8 +523,8 @@
   
     <div class="navegacao">
       <p class="titulo_navegacao">Navegação</p>
-      <a class="a_navegacao" href="/prejetooo/site/public/index.html">SOBRE PIRAJU</a><br>
-      <a class="a_navegacao" href="/prejetooo/site/public/pontos_turisticos.html">PONTOS TURÍSTICOS</a><br>
+      <a class="a_navegacao" href="/index.html">SOBRE PIRAJU</a><br>
+      <a class="a_navegacao" href="/pontos_turisticos.html">PONTOS TURÍSTICOS</a><br>
       <a class="a_navegacao" href="#">HOSPEDAGEM</a><br>
       <!-- <a class="a_navegacao" href="#">EXPERIÊNCIAS</a><br> -->
       <a class="a_navegacao" onclick="entrar_entrar()">ENTRAR</a><br>
@@ -603,7 +621,7 @@
         })
         .catch(function (resposta) {
           console.log(`#ERRO: ${resposta}`);
-          finalizarAguardar();
+          // finalizarAguardar();
         });
   
       return false;

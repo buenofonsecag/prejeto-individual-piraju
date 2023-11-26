@@ -61,10 +61,7 @@ function aguardar2() {
     var alert = document.getElementById('alert2');
     alert.style.display = 'block';
     
-    
-    
-    // Fechar o alerta após 3 segundos
-    setTimeout(function () {
+        setTimeout(function () {
         closeAlert2();
         entrar_entrar();
     }, 1900);

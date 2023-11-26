@@ -42,7 +42,7 @@
 
     <li class="li_header"><a class="a_header" href="./pontos_turisticos.html">PONTOS TURÍSTICOS</a></li>
 
-    <li class="li_header"><a class="a_header" href="#">HOSPEDAGEM</a></li>
+    <li class="li_header"><a class="a_header" href="./PT_logado.html">HOSPEDAGEM</a></li>
 
     <!-- <li class="li_header"><a class="a_header" href="#"> EXPERIÊNCIAS</a></li> -->
 
@@ -62,40 +62,33 @@
 
 <!-- DIV QUE EXIBE O LOGIN  -->
 <div class="entrar_fundo">
-
   <div class="cadastrar_container" id="div_entrar_container">
-
-
-
     <div class="entrar_corpo">
-
       <div class="entrar_corpo_fundo">
-
         <div class="entrar_corpo_header">
           <div class="entrar_header">
             <div id="div_sair_container" class="sair_container" onclick="sair()">X</div>
           </div>
         </div>
         <div class="img-perfil"><i class='bx bxs-user-circle'></i></div>
-
         <div class="entrar_corpo_conteudo">
-
-          <div class="txt1_corpo">
-            Login<br>
-          </div>
-          <div class="box_email"><input type="email" placeholder="E-mail:" class="input_decoracao" type="text"
-              id="email_input2"></div>
-          <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao" id="senha_input2">
-          </div>
-          <div class="box_botao"><!-- <a href= "./Home_logado.html"> --><button class="botao_entrar" on
-              onclick="entrar()">Entrar</button></a></div>
+          <!-- <form onsubmit="criar_conta()" method="post"> -->
+            <div class="txt1_corpo">
+              Login<br>
+            </div>
+            <div class="box_email"><input type="text" placeholder="E-mail:" class="input_decoracao" type="text"
+                id="email_input2"></div>
+            <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao" id="senha_input2">
+            </div>
+            <div class="box_botao">
+              <button onclick="entrar()" class="botao_entrar">Entrar</button>
+            </div>
+          <!-- </form> -->
           <!-- <div class="txt1_corpo_esqueceu_senha">Esqueceu a senha? </div> -->
           <div class="box_ou">
             <div class="linha"></div>ou <div class="linha"></div>
           </div><br>
-
-          <div class="box_botao"><button class="botao_cadastrar" onclick="criar_conta()">Criar nova
-              conta</button></div>
+          <div class="box_botao"><button class="botao_cadastrar" onclick="criar_conta()">Criar nova conta</button></div>
         </div>
       </div>
     </div>
@@ -134,6 +127,7 @@
 
         <div class="titulo_cadastro">Cadastre-se</div>
         <div class="txt2_corpo">Preencha todos campos a seguir:</div>
+        <!-- <form onsubmit="cadastrar()" method="post" action="/usuarios/cadastrar"> -->
 
         <div class="box_email"><input placeholder="Nome:" class="input_decoracao2" type="text" id="nome_input">
         </div>
@@ -141,12 +135,12 @@
         <div class="box_email"><input placeholder="E-mail:" class="input_decoracao2" type="email" id="email_input">
         </div>
 
-        <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao2" id="senha_input">
+        <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao2" id="senha_input" >
         </div>
 
-        <div class="box_email"><input type="password" placeholder="Confirmar Senha:" class="input_decoracao2"
+        <div class="box_email"><input type="password" placeholder="Confirmar Senha:" class="input_decoracao2" autocomplete="nova senha"
             id="confirmacao_senha_input"></div><br>
-
+<!-- </form> -->
 
         <!-- <div class="txt3_corpo">Você já visitou Piraju?</div> -->
 
@@ -319,8 +313,8 @@
 
   <div class="navegacao">
     <p class="titulo_navegacao">Navegação</p>
-    <a class="a_navegacao" href="/prejetooo/site/public/index.html">SOBRE PIRAJU</a><br>
-    <a class="a_navegacao" href="/prejetooo/site/public/pontos_turisticos.html">PONTOS TURÍSTICOS</a><br>
+    <a class="a_navegacao" href="/index.html">SOBRE PIRAJU</a><br>
+    <a class="a_navegacao" href="/pontos_turisticos.html">PONTOS TURÍSTICOS</a><br>
     <a class="a_navegacao" href="#">HOSPEDAGEM</a><br>
     <!-- <a class="a_navegacao" href="#">EXPERIÊNCIAS</a><br> -->
     <a class="a_navegacao" onclick="entrar_entrar()">ENTRAR</a><br>
@@ -349,7 +343,7 @@
   </div>
 </div>
 
-<!--footer fim--> 
+<!--footer fim-->
 
 </html>
 
@@ -411,15 +405,15 @@
           }, "2000");
 
           aguardar();
-          limparFormulario();
-          finalizarAguardar();
+          // limparFormulario();
+          // finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        // finalizarAguardar();
       });
 
     return false;
@@ -452,6 +446,7 @@
 
 
   function entrar() {
+    console.log("Iniciando a função entrar()...")
     // aguardar();
 
     var emailVar2 = email_input2.value;
@@ -467,6 +462,8 @@
       return false;
     }
     else {
+      console.log("erro de alguma coisa")
+      aguardar2();
 
     }
 
@@ -487,6 +484,8 @@
 
       if (resposta.ok) {
         console.log(resposta);
+        console.log("erro de alguma coisa")
+
 
         resposta.json().then(json => {
           console.log(json);
@@ -513,6 +512,7 @@
       }
 
     }).catch(function (erro) {
+      console.log("Houve um erro na chamada fetch:", erro);x
       console.log(erro);
     })
 
