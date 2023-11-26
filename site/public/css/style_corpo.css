@@ -1,24 +1,36 @@
 
 .body{
-    background-color: #b5c6db;
+    background-color: #ccf0ff;
+    /* background-color: #b5c6db; */
     /* color: #b5c6db; */
+    color:  #000000;
+
 
 }
 
 .container_corpo {
     width: 100%;
     height: 100%;
+    margin-top: 100px;
 }
 .container_corpo2{
-    /* margin-top: 100px; */
     width: 100%;
-    height: 100%;
+    height: 300px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Opcional: mantém a imagem fixa enquanto a página rola */
+    margin: 0; /* Remove margens padrão do corpo */
+    padding: 0;
+    background-image: url(/prejetooo/site/public/assets/imgs/eupiraju.jpg);
+    margin-bottom: -70px;
 }
 .corpo1 {
     width: auto;
     /* height: 700px; */
     height: auto;
-    background-color: #b5c6db;
+    /* background-color: #b8d8ff; */
+    /* background-color: #b5c6db; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +38,9 @@
 .corpo2 {
     width: auto;
     height: auto;
-    background-color: #b5c6db;
+    /* background-color: #d4e7ff; */
+
+    /* background-color: #b5c6db; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,7 +64,17 @@
     margin-right: 80px;
     color: black;
 }
-
+.corpo_titulo5 {
+    margin-top: 130px;
+    /* margin-bottom: -40px; */
+    font-size: 50px;
+    color:  #161f27;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+    margin-left: 80px;
+    margin-right: 80px;
+    /* color: black; */
+}
 .corpo_txt {
     font-size: 25px;
     color: black;
@@ -66,14 +90,17 @@
 }
 
 .corpo_txt_center {
-    font-size: 25px;
-    color: black;
+    font-size: 28px;
+    color:  #161f27;
+
     display: flex;
     align-items: center;
     justify-content: center;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+
     margin-left: 40px;
     margin-right: 20px;
-    /* margin-bottom: 200px; */
+    margin-bottom: 210px;
 }
 
 
@@ -95,9 +122,6 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-body {
-    font-family: Arial, sans-serif;
-}
 .custom-alert {
     display: none;
     position: fixed;
@@ -140,4 +164,32 @@ body {
     font-size: larger;
     /* font-size: 20px; */
   }
-  
+  .corpo_txt_verde{
+    font-size: 25px;
+    display: flex;
+    margin-left: 40px;
+    margin-right: 20px;
+    align-items: center;
+    padding: 20px;
+    color: green;
+  }
+  .corpo_txt_azul{
+  font-size: 25px;
+    color:orangered;
+    display: flex;
+    margin-left: 40px;
+    margin-right: 20px;
+    align-items: center;
+    padding: 20px;
+    
+  }
+  .corpo_txt_azul2{
+  font-size: 25px;
+    color: rgb(52, 52, 255);
+    display: flex;
+    margin-left: 40px;
+    margin-right: 20px;
+    align-items: center;
+    padding: 20px;
+    
+  }
