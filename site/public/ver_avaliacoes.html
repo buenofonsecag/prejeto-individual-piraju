@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <style>
-    *{
+    * {
         top: 0;
     }
 </style>
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -56,7 +57,7 @@
 
         <li class="li_header2"><a class="a_header" href="PT_logado.html">PONTOS TURÍSTICOS</a></li>
 
-        <li class="li_header2"><a class="a_header" href="#">HOSPEDAGEM</a></li>
+        <li class="li_header2"><a class="a_header" href="ver_avaliacoes.html">ESTATÍSTICAS</a></li>
 
         <!-- <li class="li_header"><a class="a_header" href="#"> EXPERIÊNCIAS</a></li> -->
 
@@ -67,40 +68,91 @@
     </ul>
 </header>
 <!-- header -->
-<body class="body">
-    <div class="container_corpo">
-        <div class="box_titulo">
-            <div class="corpo_titulo1">Olá <span id="b_usuario">usuário</span>,
-                conheça os pontos turísticos e explore a beleza da nossa cidade !</div>
-        </div>
+
+<!-- div perfil -->
+<div class="box_perfil_menu">
+    <div class="perfil_menu" id="div_perfil_menu">
+        <ul>
+            <!-- <li class="li_perfil_icone"><a class="a_icone_perfil" href="#">Meu perfil</a></li><br> -->
+            <li class="li_perfil_icone"><a class="a_icone_perfil" href="./index.html">Sair <i
+                        class='bx bx-log-out'></i></a>
+            </li>
+        </ul>
     </div>
+</div>
+<!-- div perfil -->
 
+<!-- corpo  -->
 
+<body class="body">
     <div class="corpo1">
         <div class="container_corpo">
             <div class="box_titulo">
-                <div class="corpo_titulo1"> Ponte Engenheiro Nelson de Godoy Pereira</div>
-            </div>
-            <div class="corpo_txt">
-                <div class="txt_pt">
-                    Uma ponte suspensa que atravessa o Rio Paranapanema, proporcionando vistas panorâmicas e uma
-                    experiência
-                    única.
-                    <div class="card_dados">
-                        <div class="nota">
-                        Nota:<span id="media1"></span> 
-                        </div>
-                        <span id="qtdPessoas"></span>  pessoas avaliaram esse local
-                        <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
-                            <p class="ver_ava" ><i class='bx bxs-chat'></i><a href="ver_avaliacoes.html">Ver avaliações</a></p>
-                        </div>
+                <div class="corpo_titulo5">
+                    <div class="corpo_titulo5">Olá <span id="b_usuario">usuário</span>,
                     </div>
                 </div>
             </div>
-
+            <div class="corpo_txt">
+                <div class="corpo_txt_center">
+                    <center>
+                        Aqui você poderá ver de maneira geral todos os dados e estatísticas do nosso site, juntamente a avaliação de todos os Pontos Turísticos !
+                    </center>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="corpo1">
+        <div class="corpo_txt">
+            <center>
+                <div class="chartfundo">
+                    <div class="corpo_titulo6"> Sobre o Público</div>
+
+                    <div class="corpo_txt_center">
+<!-- grafio -->
+                    </div>
+
+                </div>
+            </center>
+        </div>
+    </div>
+    </div>
+
+    <div class="corpo1">
+        <div class="corpo_txt">
+            <center>
+                <div class="chartfundo">
+                    <div class="corpo_titulo6"> Nota Geral</div>
+
+                    <div class="corpo_txt_center">
+<!-- grafico -->
+                    </div>
+
+                </div>
+            </center>
+        </div>
+    </div>
+    </div>
+
+    <div class="corpo1">
+        <div class="corpo_txt">
+            <center>
+                <div class="chartfundo">
+                    <div class="corpo_titulo6">Comentários</div>
+
+                    <div class="corpo_txt_center">
+<!-- grafico -->
+                    </div>
+
+                </div>
+            </center>
+        </div>
+    </div>
+    </div>
 </body>
+<!-- corpo -->
+
 <!--footer inicio-->
 <div class="rodape">
 
@@ -110,34 +162,35 @@
 
     <div class="navegacao">
         <p class="titulo_navegacao">Navegação</p>
-        <a class="a_navegacao" href="#">SOBRE PIRAJU</a><br>
-        <a class="a_navegacao" href="#">PONTOS TURÍSTICOS</a><br>
-        <a class="a_navegacao" href="#">HOSPEDAGEM</a><br>
-        <a class="a_navegacao" href="#">EXPERIÊNCIAS</a><br>
-        <a class="a_navegacao" href="#">ENTRAR</a><br>
-        <a class="a_navegacao" href="#">CADASTRE-SE</a><br>
+        <a class="a_navegacao" href="Home_logado.html">SOBRE PIRAJU</a><br>
+        <a class="a_navegacao" href="PT_logado.html">PONTOS TURÍSTICOS</a><br>
+        <a class="a_navegacao" href="ver_avaliacoes.html">ESTATÍSTICAS</a><br>
+        <!-- <a class="a_navegacao" href="#">EXPERIÊNCIAS</a><br> -->
+        <!-- <a class="a_navegacao" href="#">ENTRAR</a><br> -->
+        <!-- <a class="a_navegacao" href="#">CADASTRE-SE</a><br> -->
+        <a class="a_navegacao" href="index.html">SAIR</a><br>
     </div>
 
 
     <div class="navegacao">
         <p class="titulo_navegacao">Todos os direitos reservados</p>
-        <p>Piratuor,2023</p>
+        <p>PiraTour,2023</p>
     </div>
 
     <div class="redes_sociais">
 
         <ul class="ul_rodape">
-            <li class="li_rodape"> <a href="https://outlook.office.com/mail/"
-                    target="https://outlook.office.com/mail/"><i class='bx bx-envelope'></i></a>
-            <li class="li_rodape"><a href="https://outlook.office.com/mail/"
-                    target="https://outlook.office.com/mail/"><i class='bx bxl-instagram' id="instagram"></i></a>
-            <li class="li_rodape"><a href="https://outlook.office.com/mail/"
-                    target="https://outlook.office.com/mail/"><i class='bx bxl-github'></i></a>
-            <li class="li_rodape"><a href="https://outlook.office.com/mail/"
-                    target="https://outlook.office.com/mail/"><i class='bx bxl-whatsapp'></i></a>
-            </li>
+          <li class="li_rodape"> <a href="https://outlook.office.com/mail/" target="https://outlook.office.com/mail/"><i
+                class='bx bx-envelope'></i></a>
+          <li class="li_rodape"><a href="https://www.instagram.com/gustavo__bueno__/"
+              target="https://www.instagram.com/gustavo__bueno__/"><i class='bx bxl-instagram' id="instagram"></i></a>
+          <li class="li_rodape"><a href="https://github.com/buenofonsecag/prejetooo"
+              target="https://github.com/buenofonsecag/prejetooo"><i class='bx bxl-github'></i></a>
+          <li class="li_rodape"><a href=" https://wa.me/5511933923464" target=" https://wa.me/5511933923464"><i
+                class='bx bxl-whatsapp'></i></a>
+          </li>
         </ul>
-    </div>
+      </div>
 </div>
 
 <!--footer fim-->

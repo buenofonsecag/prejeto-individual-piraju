@@ -52,7 +52,7 @@
 
         <li class="li_header2"><a class="a_header" href="PT_logado.html">PONTOS TURÍSTICOS</a></li>
 
-        <li class="li_header2"><a class="a_header" href="#">HOSPEDAGEM</a></li>
+        <li class="li_header2"><a class="a_header" href="ver_avaliacoes.html">ESTATÍSTICAS</a></li>
 
         <!-- <li class="li_header"><a class="a_header" href="#"> EXPERIÊNCIAS</a></li> -->
 
@@ -115,11 +115,24 @@
                             </option>
                         </select>
                     </div>
-                    <div class="txt_relato">Comentário:</div>
-                    <div class="box_email"><textarea maxlength="250" rows="5"
+
+                    <div class="txt1_corpo">Sobre o Ponto Turístico:</div>
+                    <div class="select_option">
+                        <select id="descricao">
+                            <option value="1">Ruim
+                            <option value="2">Ok
+                            <option value="2">Bom
+                            <option value="3">Muito bom
+                            <option value="4">Superou expectativas
+                            
+                            </option>
+                        </select>
+                    </div>
+                    <!-- <div class="box_email"><textarea maxlength="250" rows="5"
                             placeholder="Insira aqui seu comentário(até 250 caracteres)" class="input_decoracao3"
-                            id="descricao" type="text"></textarea></div>
-                    <div class="txt1_corpo">De uma nota de 1 a 5 estrelas</div>
+                            id="descricao" type="text"></textarea></div> -->
+
+                    <div class="txt1_corpo">De uma nota para a sua experiência de 1 a 5 estrelas</div>
                     <div class="txt1_corpo">
                         <div id="starRating" class="rating">
                             <span class="star" onclick="rate(1)"><i id="id_estrelas1" class='bx bxs-star'
@@ -174,7 +187,7 @@
                         </div>
                         <span id="qtdPessoas"></span> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
-                            <p class="ver_ava"><i class='bx bxs-chat'></i><a href="ver_avaliacoes.html">Ver
+                            <p class="ver_ava"><i class='bx bx-bar-chart'></i></i><a href="ver_avaliacoes.html">Ver
                                     avaliações</a></p>
                         </div>
                     </div>
@@ -235,7 +248,7 @@
                         </div>
                         10 pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
-                            <p class="ver_ava"> <i class='bx bxs-chat'></i> Ver avaliações</p>
+                            <p class="ver_ava"> <i class='bx bx-bar-chart'></i></i> Ver avaliações</p>
                         </div>
                     </div>
                 </div>
@@ -299,7 +312,7 @@
                         </div>
                         10 pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar2()" class="avaliar">Avaliar</button>
-                            <p class="ver_ava"> <i class='bx bxs-chat'></i> Ver avaliações</p>
+                            <p class="ver_ava"> <i class='bx bx-bar-chart'></i></i> Ver avaliações</p>
                         </div>
                     </div>
                 </div>
@@ -360,7 +373,7 @@
                         </div>
                         10 pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
-                            <p class="ver_ava"> <i class='bx bxs-chat'></i> Ver avaliações</p>
+                            <p class="ver_ava"> <i class='bx bx-bar-chart'></i></i> Ver avaliações</p>
                         </div>
                     </div>
                 </div>
@@ -419,7 +432,7 @@
                         </div>
                         10 pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
-                            <p class="ver_ava"> <i class='bx bxs-chat'></i> Ver avaliações</p>
+                            <p class="ver_ava"> <i class='bx bx-bar-chart'></i></i> Ver avaliações</p>
                         </div>
                     </div>
                 </div>
@@ -478,7 +491,7 @@
 
 <!-- corpo fim -->
 
-<!--footer inicio-->
+   <!--footer inicio-->
 <div class="rodape">
 
     <div class="navegacao_img">
@@ -487,34 +500,38 @@
 
     <div class="navegacao">
         <p class="titulo_navegacao">Navegação</p>
-        <a class="a_navegacao" href="#">SOBRE PIRAJU</a><br>
-        <a class="a_navegacao" href="#">PONTOS TURÍSTICOS</a><br>
-        <a class="a_navegacao" href="#">HOSPEDAGEM</a><br>
-        <a class="a_navegacao" href="#">EXPERIÊNCIAS</a><br>
-        <a class="a_navegacao" href="#">ENTRAR</a><br>
-        <a class="a_navegacao" href="#">CADASTRE-SE</a><br>
+        <a class="a_navegacao" href="Home_logado.html">SOBRE PIRAJU</a><br>
+        <a class="a_navegacao" href="PT_logado.html">PONTOS TURÍSTICOS</a><br>
+        <a class="a_navegacao" href="ver_avaliacoes.html">ESTATÍSTICAS</a><br>
+        <!-- <a class="a_navegacao" href="#">EXPERIÊNCIAS</a><br> -->
+        <!-- <a class="a_navegacao" href="#">ENTRAR</a><br> -->
+        <!-- <a class="a_navegacao" href="#">CADASTRE-SE</a><br> -->
+        <a class="a_navegacao" href="index.html">SAIR</a><br>
     </div>
 
 
     <div class="navegacao">
         <p class="titulo_navegacao">Todos os direitos reservados</p>
-        <p>Piratuor,2023</p>
+        <p>PiraTour,2023</p>
     </div>
 
     <div class="redes_sociais">
 
         <ul class="ul_rodape">
-            <li class="li_rodape"> <a href="https://outlook.office.com/mail/"
-                    target="https://outlook.office.com/mail/"><i class='bx bx-envelope'></i></a>
-            <li class="li_rodape"><a href="https://outlook.office.com/mail/"
-                    target="https://outlook.office.com/mail/"><i class='bx bxl-instagram' id="instagram"></i></a>
-            <li class="li_rodape"><a href="https://outlook.office.com/mail/"
-                    target="https://outlook.office.com/mail/"><i class='bx bxl-github'></i></a>
-            <li class="li_rodape"><a href="https://outlook.office.com/mail/"
-                    target="https://outlook.office.com/mail/"><i class='bx bxl-whatsapp'></i></a>
-            </li>
+          <li class="li_rodape"> <a href="https://outlook.office.com/mail/" target="https://outlook.office.com/mail/"><i
+                class='bx bx-envelope'></i></a>
+          <li class="li_rodape"><a href="https://www.instagram.com/gustavo__bueno__/"
+              target="https://www.instagram.com/gustavo__bueno__/"><i class='bx bxl-instagram' id="instagram"></i></a>
+          <li class="li_rodape"><a href="https://github.com/buenofonsecag/prejetooo"
+              target="https://github.com/buenofonsecag/prejetooo"><i class='bx bxl-github'></i></a>
+          <li class="li_rodape"><a href=" https://wa.me/5511933923464" target=" https://wa.me/5511933923464"><i
+                class='bx bxl-whatsapp'></i></a>
+          </li>
         </ul>
-    </div>
+      </div>
+</div>
+
+<!--footer fim-->
 </div>
 
 <!--footer fim-->
@@ -548,6 +565,8 @@
     }
 
 </script>
+<!-- chartjs -->
+
 <!-- fazer avaliação script -->
 <script>
     var selectedStars = 0;
@@ -730,7 +749,7 @@
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         {
-            attribution: '© PiraTuor'
+            attribution: '© PiraTour'
         }).addTo(map);
 
     L.marker([-23.188578, -49.384816]).addTo(map)
