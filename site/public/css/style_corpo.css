@@ -22,7 +22,7 @@
     background-attachment: fixed; /* Opcional: mantém a imagem fixa enquanto a página rola */
     margin: 0; /* Remove margens padrão do corpo */
     padding: 0;
-    background-image: url(/prejetooo/site/public/assets/imgs/eupiraju.jpg);
+    background-image: url("../assets/imgs/eupiraju.jpg");
     margin-bottom: -70px;
 }
 .corpo1 {
