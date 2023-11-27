@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Pira-Guia | Pontos Turísticos</title>
+    <title>PiraTour |  Estatísticas</title>
 
     <script src="./js/sessao.js"></script>
     <script src="js/scriptLogin.js"></script>
@@ -23,6 +23,7 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <!-- mapa -->
 
+    <link rel="icon" href="./assets/pirajulogo.PNG" />
     <link rel="stylesheet" href="./css/style_header.css">
     <link rel="stylesheet" href="./css/style_logado.css">
     <link rel="stylesheet" href="./css/Style_entrar-cadastrar.css">
@@ -88,7 +89,7 @@
         <div class="container_corpo">
             <div class="box_titulo">
                 <div class="corpo_titulo5">
-                    <div class="corpo_titulo5">Olá <span id="b_usuario">usuário</span>,
+                    <div class="corpo_titulo5">Olá <B><span id="b_usuario"></B></span>,
                     </div>
                 </div>
             </div>
@@ -146,12 +147,12 @@
                     <div class="grafico">
                         <canvas id="myBarAvaliacao" width="400" height="400"></canvas>
                     </div>
-                        <!-- grafico -->
-                    </div>
-
+                    <!-- grafico -->
                 </div>
-            </center>
+
         </div>
+        </center>
+    </div>
     </div>
     </div>
 </body>
@@ -201,6 +202,7 @@
 <!--footer fim-->
 <!-- grafico ja visitou Piraju -->
 <script>
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     // Dados para o gráfico
     var data = {
         labels: ["Sim", "Não"],
@@ -231,30 +233,46 @@
 
 <!-- grefico notas -->
 <script>
-    // Dados para o gráfico
-    var data = {
-        labels: ["1", "2", "3", "4", "5"],
-        datasets: [{
-            label: "Nota",
-            data: [1, 1, 0, 4, 10],
-            backgroundColor: ["#36A2EB", "#36A2EB", "#36A2EB", "#36A2EB", "#36A2EB"]
-        }]
-    };
+    window.onload = function(){
 
-    // Configuração do gráfico
-    var options = {
-        title: {
-            display: true,
-            text: "Contagem de Votos por Nota"
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
+        fetch(`/estatisticas/buscar/${nota}, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            })
+         .then(function (resposta) {
+console.log("dados recebidos: ", JSON.stringify(resposta));
+resposta.json().then(json) => {
+    .innerHTML = json[0].nota
+}
+}
+    function grafico_nota() {
+        // Dados para o gráfico
+        var data = {
+            labels: ["1", "2", "3", "4", "5"],
+            datasets: [{
+                label: "Nota",
+                data: [1, 1, 0, 4, 10],
+                backgroundColor: ["#36A2EB", "#36A2EB", "#36A2EB", "#36A2EB", "#36A2EB"]
             }]
-        }
-    };
+        };
+
+        // Configuração do gráfico
+        var options = {
+            title: {
+                display: true,
+                text: "Contagem de Votos por Nota"
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+    }
 
     // Obtenha o contexto do canvas
     var ctx = document.getElementById("myBarChart").getContext("2d");
