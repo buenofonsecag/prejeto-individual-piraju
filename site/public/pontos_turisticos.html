@@ -639,22 +639,7 @@
   
       return false;
     }
-  
-    // function listar() {
-    //   fetch("/empresas/listar", {
-    //     method: "GET",
-    //   })
-    //     .then(function (resposta) {
-    //       resposta.json().then((empresas) => {
-    //         empresas.forEach((empresa) => {
-    //           listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-    //         });
-    //       });
-    //     })
-    //     .catch(function (resposta) {
-    //       console.log(`#ERRO: ${resposta}`);
-    //     });
-    // }
+
   
     function sumirMensagem() {
       cardErro.style.display = "none";
@@ -740,30 +725,31 @@
   
   </script>
   <!-- Login -->
-  <!-- mapa -->
+ <!-- mapa -->
 <script>
-    var map = L.map('map').setView([-23.1938, -49.3844], 15);
+  var map = L.map('map').setView([-23.1938, -49.3844], 15);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        {
-            attribution: '© PiraTour'
-        }).addTo(map);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      {
+          attribution: '© PiraTour'
+      }).addTo(map);
+  L.marker([-23.182872629006788, -49.38650903191002]).addTo(map)
+      .bindPopup('Tirolesa das Corredeiras')
+      .openPopup();
 
-    L.marker([-23.188578, -49.384816]).addTo(map)
-        .bindPopup('Ponte Engenheiro Nelson de Godoy')
-        .openPopup();
+  L.marker([-23.222508563994086, -49.24317799142994]).addTo(map)
+      .bindPopup('Prainha')
+      .openPopup();
 
-    L.marker([-23.194497888020386, -49.38429869818963]).addTo(map)
-        .bindPopup('Igreja Matriz')
-        .openPopup();
+      L.marker([-23.188578, -49.384816]).addTo(map)
+      .bindPopup('Ponte Engenheiro Nelson de Godoy')
+      .openPopup();
 
-    L.marker([-23.182872629006788, -49.38650903191002]).addTo(map)
-        .bindPopup('Tirolesa das Corredeiras')
-        .openPopup();
 
-    L.marker([-23.222508563994086, -49.24317799142994]).addTo(map)
-        .bindPopup('Prainha')
-        .openPopup();
+      
+      L.marker([-23.194497888020386, -49.38429869818963]).addTo(map)
+      .bindPopup('Igreja Matriz')
+      .openPopup();
 </script>
 <!-- mapa -->
 <!-- alert nativo da pagina -->

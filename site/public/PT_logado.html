@@ -110,9 +110,9 @@
                             <option value="1">Ponte Engenheiro Nelson de Godoy Pereira
                             <option value="2">Igreja Matriz
                             <option value="3">Tirolesa das Corredeiras
-                            <option value="4">Cachoeira do Arco Iris
-                            <option value="5">Mirante do Cristo Redentor
-                            <option value="6">Parque do Rio Paranapanema
+                            <option value="4">Iate Clube Piraju
+                            <option value="5">Prainha
+                                <!-- <option value="6">Parque do Rio Paranapanema -->
                             </option>
                         </select>
                     </div>
@@ -183,7 +183,7 @@
                     experiência
                     única.
                     <div class="card_dados">
-                        <div class="nota">
+                        <div class="nota" id="nota_um">
                             Nota:<span id="media_um"></span>
                         </div>
                         <span id="qtdPessoas"></span> pessoas avaliaram esse local
@@ -244,7 +244,7 @@
                     Detalhes arquitetônicos, obras de arte sacra e a atmosfera espiritual fazem dela um local de
                     interesse cultural.
                     <div class="card_dados">
-                        <div class="nota">
+                        <div class="nota" id="nota_dois">
                             Nota:<span id="media_dois"></span>
                         </div>
                         <span id="qtdPessoas"></span> pessoas avaliaram esse local
@@ -306,11 +306,10 @@
                     <br>
                     Os cabos da Tirolesa percorrem um total de aproximadamente 500m, com altura de oitenta e um metros
                     acima do rio .
-                    <!-- Horário de funcionamento: <br>
-                    6as feiras das 16h às 22h – Sábados das 14h às 22h e aos Domingos das 10h às 18h -->
                     <div class="card_dados">
-                        <div class="nota">
-                            Nota:<span id="media_tres"></span>
+                        <div class="nota" id="nota_tres">
+                            Nota:
+                            <span id="media_tres"></span>
                         </div>
                         <span id="qtdPessoas"></span> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
@@ -371,7 +370,7 @@
                     por conta da usina elétrica , sendo muito frequentada no verão pela população local e regional,
                     chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
                     <div class="card_dados">
-                        <div class="nota">
+                        <div class="nota" id="nota_quatro">
                             Nota:<span id="media_quatro"></span>
                         </div>
                         <span id="qtdPessoas"></span> pessoas avaliaram esse local
@@ -431,7 +430,7 @@
                     por conta da usina elétrica , sendo muito frequentada no verão pela população local e regional,
                     chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
                     <div class="card_dados">
-                        <div class="nota">
+                        <div class="nota" id="nota_cinco">
                             Nota:<span id="media_cinco"></span>
                         </div>
                         <span id="qtdPessoas"></span> pessoas avaliaram esse local
@@ -575,7 +574,7 @@
 <!-- fazer avaliação script -->
 <script>
 
-    window.onload = mediaPontoUm(), mediaPontoDois();
+    window.onload = mediaPontoUm(), mediaPontoDois(), mediaPontoTres(), mediaPontoQuatro(), mediaPontoCinco();
 
     var selectedStars = 0;
 
@@ -596,7 +595,6 @@
         const ratingPercentage = Number(selectedStars);
         document.getElementById('ratingPercentage').innerText = `Nota: ${ratingPercentage.toFixed(1)} `;
     }
-
 
 
     // <!-- fazer avaliação script -->
@@ -622,8 +620,19 @@
             if (resposta.ok) {
                 // console.log("Foi a media do ponto 1", resposta);
                 resposta.json().then((json) => {
-                    console.log("AQUI ESTA A MEDIA",json);
-                    media_um.innerHTML = (json[0].media).toFixed(1);
+                    console.log("AQUI ESTA A MEDIA", json);
+                    var media = (json[0].media);
+                    var media10 = media * 2;
+                    media_um.innerHTML = `${media10.toFixed(1)}`
+
+                    if (media10 <= 5) {
+                        nota_um.style.backgroundColor = 'red'
+                    } else if (media10 < 8) {
+                        nota_um.style.backgroundColor = 'yellow'
+                    } else {
+                        nota_um.style.backgroundColor = 'green'
+                    }
+
                 });
 
 
@@ -649,8 +658,55 @@
             if (resposta.ok) {
                 // console.log("Foi a media do ponto 1", resposta);
                 resposta.json().then((json) => {
-                    console.log("AQUI ESTA A MEDIA",json);
-                    media_dois.innerHTML = (json[0].media).toFixed(1);
+                    console.log("AQUI ESTA A MEDIA", json);
+                    var media = (json[0].media);
+                    var media10 = media * 2;
+                    media_dois.innerHTML = `${media10.toFixed(1)}`
+
+                    if (media10 <= 5) {
+                        nota_dois.style.backgroundColor = 'red'
+                    } else if (media10 < 8) {
+                        nota_dois.style.backgroundColor = 'yellow'
+                    } else {
+                        nota_dois.style.backgroundColor = 'green'
+                    }
+
+                });
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+    function mediaPontoTres() {
+        fetch(`/avisos/listar/3`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify()
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // console.log("Foi a media do ponto 1", resposta);
+                resposta.json().then((json) => {
+                    console.log("AQUI ESTA A MEDIA", json);
+                    var media = (json[0].media);
+                    var media10 = media * 2;
+                    media_tres.innerHTML = `${media10.toFixed(1)}`
+
+                    if (media10 <= 5) {
+                        nota_tres.style.backgroundColor = 'red'
+                    } else if (media10 < 8) {
+                        nota_tres.style.backgroundColor = 'yellow'
+                    } else {
+                        nota_tres.style.backgroundColor = 'green'
+                    }
                 });
 
 
@@ -660,6 +716,78 @@
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
             // finalizarAguardar();
+        });
+    }
+    function mediaPontoQuatro() {
+
+        fetch(`/avisos/listar/4`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify()
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                resposta.json().then((json) => {
+                    console.log("AQUI ESTA A MEDIA", json);
+                    var media = (json[0].media);
+                    var media10 = media * 2;
+                    media_quatro.innerHTML = `${media10.toFixed(1)}`
+
+                    if (media10 <= 5) {
+                        nota_quatro.style.backgroundColor = 'red'
+                    } else if (media10 < 8) {
+                        nota_quatro.style.backgroundColor = 'yellow'
+                    } else {
+                        nota_quatro.style.backgroundColor = 'green'
+                    }
+                });
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+    function mediaPontoCinco() {
+
+        fetch(`/avisos/listar/5`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify()
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                resposta.json().then((json) => {
+                    console.log("AQUI ESTA A MEDIA", json);
+                    var media = (json[0].media);
+                    var media10 = media * 2;
+                    media_cinco.innerHTML = `${media10.toFixed(1)}`
+
+                    if (media10 <= 5) {
+                        nota_cinco.style.backgroundColor = 'red'
+                    } else if (media10 < 8) {
+                        nota_cinco.style.backgroundColor = 'yellow'
+                    } else {
+                        nota_cinco.style.backgroundColor = 'green'
+                    }
+                });
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
         });
     }
 
@@ -702,109 +830,6 @@
 
     }
 
-    // function editar(idAviso) {
-    //     sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-    //     console.log("cliquei em editar - " + idAviso);
-    //     window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-    //     window.location = "/dashboard/edicao-aviso.html"
-
-    // }
-
-    // function deletar(idAviso) {
-    //     console.log("Criar função de apagar post escolhido - ID" + idAviso);
-    //     fetch(`/avisos/deletar/${idAviso}`, {
-    //         method: "DELETE",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     }).then(function (resposta) {
-
-    //         if (resposta.ok) {
-    //             window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-    //             window.location = "/dashboard/mural.html"
-    //         } else if (resposta.status == 404) {
-    //             window.alert("Deu 404!");
-    //         } else {
-    //             throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-    //         }
-    //     }).catch(function (resposta) {
-    //         console.log(`#ERRO: ${resposta}`);
-    //     });
-    // }
-
-    // function atualizarFeed() {
-    //     fetch("/avisos/listar").then(function (resposta) {
-    //         if (resposta.ok) {
-    //             if (resposta.status == 204) {
-    //                 var feed = document.getElementById("feed_container");
-    //                 var mensagem = document.createElement("span");
-    //                 mensagem.innerHTML = "Nenhum resultado encontrado."
-    //                 feed.appendChild(mensagem);
-    //                 throw "Nenhum resultado encontrado!!";
-    //             }
-
-    //             resposta.json().then(function (resposta) {
-    //                 console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-    //                 var feed = document.getElementById("feed_container");
-    //                 feed.innerHTML = "";
-    //                 for (let i = 0; i < resposta.length; i++) {
-    //                     var publicacao = resposta[i];
-
-    //                     // criando e manipulando elementos do HTML via JavaScript
-    //                     var divPublicacao = document.createElement("div");
-    //                     var spanID = document.createElement("span");
-    //                     var spanTitulo = document.createElement("span");
-    //                     var spanNome = document.createElement("span");
-    //                     var divDescricao = document.createElement("div");
-    //                     var divButtons = document.createElement("div");
-    //                     var btnEditar = document.createElement("button");
-    //                     var btnDeletar = document.createElement("button");
-
-
-    //                     spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-    //                     spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-    //                     spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-    //                     divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-    //                     btnEditar.innerHTML = "Editar";
-    //                     btnDeletar.innerHTML = "Deletar";
-
-    //                     divPublicacao.className = "publicacao";
-    //                     spanTitulo.id = "inputNumero" + publicacao.idAviso;
-    //                     spanNome.className = "publicacao-nome";
-    //                     spanTitulo.className = "publicacao-titulo";
-    //                     divDescricao.className = "publicacao-descricao";
-
-    //                     divButtons.className = "div-buttons"
-
-    //                     btnEditar.className = "publicacao-btn-editar"
-    //                     btnEditar.id = "btnEditar" + publicacao.idAviso;
-    //                     btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
-
-    //                     btnDeletar.className = "publicacao-btn-editar"
-    //                     btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-    //                     btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-
-    //                     divPublicacao.appendChild(spanID);
-    //                     divPublicacao.appendChild(spanNome);
-    //                     divPublicacao.appendChild(spanTitulo);
-    //                     divPublicacao.appendChild(divDescricao);
-    //                     divPublicacao.appendChild(divButtons);
-    //                     divButtons.appendChild(btnEditar);
-    //                     divButtons.appendChild(btnDeletar);
-    //                     feed.appendChild(divPublicacao);
-    //                 }
-
-    //                 finalizarAguardar();
-    //             });
-    //         } else {
-    //             throw ('Houve um erro na API!');
-    //         }
-    //     }).catch(function (resposta) {
-    //         console.error(resposta);
-    //         finalizarAguardar();
-    //     });
-    // }
 </script>
 <!-- mapa -->
 <script>
@@ -814,21 +839,22 @@
         {
             attribution: '© PiraTour'
         }).addTo(map);
-
-    L.marker([-23.188578, -49.384816]).addTo(map)
-        .bindPopup('Ponte Engenheiro Nelson de Godoy')
-        .openPopup();
-
-    L.marker([-23.194497888020386, -49.38429869818963]).addTo(map)
-        .bindPopup('Igreja Matriz')
-        .openPopup();
-
     L.marker([-23.182872629006788, -49.38650903191002]).addTo(map)
         .bindPopup('Tirolesa das Corredeiras')
         .openPopup();
 
     L.marker([-23.222508563994086, -49.24317799142994]).addTo(map)
         .bindPopup('Prainha')
+        .openPopup();
+
+        L.marker([-23.188578, -49.384816]).addTo(map)
+        .bindPopup('Ponte Engenheiro Nelson de Godoy')
+        .openPopup();
+
+
+        
+        L.marker([-23.194497888020386, -49.38429869818963]).addTo(map)
+        .bindPopup('Igreja Matriz')
         .openPopup();
 </script>
 <!-- mapa -->
