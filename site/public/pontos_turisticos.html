@@ -586,12 +586,11 @@
         confirmacaoSenhaVar == ""
       ) {
         cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        mensagem_erro.innerHTML = "(Mensagem de erro algum campo em branco)";
   
         setTimeout(() => {
           cardErro.style.display = "none";
         }, "2000");
-  
         // finalizarAguardar();
         return false;
       } else {

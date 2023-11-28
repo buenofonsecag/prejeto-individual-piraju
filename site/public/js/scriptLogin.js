@@ -39,16 +39,19 @@ function criar_conta() {
     abrirCadastrar.style.display = `block`;
 }
 
-function aguardar() {
+function aguardar() { 
     var alert = document.getElementById('alert');
     alert.style.display = 'block';
     
-    // Fechar o alerta após 3 segundos
+    // fundopretoON();
+
     setTimeout(function () {
+        // fundopretoOFF();
         closeAlert();
         entrar_entrar();
     }, 1900);
 }
+
 function closeAlert() {
     var customAlert = document.getElementById('alert');
     customAlert.style.display = 'none';
@@ -61,7 +64,10 @@ function aguardar2() {
     var alert = document.getElementById('alert2');
     alert.style.display = 'block';
     
+    // fundopretoON();
+
         setTimeout(function () {
+        // fundopretoOFF();
         closeAlert2();
         entrar_entrar();
     }, 1900);
@@ -70,3 +76,10 @@ function closeAlert2() {
     var customAlert = document.getElementById('alert2');
     customAlert.style.display = 'none';
 }
+// function fundopretoON(){
+//     document.getElementById('overlay').style.display = 'block';
+// }
+// function fundopretoOFF(){
+//     document.getElementById('overlay').style.display = 'none';
+// }
+

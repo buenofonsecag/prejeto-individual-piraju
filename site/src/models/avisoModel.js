@@ -1,10 +1,10 @@
 var database = require("../database/config");
 
-function listar() {
+function listar(fkPontoTuristico) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
         SELECT 
-         avg(nota) from aviso where fk_turistico= 1;
+         avg(nota) as media from aviso where fk_turistico=${fkPontoTuristico};
 
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);

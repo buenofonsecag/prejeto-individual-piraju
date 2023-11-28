@@ -143,9 +143,9 @@
 
         <div class="txt3_corpo">Você já visitou Piraju?</div>
         <div class="box_radio">
-          <div class="box_email">Sim <input placeholder="Nome:" class="radio" type="radio" name="visitou" id="nao" value="Sim">
+          <div class="box_email">Sim <input class="radio" type="radio" name="visitou" id="nao" value="Sim">
           </div>
-          <div class="box_email">Não<input placeholder="Nome:" class="radio" type="radio" name="visitou" id="sim" value="Nao">
+          <div class="box_email">Não<input class="radio" type="radio" name="visitou" id="sim" value="Nao">
           </div>
         </div><br>
         <div class="box_botao"><button class="botao_cadastrar" onclick="cadastrar()">Cadastrar</button></div>
@@ -162,15 +162,11 @@
   <!-- <p class="txt2_corpo">Já possui conta?Entrar</p> -->
 
 </div>
-
-
 <!-- cadstro fim  -->
 
 <div id="div_erros_login"></div>
 
-
 <!-- corpo inicio -->
-
 <body class="body">
 
   <div class="container_corpo">
@@ -299,7 +295,6 @@
   </div>
 
 </body>
-
 <!-- corpo fim -->
 
 <!--footer inicio-->
@@ -340,20 +335,24 @@
     </ul>
   </div>
 </div>
-
 <!--footer fim-->
 
 </html>
 
 <!-- cadastro -->
 <script>
-  function cadastrar() {
-    //Recupere o valor da nova input pelo nome do id
+  function cadastrar() {  
+    // cadastrar2();
+  //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var valorSelecionado = document.querySelector('.box_email input[type="radio"]:checked');
+    var opcaoVar = valorSelecionado.value;
+
+    // var idusuarioVar = sessionStorage.ID_USUARIO;
     // var empresaVar = listaEmpresas.value
     if (
       nomeVar == "" ||
@@ -362,7 +361,7 @@
       confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      mensagem_erro.innerHTML = "(Mensagem de erro para algum  dos campos em branco)";
 
       setTimeout(() => {
         cardErro.style.display = "none";
@@ -384,8 +383,9 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar
-        // empresaServer: empresaVar
+        senhaServer: senhaVar,
+        opcaoServer: opcaoVar
+        
       }),
     })
       .then(function (resposta) {
@@ -416,29 +416,81 @@
 
     return false;
   }
-
-  // function listar() {
-  //   fetch("/empresas/listar", {
-  //     method: "GET",
-  //   })
-  //     .then(function (resposta) {
-  //       resposta.json().then((empresas) => {
-  //         empresas.forEach((empresa) => {
-  //           listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-  //         });
-  //       });
-  //     })
-  //     .catch(function (resposta) {
-  //       console.log(`#ERRO: ${resposta}`);
-  //     });
-  // }
-
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
 </script>
 <!-- cadastro -->
+<!-- cadastro -->
+<script>
+  function cadastrar2() {  
+  //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
 
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var valorSelecionado = document.querySelector('.box_email input[type="radio"]:checked');
+    var opcaoVar = valorSelecionado.value;
+    
+        // var idusuarioVar = sessionStorage.ID_USUARIO.value;
+    // var empresaVar = listaEmpresas.value
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      opcaoVar == "" ||
+      confirmacaoSenhaVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(Mensagem de erro para algum dos campos em branco)";
+
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, "2000");
+
+      return false;
+    } else {
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar2", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        opcaoServer: opcaoVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          sair();
+          setTimeout(() => {
+            entrar_entrar();
+          }, "2000");
+
+          aguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>
+<!-- cadastro -->
 <!-- login -->
 <script>
 
@@ -452,7 +504,7 @@
 
     if (emailVar2 == "" || senhaVar2 == "") {
       cardErro.style.display = "block"
-      mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      mensagem_erro.innerHTML = "Alerta de erro (Preencha todos os campos)";
       setTimeout(() => {
         cardErro.style.display = "none";
       }, "2000");
@@ -482,7 +534,7 @@
 
       if (resposta.ok) {
         console.log(resposta);
-        console.log("erro de alguma coisa")
+        // console.log("erro de alguma coisa")
 
 
         resposta.json().then(json => {
@@ -500,7 +552,6 @@
         });
         aguardar2();
       } else {
-
         console.log("Houve um erro ao tentar realizar o login!");
 
         resposta.text().then(texto => {

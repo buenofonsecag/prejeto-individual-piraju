@@ -1,9 +1,18 @@
 var avisoModel = require("../models/avisoModel");
 
 function listar(req, res) {
-    avisoModel.listar().then(function (resultado) {
+    var fkPontoTuristico = req.params.fkPontoTuristico;
+
+    if (fkPontoTuristico == undefined) {
+        res.status(400).send('fkPonto está undefined!');
+    }
+
+    avisoModel.listar(fkPontoTuristico).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
+            res.json({
+                media: resultado[0].media
+            });
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
         }

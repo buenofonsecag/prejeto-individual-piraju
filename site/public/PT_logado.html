@@ -125,7 +125,7 @@
                             <option value="Bom">Bom
                             <option value="Muito Bom">Muito bom
                             <option value="Superou as Expectatívas">Superou as Expectativas
-                            
+
                             </option>
                         </select>
                     </div>
@@ -160,6 +160,7 @@
 <!-- box avalie ponto turistico -->
 
 <!-- corpo inicio -->
+
 <body class="body">
 
 
@@ -183,7 +184,7 @@
                     única.
                     <div class="card_dados">
                         <div class="nota">
-                            Nota:<span id="media1"></span>
+                            Nota:<span id="media_um"></span>
                         </div>
                         <span id="qtdPessoas"></span> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
@@ -244,7 +245,7 @@
                     interesse cultural.
                     <div class="card_dados">
                         <div class="nota">
-                            Nota:<span id="media1"></span>
+                            Nota:<span id="media_dois"></span>
                         </div>
                         <span id="qtdPessoas"></span> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
@@ -309,7 +310,7 @@
                     6as feiras das 16h às 22h – Sábados das 14h às 22h e aos Domingos das 10h às 18h -->
                     <div class="card_dados">
                         <div class="nota">
-                            Nota:<span id="media1"></span>
+                            Nota:<span id="media_tres"></span>
                         </div>
                         <span id="qtdPessoas"></span> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
@@ -371,7 +372,7 @@
                     chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
                     <div class="card_dados">
                         <div class="nota">
-                            Nota:<span id="media1"></span>
+                            Nota:<span id="media_quatro"></span>
                         </div>
                         <span id="qtdPessoas"></span> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
@@ -431,7 +432,7 @@
                     chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
                     <div class="card_dados">
                         <div class="nota">
-                            Nota:<span id="media1"></span>
+                            Nota:<span id="media_cinco"></span>
                         </div>
                         <span id="qtdPessoas"></span> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
@@ -489,12 +490,12 @@
             <div id="map"></div>
         </div>
     </div>
-        <!-- mapa -->
+    <!-- mapa -->
 
 </body>
 <!-- corpo fim -->
 
-   <!--footer inicio-->
+<!--footer inicio-->
 <div class="rodape">
 
     <div class="navegacao_img">
@@ -521,17 +522,18 @@
     <div class="redes_sociais">
 
         <ul class="ul_rodape">
-          <li class="li_rodape"> <a href="https://outlook.office.com/mail/" target="https://outlook.office.com/mail/"><i
-                class='bx bx-envelope'></i></a>
-          <li class="li_rodape"><a href="https://www.instagram.com/gustavo__bueno__/"
-              target="https://www.instagram.com/gustavo__bueno__/"><i class='bx bxl-instagram' id="instagram"></i></a>
-          <li class="li_rodape"><a href="https://github.com/buenofonsecag/prejetooo"
-              target="https://github.com/buenofonsecag/prejetooo"><i class='bx bxl-github'></i></a>
-          <li class="li_rodape"><a href=" https://wa.me/5511933923464" target=" https://wa.me/5511933923464"><i
-                class='bx bxl-whatsapp'></i></a>
-          </li>
+            <li class="li_rodape"> <a href="https://outlook.office.com/mail/"
+                    target="https://outlook.office.com/mail/"><i class='bx bx-envelope'></i></a>
+            <li class="li_rodape"><a href="https://www.instagram.com/gustavo__bueno__/"
+                    target="https://www.instagram.com/gustavo__bueno__/"><i class='bx bxl-instagram'
+                        id="instagram"></i></a>
+            <li class="li_rodape"><a href="https://github.com/buenofonsecag/prejetooo"
+                    target="https://github.com/buenofonsecag/prejetooo"><i class='bx bxl-github'></i></a>
+            <li class="li_rodape"><a href=" https://wa.me/5511933923464" target=" https://wa.me/5511933923464"><i
+                        class='bx bxl-whatsapp'></i></a>
+            </li>
         </ul>
-      </div>
+    </div>
 </div>
 
 <!--footer fim-->
@@ -572,6 +574,9 @@
 
 <!-- fazer avaliação script -->
 <script>
+
+    window.onload = mediaPontoUm(), mediaPontoDois();
+
     var selectedStars = 0;
 
     function rate(stars) {
@@ -603,6 +608,61 @@
         document.getElementById("form_postagem").reset();
     }
 
+    function mediaPontoUm() {
+        fetch(`/avisos/listar/1`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify()
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // console.log("Foi a media do ponto 1", resposta);
+                resposta.json().then((json) => {
+                    console.log("AQUI ESTA A MEDIA",json);
+                    media_um.innerHTML = (json[0].media).toFixed(1);
+                });
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+    }
+    function mediaPontoDois() {
+        fetch(`/avisos/listar/2`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify()
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // console.log("Foi a media do ponto 1", resposta);
+                resposta.json().then((json) => {
+                    console.log("AQUI ESTA A MEDIA",json);
+                    media_dois.innerHTML = (json[0].media).toFixed(1);
+                });
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+    }
+
     function publicar() {
         var idUsuario = sessionStorage.ID_USUARIO;
 
@@ -623,7 +683,7 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                window.alert("Avaliação realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
                 window.location = "/PT_logado.html";
                 limparFormulario();
                 // finalizarAguardar();
