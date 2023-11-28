@@ -42,8 +42,8 @@ function buscarMedidasEmTempoReal() {
 }
 
 function buscarMedidasEmTempoReal2() {
-
-   var instrucao = ' select count(visitou_piraju) from visita where visitou_piraju = "Nao" '
+   var instrucao = ' select count(visitou_piraju) as Nao from visita where visitou_piraju = "Nao" '
+   
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

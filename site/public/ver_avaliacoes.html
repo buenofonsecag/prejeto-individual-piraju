@@ -235,20 +235,46 @@
     .catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
+
+fetch("/medidas/tempo-real2", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+
+      }),
+    }).then(function (resposta) {
+    if (resposta.ok) {
+        console.log(resposta)
+
+        resposta.json().then(json => {
+            console.log(json);
+            console.log(`Dados recebidos: ${JSON.stringify(json)}`);
+            var Nao = json[0].Nao;
+            plotarGrafico(Nao);
+
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API 2');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico 2: ${error.message}`);
+    });
 }
     function plotarGrafico(resposta) {
 
         console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels
-        let labels = [];
+        let labels = ['Sim','Nao'];
 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: labels,
             datasets: [{
-                label: ['Sim'],
-                data: [resposta],
+                data: [resposta,],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1

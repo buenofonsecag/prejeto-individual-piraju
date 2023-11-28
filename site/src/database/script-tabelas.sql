@@ -1,121 +1,72 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql - banco local - ambiente de desenvolvimento
-*/
-
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
-);
+CREATE DATABASE piraju;
+USE piraju;
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	email VARCHAR(50) unique,
+	senha VARCHAR(50)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
+insert into usuario values
+(null,'Livia','livia@gmail.com','Livia123'),
+(null,'Marcos','marcos@gmail.com','Marcos123'),
+(null,'Gabriel','gabriel@sptech.school','Gabriel123'),
+(null,'Gustavo','gustavo@gmail.com','Gustavo123'),
+(null,'Marcio','marcio@gmail.com','Marcio123');
+
+create table visita (
+fk_usuario int auto_increment,
+visitou_piraju char(3),
+ primary key (fk_usuario,visitou_piraju)
+-- foreign key fk_usuario (fk_usuario) references usuario(id)
+);
+
+insert into visita values
+(1,'Sim'),
+(2,'Sim'),
+(3,'Nao'),
+(4,'Nao'),
+(5,'Nao');
+
+
+CREATE TABLE pt_turistico (
+	idPontoTuristico INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(50)
+);
+
+insert into pt_turistico values
+(null,'Ponte Engenheiro Nelson de Godoy Pereira'),
+(null,'Igreja Matriz'),
+(null,'Tirolesa das Corredeiras'),
+(null,'Iate Clube Piraju'),
+(null,'Prainha');
+
+CREATE TABLE avaliacao (
+	idAvaliacao INT PRIMARY KEY AUTO_INCREMENT,
+	fk_PontoTuristico int,-- PONTO TURISTICO
 	descricao VARCHAR(150),
 	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+    nota int,
+	FOREIGN KEY fk_usuario (fk_usuario) REFERENCES usuario(id)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+insert into avaliacao values 
+(null,1,'Muito Bom',2,5),
+(null,2,'Superou as Expectativas',1,4),
+(null,3,'Bom',3,3),
+(null,4,'Ok',4,2),
+(null,1,'Muito Bom',5,1);
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+select * from usuario;		
+select * from avaliacao;	
+select* from pt_turistico;
+select * from visita;
 
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
 
-/*
-comando para sql server - banco remoto - ambiente de produção
-*/
+select count(visitou_piraju) from visita where visitou_piraju = 'Sim'; -- 2
+select count(visitou_piraju) from visita where visitou_piraju = 'Nao'; -- 3
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
-);
-
-CREATE TABLE usuario (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT FOREIGN KEY REFERENCES empresa(id)
-);
-
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
-);
-
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY IDENTITY(1,1),
-	descricao VARCHAR(300),
-	fk_empresa INT FOREIGN KEY REFERENCES empresa(id)
-);
-
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT FOREIGN KEY REFERENCES aquario(id)
-);
-
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-
-/*
-comandos para criar usuário em banco de dados azure, sqlserver,
-com permissão de insert + update + delete + select
-*/
-
-CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]
-WITH PASSWORD = '#Gf_senhaParaAPIWebDataViz',
-DEFAULT_SCHEMA = dbo;
-
-EXEC sys.sp_addrolemember @rolename = N'db_datawriter',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
-
-EXEC sys.sp_addrolemember @rolename = N'db_datareader',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
+select * from usuario u join
+visita v on u.id=v.fk_usuario;

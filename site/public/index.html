@@ -369,7 +369,30 @@
 
       // finalizarAguardar();
       return false;
-    } else {
+     
+    } else  if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(* As senhas estão diferentes !)";
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, "2000");
+
+    } else  if (emailVar.indexOf("@") == -1) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(* Insira um e-mail válido)";
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, "2000");
+
+    } else if (senhaVar.length < 5) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(* • Sua senha não possui pelo menos 5 caracteres !)";
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, "2000");
+    
+    }else{
+
     }
 
     // Enviando o valor da nova input
@@ -449,10 +472,11 @@
       setTimeout(() => {
         cardErro.style.display = "none";
       }, "2000");
-
       return false;
-    } else {
+    }else{
+      
     }
+    
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar2", {
