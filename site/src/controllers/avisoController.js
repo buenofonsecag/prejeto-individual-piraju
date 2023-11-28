@@ -22,6 +22,28 @@ function listar(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+function listarPessoas(req, res) {
+    var fkPontoTuristico = req.params.fkPontoTuristico;
+
+    if (fkPontoTuristico == undefined) {
+        res.status(400).send('fkPonto está undefined 2!');
+    }
+
+    avisoModel.listarPessoas(fkPontoTuristico).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+            res.json({
+                media: resultado[0].media
+            });
+        } else {
+            res.status(204).send("Nenhum resultado encontrado 2!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos : 2", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
 function listarPorUsuario(req, res) {
     var idUsuario = req.params.idUsuario;
@@ -74,6 +96,7 @@ function publicar(req, res) {
 
 module.exports = {
     listar,
+    listarPessoas,
     listarPorUsuario,
     publicar
 }

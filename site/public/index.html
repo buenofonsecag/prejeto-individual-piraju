@@ -167,6 +167,7 @@
 <div id="div_erros_login"></div>
 
 <!-- corpo inicio -->
+
 <body class="body">
 
   <div class="container_corpo">
@@ -341,9 +342,9 @@
 
 <!-- cadastro -->
 <script>
-  function cadastrar() {  
+  function cadastrar() {
     // cadastrar2();
-  //Recupere o valor da nova input pelo nome do id
+    //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
@@ -369,15 +370,15 @@
 
       // finalizarAguardar();
       return false;
-     
-    } else  if (senhaVar != confirmacaoSenhaVar) {
+
+    } else if (senhaVar != confirmacaoSenhaVar) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML = "(* As senhas estão diferentes !)";
       setTimeout(() => {
         cardErro.style.display = "none";
       }, "2000");
 
-    } else  if (emailVar.indexOf("@") == -1) {
+    } else if (emailVar.indexOf("@") == -1) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML = "(* Insira um e-mail válido)";
       setTimeout(() => {
@@ -390,8 +391,8 @@
       setTimeout(() => {
         cardErro.style.display = "none";
       }, "2000");
-    
-    }else{
+
+    } else {
 
     }
 
@@ -408,7 +409,7 @@
         emailServer: emailVar,
         senhaServer: senhaVar,
         opcaoServer: opcaoVar
-        
+
       }),
     })
       .then(function (resposta) {
@@ -444,10 +445,11 @@
   }
 </script>
 <!-- cadastro -->
+
 <!-- cadastro -->
 <script>
-  function cadastrar2() {  
-  //Recupere o valor da nova input pelo nome do id
+  function cadastrar2() {
+    //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
 
     var nomeVar = nome_input.value;
@@ -456,8 +458,8 @@
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var valorSelecionado = document.querySelector('.box_email input[type="radio"]:checked');
     var opcaoVar = valorSelecionado.value;
-    
-        // var idusuarioVar = sessionStorage.ID_USUARIO.value;
+
+    // var idusuarioVar = sessionStorage.ID_USUARIO.value;
     // var empresaVar = listaEmpresas.value
     if (
       nomeVar == "" ||
@@ -473,10 +475,10 @@
         cardErro.style.display = "none";
       }, "2000");
       return false;
-    }else{
-      
+    } else {
+
     }
-    
+
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar2", {
@@ -515,10 +517,9 @@
   }
 </script>
 <!-- cadastro -->
+
 <!-- login -->
 <script>
-
-
   function entrar() {
     console.log("Iniciando a função entrar()...")
     // aguardar();
@@ -595,7 +596,6 @@
   function sumirMensagem() {
     cardErro.style.display = "none"
   }
-
 </script>
 <!-- Login -->
 

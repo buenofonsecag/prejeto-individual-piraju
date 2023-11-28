@@ -2,57 +2,57 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>PiraTour | Pontos Turísticos</title>
+  <title>PiraTour | Pontos Turísticos</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="./js/sessao.js"></script>
-    <script src="js/scriptLogin.js"></script>
-    <!-- <script src="js/pontos_turisticos.js"></script> -->
+  <script src="./js/sessao.js"></script>
+  <script src="js/scriptLogin.js"></script>
+  <!-- <script src="js/pontos_turisticos.js"></script> -->
 
 
-    <link rel="stylesheet" href="./css/Style_entrar-cadastrar.css">
-    <link rel="stylesheet" href="./css/style_header.css">
-    <link rel="stylesheet" href="./css/style_rodape.css">
-    <link rel="stylesheet" href="./css/style_corpo.css">
-    <link rel="stylesheet" href="./css/style_pontos_turisticos.css">
-    
-     <!-- mapa -->
-     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-     <!-- mapa -->
+  <link rel="stylesheet" href="./css/Style_entrar-cadastrar.css">
+  <link rel="stylesheet" href="./css/style_header.css">
+  <link rel="stylesheet" href="./css/style_rodape.css">
+  <link rel="stylesheet" href="./css/style_corpo.css">
+  <link rel="stylesheet" href="./css/style_pontos_turisticos.css">
 
-    <link rel="icon" href="./assets/pirajulogo.PNG" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- mapa -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- mapa -->
+
+  <link rel="icon" href="./assets/pirajulogo.PNG" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 <header>
-    <ul class="ul_header">
-  
-      <li class="li_header_img"><a class="a_header" href="#"><img src="./assets/pirajulogo.PNG" width="130px"></a></li>
-  
-      <li class="li_header"><a class="a_header" href="index.html">SOBRE PIRAJU</a></li>
-  
-      <li class="li_header"><a class="a_header" href="./pontos_turisticos.html">PONTOS TURÍSTICOS</a></li>
-  
-      <li class="li_header"><a class="a_header" onclick="entrar_entrar()">ESTATÍSTICAS</a></li>
-  
-      <!-- <li class="li_header"><a class="a_header" href="#"> EXPERIÊNCIAS</a></li> -->
-  
-      <li class="li_header_cadastrar" onclick="entrar_cadastrar()"><a class="a_header_cadastrar">CADASTRE-SE</a></li>
-  
-      <li class="li_header_entrar" onclick="entrar_entrar()"><a class="a_header_entrar">ENTRAR</a></li>
-    </ul>
-  </header>
+  <ul class="ul_header">
+
+    <li class="li_header_img"><a class="a_header" href="#"><img src="./assets/pirajulogo.PNG" width="130px"></a></li>
+
+    <li class="li_header"><a class="a_header" href="index.html">SOBRE PIRAJU</a></li>
+
+    <li class="li_header"><a class="a_header" href="./pontos_turisticos.html">PONTOS TURÍSTICOS</a></li>
+
+    <li class="li_header"><a class="a_header" onclick="entrar_entrar()">ESTATÍSTICAS</a></li>
+
+    <!-- <li class="li_header"><a class="a_header" href="#"> EXPERIÊNCIAS</a></li> -->
+
+    <li class="li_header_cadastrar" onclick="entrar_cadastrar()"><a class="a_header_cadastrar">CADASTRE-SE</a></li>
+
+    <li class="li_header_entrar" onclick="entrar_entrar()"><a class="a_header_entrar">ENTRAR</a></li>
+  </ul>
+</header>
 
 
 <!-- custom-alert -->
@@ -74,46 +74,46 @@
 <!-- DIV QUE EXIBE O LOGIN  -->
 <div class="entrar_fundo">
 
-    <div class="cadastrar_container" id="div_entrar_container">
-  
-  
-  
-      <div class="entrar_corpo">
-  
-        <div class="entrar_corpo_fundo">
-  
-          <div class="entrar_corpo_header">
-            <div class="entrar_header">
-              <div id="div_sair_container" class="sair_container" onclick="sair()">X</div>
-            </div>
+  <div class="cadastrar_container" id="div_entrar_container">
+
+
+
+    <div class="entrar_corpo">
+
+      <div class="entrar_corpo_fundo">
+
+        <div class="entrar_corpo_header">
+          <div class="entrar_header">
+            <div id="div_sair_container" class="sair_container" onclick="sair()">X</div>
           </div>
-          <div class="img-perfil"><i class='bx bxs-user-circle'></i></div>
-  
-          <div class="entrar_corpo_conteudo">
-  
-            <div class="txt1_corpo">
-              Login<br>
-            </div>
-            <div class="box_email"><input type="email" placeholder="E-mail:" class="input_decoracao" type="text"
-                id="email_input2"></div>
-            <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao" id="senha_input2">
-            </div>
-            <div class="box_botao"><!-- <a href= "./Home_logado.html"> --><button class="botao_entrar" on
-                onclick="entrar()">Entrar</button></a></div>
-            <!-- <div class="txt1_corpo_esqueceu_senha">Esqueceu a senha? </div> -->
-            <div class="box_ou">
-              <div class="linha"></div>ou <div class="linha"></div>
-            </div><br>
-  
-            <div class="box_botao"><button class="botao_cadastrar" onclick="criar_conta()">Criar nova
-                conta</button></div>
+        </div>
+        <div class="img-perfil"><i class='bx bxs-user-circle'></i></div>
+
+        <div class="entrar_corpo_conteudo">
+
+          <div class="txt1_corpo">
+            Login<br>
           </div>
+          <div class="box_email"><input type="email" placeholder="E-mail:" class="input_decoracao" type="text"
+              id="email_input2"></div>
+          <div class="box_email"><input type="password" placeholder="Senha:" class="input_decoracao" id="senha_input2">
+          </div>
+          <div class="box_botao"><!-- <a href= "./Home_logado.html"> --><button class="botao_entrar" on
+              onclick="entrar()">Entrar</button></a></div>
+          <!-- <div class="txt1_corpo_esqueceu_senha">Esqueceu a senha? </div> -->
+          <div class="box_ou">
+            <div class="linha"></div>ou <div class="linha"></div>
+          </div><br>
+
+          <div class="box_botao"><button class="botao_cadastrar" onclick="criar_conta()">Criar nova
+              conta</button></div>
         </div>
       </div>
     </div>
   </div>
-  <!-- DIV QUE EXIBE O LOGIN  -->
-  
+</div>
+<!-- DIV QUE EXIBE O LOGIN  -->
+
 <!-- cadastro inicio -->
 <div class="entrar_fundo">
 
@@ -170,7 +170,7 @@
 
 <!-- cadstro fim  -->
 
-  <!-- alert cadastro realizado -->
+<!-- alert cadastro realizado -->
 <div id="alert" class="custom-alert">
   <img src="assets/gif.check.gif" alt="GIF">
   <p>Cadastro realizado com sucesso !</p>
@@ -194,320 +194,320 @@
 
 
   <div class="container_corpo">
+    <div class="box_titulo">
+      <div class="corpo_titulo1">Olá <span id="b_usuario">usuário</span>,
+        conheça os pontos turísticos e explore a beleza da nossa cidade !</div>
+    </div>
+  </div>
+
+
+  <div class="corpo1">
+    <div class="container_corpo">
       <div class="box_titulo">
-          <div class="corpo_titulo1">Olá <span id="b_usuario">usuário</span>,
-              conheça os pontos turísticos e explore a beleza da nossa cidade !</div>
+        <div class="corpo_titulo1"> Ponte Engenheiro Nelson de Godoy Pereira</div>
       </div>
+      <div class="corpo_txt">
+        <div class="txt_pt">
+          Uma ponte suspensa que atravessa o Rio Paranapanema, proporcionando vistas panorâmicas e uma
+          experiência
+          única.
+          <div class="card_dados">
+            <div class="nota">
+              Nota:<span id="media1"></span>
+            </div>
+            <span id="qtdPessoas"></span> pessoas avaliaram esse local
+            <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+              <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
+                  avaliações</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="corpo_img">
+          <div class="slides">
+            <input type="radio" name="slide" id="slide1" checked>
+            <input type="radio" name="slide" id="slide2">
+            <input type="radio" name="slide" id="slide3">
+            <input type="radio" name="slide" id="slide4">
+            <input type="radio" name="slide" id="slide5">
+
+
+            <div class="slide s1">
+              <img src="assets/imgs/ponte1.jpg">
+            </div>
+            <div class="slide s2">
+              <img src="assets/imgs/ponte2.jpg">
+            </div>
+            <div class="slide s3">
+              <img src="assets/imgs/ponte3.jpg">
+            </div>
+            <div class="slide s4">
+              <img src="assets/imgs/Ponte 4.jpg">
+            </div>
+            <div class="slide s5">
+              <img src="assets/imgs/2e792ed8b5fedafaae2ac1f1515b3f9b.jpg">
+            </div>
+
+            <div class="navigation">
+              <label class="bar" for="slide1"></label>
+              <label class="bar" for="slide2"></label>
+              <label class="bar" for="slide3"></label>
+              <label class="bar" for="slide4"></label>
+              <label class="bar" for="slide5"></label>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="corpo1">
+    <div class="container_corpo">
+      <div class="box_titulo">
+        <div class="corpo_titulo1"> Igreja Matriz</div>
+      </div>
+      <div class="corpo_txt">
+        <div class="txt_pt">
+          Uma igreja histórica que representa a arquitetura religiosa da região. <br>
+          Detalhes arquitetônicos, obras de arte sacra e a atmosfera espiritual fazem dela um local de
+          interesse cultural.
+          <div class="card_dados">
+            <div class="nota">
+              Nota:<span id="media1"></span>
+            </div>
+            <span id="qtdPessoas"></span> pessoas avaliaram esse local
+            <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+              <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
+                  avaliações</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="corpo_img">
+
+          <div class="slides">
+            <input type="radio" name="slide" id="slide6" checked>
+            <input type="radio" name="slide" id="slide7">
+            <input type="radio" name="slide" id="slide8">
+            <input type="radio" name="slide" id="slide9">
+            <input type="radio" name="slide" id="slide10">
+
+
+            <div class="slide s1">
+              <img src="assets/imgs/igreja1.jpg">
+            </div>
+            <div class="slide s2">
+              <img src="assets/imgs/igreja2.webp">
+            </div>
+            <div class="slide s3">
+              <img src="assets/imgs/igreja3.jpg">
+            </div>
+            <div class="slide s4">
+              <img src="assets/imgs/igreja6.jpg">
+            </div>
+            <div class="slide s5">
+              <img src="assets/imgs/igreja8.jpg">
+            </div>
+
+            <div class="navigation">
+              <label class="bar" for="slide6"></label>
+              <label class="bar" for="slide7"></label>
+              <label class="bar" for="slide8"></label>
+              <label class="bar" for="slide9"></label>
+              <label class="bar" for="slide10"></label>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 
   <div class="corpo1">
-      <div class="container_corpo">
-          <div class="box_titulo">
-              <div class="corpo_titulo1"> Ponte Engenheiro Nelson de Godoy Pereira</div>
-          </div>
-          <div class="corpo_txt">
-              <div class="txt_pt">
-                  Uma ponte suspensa que atravessa o Rio Paranapanema, proporcionando vistas panorâmicas e uma
-                  experiência
-                  única.
-                  <div class="card_dados">
-                      <div class="nota">
-                          Nota:<span id="media1"></span>
-                      </div>
-                      <span id="qtdPessoas"></span> pessoas avaliaram esse local
-                      <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
-                          <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
-                                  avaliações</a></p>
-                      </div>
-                  </div>
-              </div>
-              <div class="corpo_img">
-                  <div class="slides">
-                      <input type="radio" name="slide" id="slide1" checked>
-                      <input type="radio" name="slide" id="slide2">
-                      <input type="radio" name="slide" id="slide3">
-                      <input type="radio" name="slide" id="slide4">
-                      <input type="radio" name="slide" id="slide5">
-
-
-                      <div class="slide s1">
-                          <img src="assets/imgs/ponte1.jpg">
-                      </div>
-                      <div class="slide s2">
-                          <img src="assets/imgs/ponte2.jpg">
-                      </div>
-                      <div class="slide s3">
-                          <img src="assets/imgs/ponte3.jpg">
-                      </div>
-                      <div class="slide s4">
-                          <img src="assets/imgs/Ponte 4.jpg">
-                      </div>
-                      <div class="slide s5">
-                          <img src="assets/imgs/2e792ed8b5fedafaae2ac1f1515b3f9b.jpg">
-                      </div>
-
-                      <div class="navigation">
-                          <label class="bar" for="slide1"></label>
-                          <label class="bar" for="slide2"></label>
-                          <label class="bar" for="slide3"></label>
-                          <label class="bar" for="slide4"></label>
-                          <label class="bar" for="slide5"></label>
-                      </div>
-
-                  </div>
-              </div>
-          </div>
-
+    <div class="container_corpo">
+      <div class="box_titulo">
+        <div class="corpo_titulo1"> Tirolesa das Corredeiras</div>
       </div>
-  </div>
-
-  <div class="corpo1">
-      <div class="container_corpo">
-          <div class="box_titulo">
-              <div class="corpo_titulo1"> Igreja Matriz</div>
-          </div>
-          <div class="corpo_txt">
-              <div class="txt_pt">
-                  Uma igreja histórica que representa a arquitetura religiosa da região. <br>
-                  Detalhes arquitetônicos, obras de arte sacra e a atmosfera espiritual fazem dela um local de
-                  interesse cultural.
-                  <div class="card_dados">
-                      <div class="nota">
-                          Nota:<span id="media1"></span>
-                      </div>
-                      <span id="qtdPessoas"></span> pessoas avaliaram esse local
-                      <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
-                          <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
-                                  avaliações</a></p>
-                      </div>
-                  </div>
-              </div>
-              <div class="corpo_img">
-
-                  <div class="slides">
-                      <input type="radio" name="slide" id="slide6" checked>
-                      <input type="radio" name="slide" id="slide7">
-                      <input type="radio" name="slide" id="slide8">
-                      <input type="radio" name="slide" id="slide9">
-                      <input type="radio" name="slide" id="slide10">
-
-
-                      <div class="slide s1">
-                          <img src="assets/imgs/igreja1.jpg">
-                      </div>
-                      <div class="slide s2">
-                          <img src="assets/imgs/igreja2.webp">
-                      </div>
-                      <div class="slide s3">
-                          <img src="assets/imgs/igreja3.jpg">
-                      </div>
-                      <div class="slide s4">
-                          <img src="assets/imgs/igreja6.jpg">
-                      </div>
-                      <div class="slide s5">
-                          <img src="assets/imgs/igreja8.jpg">
-                      </div>
-
-                      <div class="navigation">
-                          <label class="bar" for="slide6"></label>
-                          <label class="bar" for="slide7"></label>
-                          <label class="bar" for="slide8"></label>
-                          <label class="bar" for="slide9"></label>
-                          <label class="bar" for="slide10"></label>
-                      </div>
-
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-
-  <div class="corpo1">
-      <div class="container_corpo">
-          <div class="box_titulo">
-              <div class="corpo_titulo1"> Tirolesa das Corredeiras</div>
-          </div>
-          <div class="corpo_txt">
-              <div class="txt_pt">
-                  Esta incrível aventura oferece uma vista panorâmica das famosas corredeiras do Rio Paranepanema.
-                  <br>
-                  Os cabos da Tirolesa percorrem um total de aproximadamente 500m, com altura de oitenta e um metros
-                  acima do rio .
-                  <!-- Horário de funcionamento: <br>
+      <div class="corpo_txt">
+        <div class="txt_pt">
+          Esta incrível aventura oferece uma vista panorâmica das famosas corredeiras do Rio Paranepanema.
+          <br>
+          Os cabos da Tirolesa percorrem um total de aproximadamente 500m, com altura de oitenta e um metros
+          acima do rio .
+          <!-- Horário de funcionamento: <br>
                   6as feiras das 16h às 22h – Sábados das 14h às 22h e aos Domingos das 10h às 18h -->
-                  <div class="card_dados">
-                      <div class="nota">
-                          Nota:<span id="media1"></span>
-                      </div>
-                      <span id="qtdPessoas"></span> pessoas avaliaram esse local
-                      <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
-                          <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
-                                  avaliações</a></p>
-                      </div>
-                  </div>
-              </div>
-              <div class="corpo_img">
-
-                  <div class="slides">
-                      <input type="radio" name="slide" id="slide11" checked>
-                      <input type="radio" name="slide" id="slide12">
-                      <input type="radio" name="slide" id="slide13">
-                      <input type="radio" name="slide" id="slide14">
-                      <input type="radio" name="slide" id="slide15">
-
-
-                      <div class="slide s1">
-                          <img src="assets/imgs/tirolesa1.jpg">
-                      </div>
-                      <div class="slide s2">
-                          <img src="assets/imgs/tirolesa2.jpg">
-                      </div>
-                      <div class="slide s3">
-                          <img src="assets/imgs/tirolesa9.png">
-                      </div>
-                      <div class="slide s4">
-                          <img src="assets/imgs/tirolesa7.jpg">
-                      </div>
-                      <div class="slide s5">
-                          <img src="assets/imgs/tirolesa8.jpg">
-                      </div>
-
-                      <div class="navigation">
-                          <label class="bar" for="slide11"></label>
-                          <label class="bar" for="slide12"></label>
-                          <label class="bar" for="slide13"></label>
-                          <label class="bar" for="slide14"></label>
-                          <label class="bar" for="slide15"></label>
-                      </div>
-
-                  </div>
-              </div>
+          <div class="card_dados">
+            <div class="nota">
+              Nota:<span id="media1"></span>
+            </div>
+            <span id="qtdPessoas"></span> pessoas avaliaram esse local
+            <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+              <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
+                  avaliações</a></p>
+            </div>
           </div>
+        </div>
+        <div class="corpo_img">
 
+          <div class="slides">
+            <input type="radio" name="slide" id="slide11" checked>
+            <input type="radio" name="slide" id="slide12">
+            <input type="radio" name="slide" id="slide13">
+            <input type="radio" name="slide" id="slide14">
+            <input type="radio" name="slide" id="slide15">
+
+
+            <div class="slide s1">
+              <img src="assets/imgs/tirolesa1.jpg">
+            </div>
+            <div class="slide s2">
+              <img src="assets/imgs/tirolesa2.jpg">
+            </div>
+            <div class="slide s3">
+              <img src="assets/imgs/tirolesa9.png">
+            </div>
+            <div class="slide s4">
+              <img src="assets/imgs/tirolesa7.jpg">
+            </div>
+            <div class="slide s5">
+              <img src="assets/imgs/tirolesa8.jpg">
+            </div>
+
+            <div class="navigation">
+              <label class="bar" for="slide11"></label>
+              <label class="bar" for="slide12"></label>
+              <label class="bar" for="slide13"></label>
+              <label class="bar" for="slide14"></label>
+              <label class="bar" for="slide15"></label>
+            </div>
+
+          </div>
+        </div>
       </div>
+
+    </div>
   </div>
 
   <div class="corpo1">
-      <div class="container_corpo">
-          <div class="box_titulo">
-              <div class="corpo_titulo1"> Iate Clube Piraju </div>
-          </div>
-          <div class="corpo_txt">
-              <div class="txt_pt">
-                  Localizada as margens do Rio Paranapanema, a 16 km da cidade de Piraju, uma parte alagada do rio,
-                  por conta da usina elétrica , sendo muito frequentada no verão pela população local e regional,
-                  chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
-                  <div class="card_dados">
-                      <div class="nota">
-                          Nota:<span id="media1"></span>
-                      </div>
-                      <span id="qtdPessoas"></span> pessoas avaliaram esse local
-                      <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
-                          <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
-                                  avaliações</a></p>
-                      </div>
-                  </div>
-              </div>
-              <div class="corpo_img">
-
-                  <div class="slides">
-                      <input type="radio" name="slide" id="slide16" checked>
-                      <input type="radio" name="slide" id="slide17">
-                      <input type="radio" name="slide" id="slide18">
-                      <input type="radio" name="slide" id="slide19">
-                      <input type="radio" name="slide" id="slide20">
-
-
-                      <div class="slide s1">
-                          <img src="assets/imgs/praia1.jpg">
-                      </div>
-                      <div class="slide s2">
-                          <img src="assets/imgs/praia2.jpg">
-                      </div>
-                      <div class="slide s3">
-                          <img src="assets/imgs/praia3.jpg">
-                      </div>
-                      <div class="slide s4">
-                          <img src="assets/imgs/praia3.webp">
-                      </div>
-                      <div class="slide s5">
-                          <img src="assets/imgs/praia4.jpg">
-                      </div>
-
-                      <div class="navigation">
-                          <label class="bar" for="slide16"></label>
-                          <label class="bar" for="slide17"></label>
-                          <label class="bar" for="slide18"></label>
-                          <label class="bar" for="slide19"></label>
-                          <label class="bar" for="slide20"></label>
-                      </div>
-
-                  </div>
-              </div>
-          </div>
+    <div class="container_corpo">
+      <div class="box_titulo">
+        <div class="corpo_titulo1"> Iate Clube Piraju </div>
       </div>
+      <div class="corpo_txt">
+        <div class="txt_pt">
+          Localizada as margens do Rio Paranapanema, a 16 km da cidade de Piraju, uma parte alagada do rio,
+          por conta da usina elétrica , sendo muito frequentada no verão pela população local e regional,
+          chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
+          <div class="card_dados">
+            <div class="nota">
+              Nota:<span id="media1"></span>
+            </div>
+            <span id="qtdPessoas"></span> pessoas avaliaram esse local
+            <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+              <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
+                  avaliações</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="corpo_img">
+
+          <div class="slides">
+            <input type="radio" name="slide" id="slide16" checked>
+            <input type="radio" name="slide" id="slide17">
+            <input type="radio" name="slide" id="slide18">
+            <input type="radio" name="slide" id="slide19">
+            <input type="radio" name="slide" id="slide20">
+
+
+            <div class="slide s1">
+              <img src="assets/imgs/praia1.jpg">
+            </div>
+            <div class="slide s2">
+              <img src="assets/imgs/praia2.jpg">
+            </div>
+            <div class="slide s3">
+              <img src="assets/imgs/praia3.jpg">
+            </div>
+            <div class="slide s4">
+              <img src="assets/imgs/praia3.webp">
+            </div>
+            <div class="slide s5">
+              <img src="assets/imgs/praia4.jpg">
+            </div>
+
+            <div class="navigation">
+              <label class="bar" for="slide16"></label>
+              <label class="bar" for="slide17"></label>
+              <label class="bar" for="slide18"></label>
+              <label class="bar" for="slide19"></label>
+              <label class="bar" for="slide20"></label>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="corpo1">
-      <div class="container_corpo">
-          <div class="box_titulo">
-              <div class="corpo_titulo1"> Prainha </div>
-          </div>
-          <div class="corpo_txt">
-              <div class="txt_pt">
-                  Localizada as margens do Rio Paranapanema, a 16 km da cidade de Piraju, uma parte alagada do rio,
-                  por conta da usina elétrica , sendo muito frequentada no verão pela população local e regional,
-                  chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
-                  <div class="card_dados">
-                      <div class="nota">
-                          Nota:<span id="media1"></span>
-                      </div>
-                      <span id="qtdPessoas"></span> pessoas avaliaram esse local
-                      <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
-                          <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
-                                  avaliações</a></p>
-                      </div>
-                  </div>
-              </div>
-              <div class="corpo_img">
-
-                  <div class="slides">
-                      <input type="radio" name="slide" id="slide16" checked>
-                      <input type="radio" name="slide" id="slide17">
-                      <input type="radio" name="slide" id="slide18">
-                      <input type="radio" name="slide" id="slide19">
-                      <input type="radio" name="slide" id="slide20">
-
-
-                      <div class="slide s1">
-                          <img src="assets/imgs/praia1.jpg">
-                      </div>
-                      <div class="slide s2">
-                          <img src="assets/imgs/praia2.jpg">
-                      </div>
-                      <div class="slide s3">
-                          <img src="assets/imgs/praia3.jpg">
-                      </div>
-                      <div class="slide s4">
-                          <img src="assets/imgs/praia3.webp">
-                      </div>
-                      <div class="slide s5">
-                          <img src="assets/imgs/praia4.jpg">
-                      </div>
-
-                      <div class="navigation">
-                          <label class="bar" for="slide16"></label>
-                          <label class="bar" for="slide17"></label>
-                          <label class="bar" for="slide18"></label>
-                          <label class="bar" for="slide19"></label>
-                          <label class="bar" for="slide20"></label>
-                      </div>
-
-                  </div>
-              </div>
-          </div>
+    <div class="container_corpo">
+      <div class="box_titulo">
+        <div class="corpo_titulo1"> Prainha </div>
       </div>
+      <div class="corpo_txt">
+        <div class="txt_pt">
+          Localizada as margens do Rio Paranapanema, a 16 km da cidade de Piraju, uma parte alagada do rio,
+          por conta da usina elétrica , sendo muito frequentada no verão pela população local e regional,
+          chega a ter mais de cinco mil visitantes aos finais de semana e feriados.
+          <div class="card_dados">
+            <div class="nota">
+              Nota:<span id="media1"></span>
+            </div>
+            <span id="qtdPessoas"></span> pessoas avaliaram esse local
+            <div class="estrela"><button onclick="entrar_entrar()" class="avaliar">Avaliar</button>
+              <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a onclick="entrar_entrar()">Ver
+                  avaliações</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="corpo_img">
+
+          <div class="slides">
+            <input type="radio" name="slide" id="slide16" checked>
+            <input type="radio" name="slide" id="slide17">
+            <input type="radio" name="slide" id="slide18">
+            <input type="radio" name="slide" id="slide19">
+            <input type="radio" name="slide" id="slide20">
+
+
+            <div class="slide s1">
+              <img src="assets/imgs/praia1.jpg">
+            </div>
+            <div class="slide s2">
+              <img src="assets/imgs/praia2.jpg">
+            </div>
+            <div class="slide s3">
+              <img src="assets/imgs/praia3.jpg">
+            </div>
+            <div class="slide s4">
+              <img src="assets/imgs/praia3.webp">
+            </div>
+            <div class="slide s5">
+              <img src="assets/imgs/praia4.jpg">
+            </div>
+
+            <div class="navigation">
+              <label class="bar" for="slide16"></label>
+              <label class="bar" for="slide17"></label>
+              <label class="bar" for="slide18"></label>
+              <label class="bar" for="slide19"></label>
+              <label class="bar" for="slide20"></label>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 
@@ -515,11 +515,11 @@
   <hr><br>
   <!-- mapa -->
   <div class="corpo1">
-      <div class="box-mapa2">
-          <div id="map"></div>
-      </div>
+    <div class="box-mapa2">
+      <div id="map"></div>
+    </div>
   </div>
-      <!-- mapa -->
+  <!-- mapa -->
 
 </body>
 
@@ -571,199 +571,272 @@
 
 <!-- cadastro -->
 <script>
-    function cadastrar() {
-      //Recupere o valor da nova input pelo nome do id
-      // Agora vá para o método fetch logo abaixo
-      var nomeVar = nome_input.value;
-      var emailVar = email_input.value;
-      var senhaVar = senha_input.value;
-      var confirmacaoSenhaVar = confirmacao_senha_input.value;
-      // var empresaVar = listaEmpresas.value
-      if (
-        nomeVar == "" ||
-        emailVar == "" ||
-        senhaVar == "" ||
-        confirmacaoSenhaVar == ""
-      ) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro algum campo em branco)";
-  
-        setTimeout(() => {
-          cardErro.style.display = "none";
-        }, "2000");
-        // finalizarAguardar();
-        return false;
-      } else {
-      }
-  
-      // Enviando o valor da nova input
-      fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // crie um atributo que recebe o valor recuperado aqui
-          // Agora vá para o arquivo routes/usuario.js
-          nomeServer: nomeVar,
-          emailServer: emailVar,
-          senhaServer: senhaVar
-          // empresaServer: empresaVar
-        }),
-      })
-        .then(function (resposta) {
-          console.log("resposta: ", resposta);
-  
-          if (resposta.ok) {
-            // cardErro.style.display = "block";
-  
-            // mensagem_erro.innerHTML =
-            //   "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-            sair();
-            setTimeout(() => {
-              // window.location = "login.html";
-              entrar_entrar();
-            }, "2000");
-  
-            aguardar();
-            limparFormulario();
-            finalizarAguardar();
-          } else {
-            throw "Houve um erro ao tentar realizar o cadastro!";
-          }
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-          // finalizarAguardar();
-        });
-  
+  function cadastrar() {
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    // var empresaVar = listaEmpresas.value
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(Mensagem de erro algum campo em branco)";
+
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, "2000");
+      // finalizarAguardar();
       return false;
+    } else {
     }
 
-  
-    function sumirMensagem() {
-      cardErro.style.display = "none";
-    }
-  </script>
-  <!-- cadastro -->
-  
-  <!-- login -->
-  <script>
-  
-  
-    function entrar() {
-      // aguardar();
-  
-      var emailVar2 = email_input2.value;
-      var senhaVar2 = senha_input2.value;
-  
-      if (emailVar2 == "" || senhaVar2 == "") {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-        setTimeout(() => {
-          cardErro.style.display = "none";
-        }, "2000");
-        // finalizarAguardar();
-        return false;
-      }
-      else {
-  
-      }
-  
-      console.log("FORM LOGIN: ", emailVar2);
-      console.log("FORM SENHA: ", senhaVar2);
-  
-      fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          emailServer2: emailVar2,
-          senhaServer2: senhaVar2
-        })
-      }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
-  
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+        // empresaServer: empresaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
         if (resposta.ok) {
-          console.log(resposta);
-  
-          resposta.json().then(json => {
-            console.log(json);
-            console.log(JSON.stringify(json));
-            sessionStorage.EMAIL_USUARIO = json.email;
-            sessionStorage.NOME_USUARIO = json.nome;
-            sessionStorage.ID_USUARIO = json.id;
-            // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-  
-            setTimeout(function () {
-              window.location = "./Home_logado.html";
-            }, 1000); // apenas para exibir o loading
-  
-          });
-          aguardar2();
+          // cardErro.style.display = "block";
+
+          // mensagem_erro.innerHTML =
+          //   "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          sair();
+          setTimeout(() => {
+            // window.location = "login.html";
+            entrar_entrar();
+          }, "2000");
+
+          aguardar();
+          limparFormulario();
+          finalizarAguardar();
         } else {
-  
-          console.log("Houve um erro ao tentar realizar o login!");
-  
-          resposta.text().then(texto => {
-            console.error(texto);
-            // finalizarAguardar(texto);
-          });
+          throw "Houve um erro ao tentar realizar o cadastro!";
         }
-  
-      }).catch(function (erro) {
-        console.log(erro);
       })
-  
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+      });
+
+    return false;
+  }
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>
+<!-- cadastro -->
+<!-- cadastro -->
+<script>
+  function cadastrar2() {
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var valorSelecionado = document.querySelector('.box_email input[type="radio"]:checked');
+    var opcaoVar = valorSelecionado.value;
+
+    // var idusuarioVar = sessionStorage.ID_USUARIO.value;
+    // var empresaVar = listaEmpresas.value
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      opcaoVar == "" ||
+      confirmacaoSenhaVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(Mensagem de erro para algum dos campos em branco)";
+
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, "2000");
+      return false;
+    } else {
+
+    }
+
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar2", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        opcaoServer: opcaoVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          sair();
+          setTimeout(() => {
+            entrar_entrar();
+          }, "2000");
+
+          aguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>
+<!-- cadastro -->
+
+<!-- login -->
+<script>
+  function entrar() {
+    console.log("Iniciando a função entrar()...")
+    // aguardar();
+
+    var emailVar2 = email_input2.value;
+    var senhaVar2 = senha_input2.value;
+
+    if (emailVar2 == "" || senhaVar2 == "") {
+      cardErro.style.display = "block"
+      mensagem_erro.innerHTML = "Alerta de erro (Preencha todos os campos)";
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, "2000");
+      // finalizarAguardar();
       return false;
     }
-  
-    function sumirMensagem() {
-      cardErro.style.display = "none"
+    else {
+      console.log("erro de alguma coisaaaa")
+      // aguardar2();
+
     }
-  
-  </script>
-  <!-- Login -->
- <!-- mapa -->
+
+    console.log("FORM LOGIN: ", emailVar2);
+    console.log("FORM SENHA: ", senhaVar2);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        emailServer2: emailVar2,
+        senhaServer2: senhaVar2
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO entrar()!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+        // console.log("erro de alguma coisa")
+
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+          sessionStorage.EMAIL_USUARIO = json.email;
+          sessionStorage.NOME_USUARIO = json.nome;
+          sessionStorage.ID_USUARIO = json.id;
+          // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+          setTimeout(function () {
+            window.location = "Home_logado.html";
+          }, 1000); // apenas para exibir o loading
+
+        });
+        aguardar2();
+      } else {
+        console.log("Houve um erro ao tentar realizar o login!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+          // finalizarAguardar(texto);
+        });
+      }
+
+    }).catch(function (erro) {
+      console.log("Houve um erro na chamada fetch:", erro); x
+      console.log(erro);
+    })
+
+    return false;
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none"
+  }
+</script>
+<!-- Login -->
+
+<!-- mapa -->
 <script>
   var map = L.map('map').setView([-23.1938, -49.3844], 15);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      {
-          attribution: '© PiraTour'
-      }).addTo(map);
+    {
+      attribution: '© PiraTour'
+    }).addTo(map);
   L.marker([-23.182872629006788, -49.38650903191002]).addTo(map)
-      .bindPopup('Tirolesa das Corredeiras')
-      .openPopup();
+    .bindPopup('Tirolesa das Corredeiras')
+    .openPopup();
 
   L.marker([-23.222508563994086, -49.24317799142994]).addTo(map)
-      .bindPopup('Prainha')
-      .openPopup();
+    .bindPopup('Prainha')
+    .openPopup();
 
-      L.marker([-23.188578, -49.384816]).addTo(map)
-      .bindPopup('Ponte Engenheiro Nelson de Godoy')
-      .openPopup();
+  L.marker([-23.188578, -49.384816]).addTo(map)
+    .bindPopup('Ponte Engenheiro Nelson de Godoy')
+    .openPopup();
 
 
-      
-      L.marker([-23.194497888020386, -49.38429869818963]).addTo(map)
-      .bindPopup('Igreja Matriz')
-      .openPopup();
+
+  L.marker([-23.194497888020386, -49.38429869818963]).addTo(map)
+    .bindPopup('Igreja Matriz')
+    .openPopup();
 </script>
 <!-- mapa -->
+
 <!-- alert nativo da pagina -->
 <script>
   // Função para exibir a modal ao carregar a página
   function exibirModal() {
-      document.getElementById('myModal').style.display = 'block';
-      document.getElementById('overlay').style.display = 'block';
+    document.getElementById('myModal').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
   }
 
   // Função para fechar a modal
   function fecharModal() {
-      document.getElementById('myModal').style.display = 'none';
-      document.getElementById('overlay').style.display = 'none';
+    document.getElementById('myModal').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
   }
 
   // Atribua a função de exibir a modal ao evento onload do objeto window

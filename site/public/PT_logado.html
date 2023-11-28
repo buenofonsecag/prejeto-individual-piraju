@@ -186,7 +186,7 @@
                         <div class="nota" id="nota_um">
                             Nota:<span id="media_um"></span>
                         </div>
-                        <span id="qtdPessoas"></span> pessoas avaliaram esse local
+                        <b><span id="pessoas_um"></span></b> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
                             <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a href="ver_avaliacoes.html">Ver
                                     avaliações</a></p>
@@ -247,7 +247,7 @@
                         <div class="nota" id="nota_dois">
                             Nota:<span id="media_dois"></span>
                         </div>
-                        <span id="qtdPessoas"></span> pessoas avaliaram esse local
+                        <b><span id="pessoas_dois"></span></b> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
                             <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a href="ver_avaliacoes.html">Ver
                                     avaliações</a></p>
@@ -311,7 +311,7 @@
                             Nota:
                             <span id="media_tres"></span>
                         </div>
-                        <span id="qtdPessoas"></span> pessoas avaliaram esse local
+                        <b><span id="pessoas_tres"></span></b> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
                             <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a href="ver_avaliacoes.html">Ver
                                     avaliações</a></p>
@@ -373,7 +373,7 @@
                         <div class="nota" id="nota_quatro">
                             Nota:<span id="media_quatro"></span>
                         </div>
-                        <span id="qtdPessoas"></span> pessoas avaliaram esse local
+                        <b><span id="pessoas_quatro"></span></b> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
                             <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a href="ver_avaliacoes.html">Ver
                                     avaliações</a></p>
@@ -433,7 +433,7 @@
                         <div class="nota" id="nota_cinco">
                             Nota:<span id="media_cinco"></span>
                         </div>
-                        <span id="qtdPessoas"></span> pessoas avaliaram esse local
+                        <b><span id="pessoas_cinco"></span></b> pessoas avaliaram esse local
                         <div class="estrela"><button onclick="avaliar()" class="avaliar">Avaliar</button>
                             <p class="ver_ava"><i class='bx bxs-bar-chart-alt-2'></i> <a href="ver_avaliacoes.html">Ver
                                     avaliações</a></p>
@@ -540,44 +540,13 @@
 
 <!--footer fim-->
 
-<!-- chartjs -->
-<script>
-    function avaliar2() {
-        min = 1;
-        max = 10;
-        intervalo = Number(max - min);
-        var a = intervalo * Math.random() + min
-        if (a > 0 && a < 4) {
-            notas.classList.add("nota_vermelha");
-
-            notas.classList.remove("nota_verde");
-            notas.classList.remove("nota_amarela");
-
-        } else if (a < 7) {
-            notas.classList.add("nota_amarela");
-
-            notas.classList.remove("nota_verde");
-            notas.classList.remove("nota_vermelha");
-        } else {
-            notas.classList.add("nota_verde");
-
-            notas.classList.remove("nota_vermelha");
-            notas.classList.remove("nota_amarela");
-        }
-        div_mensagem.innerHTML = `${a.toFixed(1)}`
-
-    }
-
-</script>
-<!-- chartjs -->
-
-<!-- fazer avaliação script -->
 <script>
 
     window.onload = mediaPontoUm(), mediaPontoDois(), mediaPontoTres(), mediaPontoQuatro(), mediaPontoCinco();
+    window.onload = pessoasUm(), pessoasDois(), pessoasTres(), pessoasQuatro(),pessoasCinco();
 
     var selectedStars = 0;
-
+    // estrelas na avaliacao
     function rate(stars) {
         for (i = 1; i <= 5; i++) {
             estrelaAtual = document.getElementById(`id_estrelas${i}`);
@@ -595,13 +564,11 @@
         const ratingPercentage = Number(selectedStars);
         document.getElementById('ratingPercentage').innerText = `Nota: ${ratingPercentage.toFixed(1)} `;
     }
+    // estrelas na avaliacao
 
 
     // <!-- fazer avaliação script -->
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    // media1.innerHTML = sessionStorage.NOTA_AVISO;
-    // qtdPessoas.innerHTML = sessionStorage.ID_AVISO;
-
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
@@ -829,6 +796,146 @@
         return false;
 
     }
+    // contar quantas pessoas avaliaram
+    function pessoasUm() {
+        fetch(`/avisos/listarPessoas/1`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify()
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                resposta.json().then((json) => {
+                    console.log("AQUI ESTA A QUANTIDADE DE PESSOAS fk1", json);
+                    var pessoas = (json[0].pessoas);
+                    pessoas_um.innerHTML = `${pessoas}`
+                    console.log(`${pessoas}`, json);
+                });
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+    function pessoasDois() {
+        fetch(`/avisos/listarPessoas/2`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify()
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                resposta.json().then((json) => {
+                    console.log("AQUI ESTA A QUANTIDADE DE PESSOAS fk1", json);
+                    var pessoas = (json[0].pessoas);
+                    pessoas_dois.innerHTML = `${pessoas}`
+                    console.log(`${pessoas}`, json);
+                });
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+    function pessoasTres() {
+        fetch(`/avisos/listarPessoas/3`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify()
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                resposta.json().then((json) => {
+                    console.log("AQUI ESTA A QUANTIDADE DE PESSOAS fk1", json);
+                    var pessoas = (json[0].pessoas);
+                    pessoas_tres.innerHTML = `${pessoas}`
+                    console.log(`${pessoas}`, json);
+                });
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+    function pessoasQuatro() {
+        fetch(`/avisos/listarPessoas/4`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify()
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                resposta.json().then((json) => {
+                    console.log("AQUI ESTA A QUANTIDADE DE PESSOAS fk1", json);
+                    var pessoas = (json[0].pessoas);
+                    pessoas_quatro.innerHTML = `${pessoas}`
+                    console.log(`${pessoas}`, json);
+                });
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+    function pessoasCinco() {
+        fetch(`/avisos/listarPessoas/5`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify()
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                resposta.json().then((json) => {
+                    console.log("AQUI ESTA A QUANTIDADE DE PESSOAS fk1", json);
+                    var pessoas = (json[0].pessoas);
+                    pessoas_cinco.innerHTML = `${pessoas}`
+                    console.log(`${pessoas}`, json);
+                });
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+    // contar quantas pessoas avaliaram
 
 </script>
 <!-- mapa -->
@@ -847,13 +954,13 @@
         .bindPopup('Prainha')
         .openPopup();
 
-        L.marker([-23.188578, -49.384816]).addTo(map)
+    L.marker([-23.188578, -49.384816]).addTo(map)
         .bindPopup('Ponte Engenheiro Nelson de Godoy')
         .openPopup();
 
 
-        
-        L.marker([-23.194497888020386, -49.38429869818963]).addTo(map)
+
+    L.marker([-23.194497888020386, -49.38429869818963]).addTo(map)
         .bindPopup('Igreja Matriz')
         .openPopup();
 </script>

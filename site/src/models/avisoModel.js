@@ -11,6 +11,16 @@ function listar(fkPontoTuristico) {
     return database.executar(instrucao);
 }
 
+function listarPessoas(fkPontoTuristico) {
+    console.log("ACESSEI O avaliacao  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+    SELECT COUNT(DISTINCT fk_usuario) as pessoas FROM avaliacao where fk_PontoTuristico=${fkPontoTuristico};
+
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 
 
 // function listarPorUsuario(idUsuario) {
@@ -63,6 +73,7 @@ function publicar(titulo, descricao, idUsuario, nota) {
 
 module.exports = {
     listar,
+    listarPessoas,
     // listarPorUsuario,
     // pesquisarDescricao,
     publicar
