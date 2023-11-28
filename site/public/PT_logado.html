@@ -569,6 +569,7 @@
 
     // <!-- fazer avaliação script -->
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    var nomeUsuario =sessionStorage.NOME_USUARIO;
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
@@ -760,7 +761,12 @@
 
     function publicar() {
         var idUsuario = sessionStorage.ID_USUARIO;
+if(selectedStars == 0){
+alert("Insira pelo menos uma estrela !")
+return false;
+}else{
 
+}
         var corpo = {
             titulo: form_postagem.turisticos.value,
             descricao: form_postagem.descricao.value,
@@ -778,7 +784,7 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                window.alert("Avaliação realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                window.alert(`Obrigado ${nomeUsuario}, sua avaliação foi realizada com sucesso . `);
                 window.location = "/PT_logado.html";
                 limparFormulario();
                 // finalizarAguardar();
@@ -824,7 +830,6 @@
             console.log(`#ERRO: ${resposta}`);
         });
     }
-
     function pessoasDois() {
         fetch(`/avisos/listarPessoas/2`, {
             method: "post",
@@ -852,7 +857,6 @@
             console.log(`#ERRO: ${resposta}`);
         });
     }
-
     function pessoasTres() {
         fetch(`/avisos/listarPessoas/3`, {
             method: "post",
@@ -880,7 +884,6 @@
             console.log(`#ERRO: ${resposta}`);
         });
     }
-
     function pessoasQuatro() {
         fetch(`/avisos/listarPessoas/4`, {
             method: "post",
