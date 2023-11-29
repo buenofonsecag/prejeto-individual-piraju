@@ -11,21 +11,21 @@ function buscarMedidasEmTempoReal() {
 }
 
 function buscarMedidasEmTempoRealDois() {
-   var instrucaoSql = 'select count(visitou_piraju) as Nao from visita where visitou_piraju = "Nao" '
+   var instrucaoSql11 = 'select count(visitou_piraju) as Nao from visita where visitou_piraju = "Nao" '
    
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql11);
+    return database.executar(instrucaoSql11);
 }
 
 function buscarRuim() {
-   var instrucaoSql = 'select count(descricao) as Ruim from avaliacao where descricao = "Ruim" '
+   var instrucaoSql0 = 'select count(descricao) as Ruim from avaliacao where descricao = "Ruim" '
    
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql0);
+    return database.executar(instrucaoSql0);
 }
 
 function buscarOk() {
@@ -36,6 +36,7 @@ function buscarOk() {
     console.log("Executando a instrução SQL: \n" + instrucaoSql1);
     return database.executar(instrucaoSql1);
 }
+
 function buscarBom() {
    var instrucaoSql2 = 'select count(descricao) as Bom from avaliacao where descricao = "Bom" '
    

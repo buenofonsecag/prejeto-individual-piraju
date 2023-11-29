@@ -24,6 +24,7 @@ function buscarMedidasEmTempoRealDois(req, res) {
     medidaModel.buscarMedidasEmTempoRealDois().then(function (resultado) {
         res.json(resultado);
         if (resultado.length > 0) {
+            console.log("entrei no then controler")
             res.status(200).json(resultado);
             res.json({
                 Nao: resultado[0].Nao,
@@ -43,6 +44,7 @@ function buscarRuim(req, res) {
     medidaModel.buscarRuim().then(function (resultado) {
         res.json(resultado);
         if (resultado.length > 0) {
+            console.log("Entrei no THEN CONTROLLER");
             res.status(200).json(resultado);
             res.json({
                 Ruim: resultado[0].Ruim,
@@ -92,24 +94,7 @@ function buscarBom(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
-function buscarSuperaExpectativas(req, res) {
-    console.log(`Recuperando medidas em tempo real SuperaExpectativas`);
-    medidaModel.buscarSuperaExpectativas().then(function (resultado) {
-        res.json(resultado);
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-            res.json({
-                SuperaExpectativas: resultado[0].SuperaExpectativas,
-            })
-        } else {
-            res.status(204).send("Nenhum resultado encontrado! SuperaExpectativas")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.SuperaExpectativas", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
-}
+
 function buscarMuitoBom(req, res) {
     console.log(`Recuperando medidas em tempo real MuitoBom`);
     medidaModel.buscarMuitoBom().then(function (resultado) {
@@ -125,6 +110,25 @@ function buscarMuitoBom(req, res) {
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar as ultimas medidas.MuitoBom", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarSuperaExpectativas(req, res) {
+    console.log(`Recuperando medidas em tempo real SuperaExpectativas`);
+    medidaModel.buscarSuperaExpectativas().then(function (resultado) {
+        res.json(resultado);
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+            res.json({
+                SuperaExpectativas: resultado[0].SuperaExpectativas,
+            })
+        } else {
+            res.status(204).send("Nenhum resultado encontrado! SuperaExpectativas")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.SuperaExpectativas", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
