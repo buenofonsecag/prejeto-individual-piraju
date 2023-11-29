@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>PiraTour |  Estatísticas</title>
+    <title>PiraTour | Estatísticas</title>
 
     <script src="./js/sessao.js"></script>
     <script src="js/scriptLogin.js"></script>
@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="./css/style_rodape.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 
     <link rel="stylesheet" href="./css/style.css" />
@@ -108,7 +109,7 @@
         <div class="corpo_txt">
             <center>
                 <div class="chartfundo">
-                    <div class="corpo_titulo6"> Já visitou Piraju </div>
+                    <div class="corpo_titulo6">"Já visitou Piraju ?"</div>
                     <div class="grafico">
                         <canvas id="myPieChart" width="200" height="200"></canvas>
                     </div>
@@ -120,21 +121,6 @@
     </div>
     </div>
 
-    <div class="corpo1">
-        <div class="corpo_txt">
-            <center>
-                <div class="chartfundo">
-                    <div class="corpo_titulo6"> Nota Geral</div>
-
-                    <div class="grafico">
-                        <canvas id="myBarChart" width="400" height="400"></canvas>
-                    </div>
-                    <!-- grafico -->
-                </div>
-
-        </div>
-        </center>
-    </div>
     </div>
     </div>
 
@@ -200,16 +186,96 @@
 </div>
 
 <!--footer fim-->
-<!-- grafico ja visitou Piraju -->
+
+<!-- grafico avaliacoes -->
 <script>
-        window.onload = grafico_nota();
-        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     // Dados para o gráfico
+    var ruim = 0
+    var ok = 0
+    var bom = 0
+    var muitoBom = 0
+    var superouExpectativas = 0
+
+    var myBarAvaliacao; // Declare a variável fora das funções para que seja global
+
+    window.onload = function () {
+        obterDadosRuim();
+        obterDadosOk();
+        obterDadosBom();
+        obterDadosMuitoBom();
+        obterDadosSuperouExpectativas();
+    };
+
+    function obterDadosRuim() {
+        fetch("/medidas/Ruim", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        })
+            .then(function (resposta) {
+                if (resposta.Ruim) {
+                    resposta.json().then(json => {
+                        console.log(`Dados recebidos (Ruim): ${JSON.stringify(json)}`);
+                        var Ruim = json[0].Ruim;
+                        // Agora que temos o valor "Ruim", vamos verificar se o gráfico já foi criado
+                        if (!myBarAvaliacao) {
+                            // Cria o gráfico apenas se ainda não existir
+                            criarGrafico2(Ruim, 0, 0, 0, 0);
+                        } else {
+                            // Atualiza o gráfico com o valor de "Ruim"
+                            atualizarGrafico2(Ruim, 0, 0, 0, 0);
+                        }
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API Ruim');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    function obterDadosOk() {
+        fetch("/medidas/Ok", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+                        console.log(`Dados recebidos (Ok): ${JSON.stringify(json)}`);
+                        var Ok = json[0].Ok;
+                        // Agora que temos o valor "Ok", vamos verificar se o gráfico já foi criado
+                        if (!myBarAvaliacao) {
+                            // Cria o gráfico apenas se ainda não existir
+                            criarGrafico(Ok, 0);
+                        } else {
+                            // Atualiza o gráfico com o valor de "Ok"
+                            atualizarGrafico(Ok, 0, 0, 0, 0);
+                        }
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API ok');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+   
     var data = {
-        labels: ["Sim", "Não"],
+        labels: ["Ruim", "Ok", "Bom", "Muito Bom", "Superou expectativas"],
         datasets: [{
-            data: [30, 70],
-            backgroundColor: ["#36A2EB", "#FFCE56"]
+            label: "Avaliações",
+            data: [0, 0, 1, 6, 9],
+            backgroundColor: ["#ff7f50", "#ff7f50", "#ff7f50", "#ff7f50", "#ff7f50"]
         }]
     };
 
@@ -217,150 +283,24 @@
     var options = {
         title: {
             display: true,
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
         }
     };
 
     // Obtenha o contexto do canvas
-    var ctx = document.getElementById("myPieChart").getContext("2d");
-
-    // Crie o gráfico de pizza
-    var myPieChart = new Chart(ctx, {
-        type: 'pie',
-        data: data,
-        options: options
-    });
-</script>
-<!-- grafico ja visitou Piraju -->
-
-<!-- grefico notas -->
-<script>
-    window.onload = grafico_nota();
-
-    function grafico_nota() {
-        // Dados para o gráfico
-        var data = {
-            labels: ["1", "2", "3", "4", "5"],
-            datasets: [{
-                label: "Nota",
-                data: [1, 1, 0, 4, 10],
-                backgroundColor: ["#36A2EB", "#36A2EB", "#36A2EB", "#36A2EB", "#36A2EB"]
-            }]
-        };
-
-        // Configuração do gráfico
-        var options = {
-            title: {
-                display: true,
-                text: "Contagem de Votos por Nota"
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        };
-    }
-
-    // Obtenha o contexto do canvas
-    var ctx = document.getElementById("myBarChart").getContext("2d");
+    var ctx = document.getElementById("myBarAvaliacao").getContext("2d");
 
     // Crie o gráfico de barras
-    var myBarChart = new Chart(ctx, {
+    var myBarAvaliacao = new Chart(ctx, {
         type: 'bar',
         data: data,
         options: options
     });
 </script>
-<!-- grefico notas -->
-
 <!-- grafico avaliacoes -->
-<script>
-  function plotarGrafico(resposta, idAquario) {
-  console.log('Iniciando plotagem do gráfico...');
-
-  let labels = [];
-  let dados = {
-    labels: labels,
-    datasets: [
-      {
-        label: 'Sim',
-        data: [],
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
-      },
-      {
-        label: 'Não',
-        data: [],
-        fill: false,
-        borderColor: 'rgb(199, 52, 52)',
-        tension: 0.1
-      }
-    ]
-  };
-
-  console.log('Dados recebidos:');
-  console.log(resposta);
-
-  for (let i = 0; i < resposta.length; i++) {
-    let registro = resposta[i];
-    labels.push(registro.momento_grafico);
-    dados.datasets[0].data.push(registro.umidade);
-    dados.datasets[1].data.push(registro.temperatura);
-  }
-
-  console.log('Dados a serem plotados:');
-  console.log('Labels:', labels);
-  console.log('Dados:', dados.datasets);
-
-  const config = {
-    type: 'line',
-    data: dados,
-  };
-
-  let myChart = new Chart(
-    document.getElementById(`myChartCanvas${idAquario}`),
-    config
-  );
-
-  setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-}
-
-function atualizarGrafico(idAquario, dados, myChart) {
-  fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-    if (response.ok) {
-      response.json().then(function (novoRegistro) {
-        console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-
-        let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`);
-        avisoCaptura.innerHTML = "";
-
-        if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-          console.log("Não há dados novos para captura, o gráfico não será atualizado.");
-          avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará.";
-        } else {
-          dados.labels.shift();
-          dados.labels.push(novoRegistro[0].momento_grafico);
-
-          dados.datasets[0].data.shift();
-          dados.datasets[0].data.push(novoRegistro[0].umidade);
-
-          dados.datasets[1].data.shift();
-          dados.datasets[1].data.push(novoRegistro[0].temperatura);
-
-          myChart.update();
-        }
-
-        setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-      });
-    } else {
-      console.error('Nenhum dado encontrado ou erro na API');
-      setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-    }
-  })
-  .catch(function (error) {
-    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-  });
-}

@@ -34,6 +34,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
+
     <link rel="stylesheet" href="./css/style.css" />
 
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com" /> -->
@@ -108,7 +109,7 @@
         <div class="corpo_txt">
             <center>
                 <div class="chartfundo">
-                    <div class="corpo_titulo6"> Já visitou Piraju </div>
+                    <div class="corpo_titulo6">"Já visitou Piraju ?"</div>
                     <div class="grafico">
                         <canvas id="myPieChart" width="200" height="200"></canvas>
                     </div>
@@ -120,21 +121,6 @@
     </div>
     </div>
 
-    <div class="corpo1">
-        <div class="corpo_txt">
-            <center>
-                <div class="chartfundo">
-                    <div class="corpo_titulo6"> Nota Geral</div>
-
-                    <div class="grafico">
-                        <canvas id="myBarChart" width="400" height="400"></canvas>
-                    </div>
-                    <!-- grafico -->
-                </div>
-
-        </div>
-        </center>
-    </div>
     </div>
     </div>
 
@@ -202,157 +188,299 @@
 <!--footer fim-->
 <!-- grafico ja visitou Piraju -->
 <script>
-window.onload = function () {
-    obterDadosGrafico();
-    obterDadosGraficoDois();
-};
+    var Sim = 0;
+    var Nao = 0;
 
-function obterDadosGrafico() {
-    fetch("/medidas/tempo-real", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({}),
-    })
-    .then(function (resposta) {
-        if (resposta.ok) {
-            resposta.json().then(json => {
-                console.log(`Dados recebidos: ${JSON.stringify(json)}`);
-                var Sim = json[0].Sim;
-                atualizarGrafico(Sim, null);
+    var myPieChart; // Declare a variável fora das funções para que seja global
+
+    window.onload = function () {
+        obterDadosGrafico();
+        obterDadosGraficoDois();
+    };
+
+    function obterDadosGrafico() {
+        fetch("/medidas/tempo-real", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+                        console.log(`Dados recebidos (Sim): ${JSON.stringify(json)}`);
+                        var Sim = json[0].Sim;
+                        // Agora que temos o valor "Sim", vamos verificar se o gráfico já foi criado
+                        if (!myPieChart) {
+                            // Cria o gráfico apenas se ainda não existir
+                            criarGrafico(Sim, 0);
+                        } else {
+                            // Atualiza o gráfico com o valor de "Sim"
+                            atualizarGrafico(Sim, 0);
+                        }
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-        }
-    })
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
-}
+    }
 
-function obterDadosGraficoDois() {
-    fetch("/medidas/tempo-realDois", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({}),
-    })
-    .then(function (resposta) {
-        if (resposta.ok) {
-            resposta.json().then(json => {
-                console.log(`Dados recebidos: ${JSON.stringify(json)}`);
-                var Nao = json[0].Nao;
-                atualizarGrafico(null, Nao);
+    function obterDadosGraficoDois() {
+        fetch("/medidas/tempo-realDois", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        })
+            .then(function (resposta) {
+                console.log(resposta);
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+                        console.log(`Dados recebidos (Não): ${JSON.stringify(json)}`);
+                        var Nao = json[0].Nao;
+                        // Agora que temos o valor "Não", vamos verificar se o gráfico já foi criado
+                        if (myPieChart) {
+                            // Atualiza o gráfico com o valor de "Não"
+                            atualizarGrafico(myPieChart.data.datasets[0].data[0], Nao);
+                        } else {
+                            // Cria o gráfico apenas se ainda não existir
+                            criarGrafico(0, Nao);
+                        }
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API 2');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico 2: ${error.message}`);
             });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API 2');
-        }
-    })
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico 2: ${error.message}`);
-    });
-}
+    }
 
-function atualizarGrafico(Sim, Nao) {
-    const config = {
-        type: 'pie',
-        data: {
+    function criarGrafico(Sim, Nao) {
+        const data = {
             labels: ['Sim', 'Não'],
             datasets: [{
                 data: [Sim, Nao],
                 backgroundColor: ['rgb(75, 192, 192)', 'rgb(255, 99, 132)'],
             }],
-        },
-    };
-
-    let ctx = document.getElementById('myPieChart').getContext('2d');
-
-    window.myPieChart = new Chart(ctx, config);
-}
-
-</script>
-
-<!-- grafico ja visitou Piraju -->
-
-<!-- grefico notas -->
-<!-- <script>
-    window.onload = grafico_nota();
-
-    function grafico_nota() {
-        // Dados para o gráfico
-        var data = {
-            labels: ["1", "2", "3", "4", "5"],
-            datasets: [{
-                label: "Nota",
-                data: [1, 1, 0, 4, 10],
-                backgroundColor: ["#36A2EB", "#36A2EB", "#36A2EB", "#36A2EB", "#36A2EB"]
-            }]
         };
 
-        // Configuração do gráfico
-        var options = {
-            title: {
-                display: true,
-                text: "Contagem de Votos por Nota"
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        };
+        let ctx = document.getElementById('myPieChart').getContext('2d');
+        myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: data,
+        });
     }
 
-    // Obtenha o contexto do canvas
-    var ctx = document.getElementById("myBarChart").getContext("2d");
+    function atualizarGrafico(Sim, Nao) {
+        myPieChart.data.datasets[0].data = [Sim, Nao];
+        myPieChart.update();
+    }
 
-    // Crie o gráfico de barras
-    var myBarChart = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: options
-    });
-</script> -->
-<!-- grefico notas -->
+
+
+
+</script>
+<!-- grafico ja visitou Piraju -->
 
 <!-- grafico avaliacoes -->
 <!-- <script>
     // Dados para o gráfico
-    var data = {
-        labels: ["Ruim", "Ok", "Bom", "Muito Bom", "Superou expectativas"],
-        datasets: [{
-            label: "Avaliações",
-            data: [0, 0, 1, 6, 9],
-            backgroundColor: ["#ff7f50", "#ff7f50", "#ff7f50", "#ff7f50", "#ff7f50"]
-        }]
+    var Ruim = 0
+    var Ok = 0
+    var Bom = 0
+    var MuitoBom = 0
+    var SuperouExpectativas = 0
+
+    var myBarAvaliacao; // Declare a variável fora das funções para que seja global
+
+    window.onload = function () {
+        obterDadosRuim();
+        obterDadosOk();
+        obterDadosBom();
+        obterDadosMuitoBom();
+        obterDadosSuperouExpectativas();
     };
 
-    // Configuração do gráfico
-    var options = {
-        title: {
-            display: true,
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
+    function obterDadosRuim() {
+        fetch("/medidas/Ruim", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        })
+            .then(function (resposta) {
+                if (resposta.Ruim) {
+                    resposta.json().then(json => {
+                        console.log(`Dados recebidos (Ruim): ${JSON.stringify(json)}`);
+                        var Ruim = json[0].Ruim;
+                        // Agora que temos o valor "Ruim", vamos verificar se o gráfico já foi criado
+                        if (!myBarAvaliacao) {
+                            // Cria o gráfico apenas se ainda não existir
+                            criarGrafico2(Ruim, 0, 0, 0, 0);
+                        } else {
+                            // Atualiza o gráfico com o valor de "Ruim"
+                            atualizarGrafico2(Ruim, 0, 0, 0, 0);
+                        }
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API Ruim');
                 }
-            }]
-        }
-    };
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
 
-    // Obtenha o contexto do canvas
-    var ctx = document.getElementById("myBarAvaliacao").getContext("2d");
 
-    // Crie o gráfico de barras
-    var myBarAvaliacao = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: options
-    });
+    function obterDadosOk() {
+        fetch("/medidas/Ok", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+                        console.log(`Dados recebidos (Ok): ${JSON.stringify(json)}`);
+                        var Ok = json[0].Ok;
+                        // Agora que temos o valor "Ok", vamos verificar se o gráfico já foi criado
+                        if (!myBarAvaliacao) {
+                            // Cria o gráfico apenas se ainda não existir
+                            criarGrafico(0, Ok, 0, 0, 0);
+                        } else {
+                            // Atualiza o gráfico com o valor de "Ok"
+                            atualizarGrafico(0, Ok, 0, 0, 0);
+                        }
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API ok');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function obterDadosBom() {
+        fetch("/medidas/Bom", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        })
+            .then(function (resposta) {
+                if (resposta.Bom) {
+                    resposta.json().then(json => {
+                        console.log(`Dados recebidos (Bom): ${JSON.stringify(json)}`);
+                        var Bom = json[0].Bom;
+                        // Agora que temos o valor "Bom", vamos verificar se o gráfico já foi criado
+                        if (!myBarAvaliacao) {
+                            // Cria o gráfico apenas se ainda não existir
+                            criarGrafico(0, 0, Bom, 0, 0);
+                        } else {
+                            // Atualiza o gráfico com o valor de "Bom"
+                            atualizarGrafico(0, 0, Bom, 0, 0);
+                        }
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API Bom');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+    function obterDadosMuitoBom() {
+        fetch("/medidas/MuitoBom", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        })
+            .then(function (resposta) {
+                if (resposta.MuitoBom) {
+                    resposta.json().then(json => {
+                        console.log(`Dados recebidos (MuitoBom): ${JSON.stringify(json)}`);
+                        var MuitoBom = json[0].MuitoBom;
+                        // Agora que temos o valor "MuitoBom", vamos verificar se o gráfico já foi criado
+                        if (!myBarAvaliacao) {
+                            // Cria o gráfico apenas se ainda não existir
+                            criarGrafico(0, 0, 0,MuitoBom, 0);
+                        } else {
+                            // Atualiza o gráfico com o valor de "MuitoBom"
+                            atualizarGrafico(0, 0, 0,MuitoBom, 0);
+                        }
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API MuitoBom');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+    function obterDadosSuperouExpectativas() {
+        fetch("/medidas/SuperouExpectativas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        })
+            .then(function (resposta) {
+                if (resposta.SuperouExpectativas) {
+                    resposta.json().then(json => {
+                        console.log(`Dados recebidos (SuperouExpectativas): ${JSON.stringify(json)}`);
+                        var SuperouExpectativas = json[0].SuperouExpectativas;
+                        // Agora que temos o valor "SuperouExpectativas", vamos verificar se o gráfico já foi criado
+                        if (!myBarAvaliacao) {
+                            // Cria o gráfico apenas se ainda não existir
+                            criarGrafico(0, 0, 0,0,SuperouExpectativas);
+                        } else {
+                            // Atualiza o gráfico com o valor de "SuperouExpectativas"
+                            atualizarGrafico(0, 0, 0,0,SuperouExpectativas);
+                        }
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API SuperouExpectativas');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function criarGrafico2(Ruim, Ok, Bom, MuitoBom, SuperouExpectativas) {
+        const data = {
+            labels: ['Ruim', 'Ok', 'Bom', 'Muito Bom', 'Superou as Expectativas'],
+            datasets: [{
+                data: [Ruim, Ok, Bom, MuitoBom, SuperouExpectativas],
+                backgroundColor: ['rgb(75, 192, 192)', 'rgb(255, 99, 132)'],
+            }],
+        };
+
+        let ctx = document.getElementById('myBarAvaliacao').getContext('2d');
+        myBarAvaliacao = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+        });
+    }
+
+    function atualizarGrafico2(Sim, Nao) {
+        myBarAvaliacao.data.datasets[0].data = [Ruim, Ok, Bom, MuitoBom, SuperouExpectativas];
+        myBarAvaliacao.update();
+    }
+
 </script> -->
 <!-- grafico avaliacoes -->
