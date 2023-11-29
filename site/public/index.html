@@ -377,6 +377,8 @@
       setTimeout(() => {
         cardErro.style.display = "none";
       }, "2000");
+      return false;
+
 
     } else if (emailVar.indexOf("@") == -1) {
       cardErro.style.display = "block";
@@ -384,6 +386,8 @@
       setTimeout(() => {
         cardErro.style.display = "none";
       }, "2000");
+      return false;
+
 
     } else if (senhaVar.length < 5) {
       cardErro.style.display = "block";
@@ -391,6 +395,8 @@
       setTimeout(() => {
         cardErro.style.display = "none";
       }, "2000");
+      return false;
+
 
     } else {
 

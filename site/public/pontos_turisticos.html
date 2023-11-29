@@ -570,13 +570,18 @@
 
 <!-- cadastro -->
 <script>
-  function cadastrar() {
+   function cadastrar() {
+    // cadastrar2();
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var valorSelecionado = document.querySelector('.box_email input[type="radio"]:checked');
+    var opcaoVar = valorSelecionado.value;
+
+    // var idusuarioVar = sessionStorage.ID_USUARIO;
     // var empresaVar = listaEmpresas.value
     if (
       nomeVar == "" ||
@@ -585,14 +590,44 @@
       confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(Mensagem de erro algum campo em branco)";
+      mensagem_erro.innerHTML = "(Mensagem de erro para algum  dos campos em branco)";
 
       setTimeout(() => {
         cardErro.style.display = "none";
       }, "2000");
+
       // finalizarAguardar();
       return false;
+
+    } else if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(* As senhas estão diferentes !)";
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, "2000");
+      return false;
+
+
+    } else if (emailVar.indexOf("@") == -1) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(* Insira um e-mail válido)";
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, "2000");
+      return false;
+
+
+    } else if (senhaVar.length < 5) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(* • Sua senha não possui pelo menos 5 caracteres !)";
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, "2000");
+      return false;
+
+
     } else {
+
     }
 
     // Enviando o valor da nova input
@@ -606,8 +641,9 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar
-        // empresaServer: empresaVar
+        senhaServer: senhaVar,
+        opcaoServer: opcaoVar
+
       }),
     })
       .then(function (resposta) {
@@ -625,8 +661,8 @@
           }, "2000");
 
           aguardar();
-          limparFormulario();
-          finalizarAguardar();
+          // limparFormulario();
+          // finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
@@ -645,7 +681,7 @@
 <!-- cadastro -->
 <!-- cadastro -->
 <script>
-  function cadastrar2() {
+   function cadastrar2() {
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
 
@@ -709,7 +745,7 @@
 
     return false;
   }
-  function sumirMensagem() {
+ function sumirMensagem() {
     cardErro.style.display = "none";
   }
 </script>
@@ -814,6 +850,10 @@
 
   L.marker([-23.188578, -49.384816]).addTo(map)
     .bindPopup('Ponte Engenheiro Nelson de Godoy')
+    .openPopup();
+
+  L.marker([-23.189526224743314, -49.38318542130615]).addTo(map)
+    .bindPopup('Iate Clube Piraju')
     .openPopup();
 
 
