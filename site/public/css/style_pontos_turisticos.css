@@ -275,6 +275,25 @@ input {
 #slide20:checked~.s1 {
     margin-left: -80%;
 }
+#slide21:checked~.s1 {
+    margin-left: 0;
+}
+
+#slide22:checked~.s1 {
+    margin-left: -20%;
+}
+
+#slide23:checked~.s1 {
+    margin-left: -40%;
+}
+
+#slide24:checked~.s1 {
+    margin-left: -60%;
+}
+
+#slide25:checked~.s1 {
+    margin-left: -80%;
+}
 
 /* carrosel */
 

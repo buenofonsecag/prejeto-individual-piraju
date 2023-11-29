@@ -11,8 +11,8 @@ router.post("/tempo-real", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
-router.post("/tempo-real2", function (req, res) {
-    medidaController.buscarMedidasEmTempoReal2(req, res);
+router.post("/tempo-realDois", function (req, res) {
+    medidaController.buscarMedidasEmTempoRealDois(req, res);
 })
 
 module.exports = router;

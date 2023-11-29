@@ -42,9 +42,9 @@ function buscarMedidasEmTempoReal(req, res) {
         });
 }
 
-function buscarMedidasEmTempoReal2(req, res) {
+function buscarMedidasEmTempoRealDois(req, res) {
     console.log(`Recuperando medidas em tempo real 2`);
-    medidaModel.buscarMedidasEmTempoReal2().then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoRealDois().then(function (resultado) {
             res.json(resultado);
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -63,6 +63,6 @@ function buscarMedidasEmTempoReal2(req, res) {
 
 module.exports = {
     buscarMedidasEmTempoReal,
-    buscarMedidasEmTempoReal2
+    buscarMedidasEmTempoRealDois
     // buscarUltimasMedidas
 }
