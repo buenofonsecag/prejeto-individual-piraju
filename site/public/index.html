@@ -539,10 +539,18 @@
       setTimeout(() => {
         cardErro.style.display = "none";
       }, "2000");
-      // finalizarAguardar();
+      alert("algo está errado")
       return false;
+       
+      // finalizarAguardar();
     }
     else {
+      alert
+      cardErro.style.display = "block"
+      mensagem_erro.innerHTML = "E-mail ou senha incorretos, tente novamente";
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, "2000");
       console.log("erro de alguma coisaaaa")
       // aguardar2();
 
@@ -584,6 +592,8 @@
         aguardar2();
       } else {
         console.log("Houve um erro ao tentar realizar o login!");
+        console.log("Houve um erro ao tentar realizar o login!");
+        // alert("erro agora");
 
         resposta.text().then(texto => {
           console.error(texto);
